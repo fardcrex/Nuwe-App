@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Pages/Auth/init_page.dart';
+import 'package:nuwe/Settings/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nuwe',
+      initialRoute: AuthRoutes.initial,
+      routes: getRoutesDinamoApp(),
       theme: ThemeData(
         brightness: Brightness.light,
+        primaryColor: const Color(0xFF569B51),
         /* light theme settings */
       ),
       darkTheme: ThemeData(
@@ -22,7 +24,6 @@ class MyApp extends StatelessWidget {
         /* dark theme settings */
       ),
       themeMode: ThemeMode.dark,
-      home: const InitPage(),
     );
   }
 }
