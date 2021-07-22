@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:nuwe/Feature/Shared/Domain/failures.dart';
-import 'package:nuwe/Feature/Shared/Domain/value_object_base.dart';
+import 'package:nuwe/Features/Shared/Domain/failures.dart';
+import 'package:nuwe/Features/Shared/Domain/value_object_base.dart';
 
 class NamePerson extends ValueObject<String> {
   static const int maxLength = 120;

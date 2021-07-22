@@ -29,6 +29,12 @@ class _$ValueFailureTearOff {
     );
   }
 
+  EmptyValue<T> emptyValue<T>({required T failedValue}) {
+    return EmptyValue<T>(
+      failedValue: failedValue,
+    );
+  }
+
   InvalidFormat<T> invalidFormat<T>({required T failedValue}) {
     return InvalidFormat<T>(
       failedValue: failedValue,
@@ -47,6 +53,7 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) characterLimitExceeded,
     required TResult Function(T failedValue) shortCharacters,
+    required TResult Function(T failedValue) emptyValue,
     required TResult Function(T failedValue) invalidFormat,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +61,7 @@ mixin _$ValueFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? characterLimitExceeded,
     TResult Function(T failedValue)? shortCharacters,
+    TResult Function(T failedValue)? emptyValue,
     TResult Function(T failedValue)? invalidFormat,
     required TResult orElse(),
   }) =>
@@ -63,6 +71,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(CharacterLimitExceeded<T> value)
         characterLimitExceeded,
     required TResult Function(ShortCharacters<T> value) shortCharacters,
+    required TResult Function(EmptyValue<T> value) emptyValue,
     required TResult Function(InvalidFormat<T> value) invalidFormat,
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +79,7 @@ mixin _$ValueFailure<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterLimitExceeded<T> value)? characterLimitExceeded,
     TResult Function(ShortCharacters<T> value)? shortCharacters,
+    TResult Function(EmptyValue<T> value)? emptyValue,
     TResult Function(InvalidFormat<T> value)? invalidFormat,
     required TResult orElse(),
   }) =>
@@ -182,6 +192,7 @@ class _$CharacterLimitExceeded<T> implements CharacterLimitExceeded<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) characterLimitExceeded,
     required TResult Function(T failedValue) shortCharacters,
+    required TResult Function(T failedValue) emptyValue,
     required TResult Function(T failedValue) invalidFormat,
   }) {
     return characterLimitExceeded(failedValue);
@@ -192,6 +203,7 @@ class _$CharacterLimitExceeded<T> implements CharacterLimitExceeded<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? characterLimitExceeded,
     TResult Function(T failedValue)? shortCharacters,
+    TResult Function(T failedValue)? emptyValue,
     TResult Function(T failedValue)? invalidFormat,
     required TResult orElse(),
   }) {
@@ -207,6 +219,7 @@ class _$CharacterLimitExceeded<T> implements CharacterLimitExceeded<T> {
     required TResult Function(CharacterLimitExceeded<T> value)
         characterLimitExceeded,
     required TResult Function(ShortCharacters<T> value) shortCharacters,
+    required TResult Function(EmptyValue<T> value) emptyValue,
     required TResult Function(InvalidFormat<T> value) invalidFormat,
   }) {
     return characterLimitExceeded(this);
@@ -217,6 +230,7 @@ class _$CharacterLimitExceeded<T> implements CharacterLimitExceeded<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterLimitExceeded<T> value)? characterLimitExceeded,
     TResult Function(ShortCharacters<T> value)? shortCharacters,
+    TResult Function(EmptyValue<T> value)? emptyValue,
     TResult Function(InvalidFormat<T> value)? invalidFormat,
     required TResult orElse(),
   }) {
@@ -309,6 +323,7 @@ class _$ShortCharacters<T> implements ShortCharacters<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) characterLimitExceeded,
     required TResult Function(T failedValue) shortCharacters,
+    required TResult Function(T failedValue) emptyValue,
     required TResult Function(T failedValue) invalidFormat,
   }) {
     return shortCharacters(failedValue);
@@ -319,6 +334,7 @@ class _$ShortCharacters<T> implements ShortCharacters<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? characterLimitExceeded,
     TResult Function(T failedValue)? shortCharacters,
+    TResult Function(T failedValue)? emptyValue,
     TResult Function(T failedValue)? invalidFormat,
     required TResult orElse(),
   }) {
@@ -334,6 +350,7 @@ class _$ShortCharacters<T> implements ShortCharacters<T> {
     required TResult Function(CharacterLimitExceeded<T> value)
         characterLimitExceeded,
     required TResult Function(ShortCharacters<T> value) shortCharacters,
+    required TResult Function(EmptyValue<T> value) emptyValue,
     required TResult Function(InvalidFormat<T> value) invalidFormat,
   }) {
     return shortCharacters(this);
@@ -344,6 +361,7 @@ class _$ShortCharacters<T> implements ShortCharacters<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterLimitExceeded<T> value)? characterLimitExceeded,
     TResult Function(ShortCharacters<T> value)? shortCharacters,
+    TResult Function(EmptyValue<T> value)? emptyValue,
     TResult Function(InvalidFormat<T> value)? invalidFormat,
     required TResult orElse(),
   }) {
@@ -363,6 +381,136 @@ abstract class ShortCharacters<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $ShortCharactersCopyWith<T, ShortCharacters<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EmptyValueCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $EmptyValueCopyWith(
+          EmptyValue<T> value, $Res Function(EmptyValue<T>) then) =
+      _$EmptyValueCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$EmptyValueCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $EmptyValueCopyWith<T, $Res> {
+  _$EmptyValueCopyWithImpl(
+      EmptyValue<T> _value, $Res Function(EmptyValue<T>) _then)
+      : super(_value, (v) => _then(v as EmptyValue<T>));
+
+  @override
+  EmptyValue<T> get _value => super._value as EmptyValue<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(EmptyValue<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EmptyValue<T> implements EmptyValue<T> {
+  const _$EmptyValue({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.emptyValue(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is EmptyValue<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  $EmptyValueCopyWith<T, EmptyValue<T>> get copyWith =>
+      _$EmptyValueCopyWithImpl<T, EmptyValue<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) characterLimitExceeded,
+    required TResult Function(T failedValue) shortCharacters,
+    required TResult Function(T failedValue) emptyValue,
+    required TResult Function(T failedValue) invalidFormat,
+  }) {
+    return emptyValue(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? characterLimitExceeded,
+    TResult Function(T failedValue)? shortCharacters,
+    TResult Function(T failedValue)? emptyValue,
+    TResult Function(T failedValue)? invalidFormat,
+    required TResult orElse(),
+  }) {
+    if (emptyValue != null) {
+      return emptyValue(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CharacterLimitExceeded<T> value)
+        characterLimitExceeded,
+    required TResult Function(ShortCharacters<T> value) shortCharacters,
+    required TResult Function(EmptyValue<T> value) emptyValue,
+    required TResult Function(InvalidFormat<T> value) invalidFormat,
+  }) {
+    return emptyValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CharacterLimitExceeded<T> value)? characterLimitExceeded,
+    TResult Function(ShortCharacters<T> value)? shortCharacters,
+    TResult Function(EmptyValue<T> value)? emptyValue,
+    TResult Function(InvalidFormat<T> value)? invalidFormat,
+    required TResult orElse(),
+  }) {
+    if (emptyValue != null) {
+      return emptyValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyValue<T> implements ValueFailure<T> {
+  const factory EmptyValue({required T failedValue}) = _$EmptyValue<T>;
+
+  @override
+  T get failedValue => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $EmptyValueCopyWith<T, EmptyValue<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -436,6 +584,7 @@ class _$InvalidFormat<T> implements InvalidFormat<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) characterLimitExceeded,
     required TResult Function(T failedValue) shortCharacters,
+    required TResult Function(T failedValue) emptyValue,
     required TResult Function(T failedValue) invalidFormat,
   }) {
     return invalidFormat(failedValue);
@@ -446,6 +595,7 @@ class _$InvalidFormat<T> implements InvalidFormat<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? characterLimitExceeded,
     TResult Function(T failedValue)? shortCharacters,
+    TResult Function(T failedValue)? emptyValue,
     TResult Function(T failedValue)? invalidFormat,
     required TResult orElse(),
   }) {
@@ -461,6 +611,7 @@ class _$InvalidFormat<T> implements InvalidFormat<T> {
     required TResult Function(CharacterLimitExceeded<T> value)
         characterLimitExceeded,
     required TResult Function(ShortCharacters<T> value) shortCharacters,
+    required TResult Function(EmptyValue<T> value) emptyValue,
     required TResult Function(InvalidFormat<T> value) invalidFormat,
   }) {
     return invalidFormat(this);
@@ -471,6 +622,7 @@ class _$InvalidFormat<T> implements InvalidFormat<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterLimitExceeded<T> value)? characterLimitExceeded,
     TResult Function(ShortCharacters<T> value)? shortCharacters,
+    TResult Function(EmptyValue<T> value)? emptyValue,
     TResult Function(InvalidFormat<T> value)? invalidFormat,
     required TResult orElse(),
   }) {

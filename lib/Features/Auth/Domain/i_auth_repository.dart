@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:nuwe/Feature/Auth/Domain/auth_failure.dart';
-import 'package:nuwe/Feature/Auth/Domain/value_objects.dart';
-import 'package:nuwe/Feature/User/Domain/value_objects.dart';
+import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
+import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
+import 'package:nuwe/Features/User/Domain/value_objects.dart';
 
 abstract class IAuthRepository {
   Future<Either<AuthFailure, String>> registerWithEmailAndPassword({

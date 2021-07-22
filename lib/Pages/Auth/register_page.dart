@@ -35,7 +35,7 @@ class RegisterPage extends StatelessWidget {
                 textLink: 'Inicia sesión',
                 onPress: () => goToTheLoginPage(context),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
             ],
           ),
         ),
@@ -103,8 +103,18 @@ class FirstStep extends StatelessWidget {
       //   mainAxisSize: MainAxisSize.min,
       //alignment: WrapAlignment.center,
       children: [
-        const InputNuwe(hintText: 'Contraseña'),
-        const InputNuwe(hintText: 'Repetir Contraseña'),
+        InputNuwe(
+          hintText: 'Contraseña',
+          initialText: 'sadsad',
+          canShowError: true,
+          onChanged: (value) => {},
+        ),
+        InputNuwe(
+          hintText: 'Repetir Contraseña',
+          initialText: 'sadsad',
+          canShowError: true,
+          onChanged: (value) => {},
+        ),
         TextNuweButton(
           maintext: '< Anterior',
           alignment: Alignment.centerLeft,
@@ -128,9 +138,24 @@ class FinalStep extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const InputNuwe(hintText: 'Nombre público de usuario'),
-        const InputNuwe(hintText: 'Nombre completo'),
-        const InputNuwe(hintText: 'Correo electrónico'),
+        InputNuwe(
+          hintText: 'Nombre público de usuario',
+          initialText: 'sadsad',
+          canShowError: true,
+          onChanged: (value) => {},
+        ),
+        InputNuwe(
+          hintText: 'Nombre completo',
+          initialText: 'sadsad',
+          canShowError: true,
+          onChanged: (value) => {},
+        ),
+        InputNuwe(
+          hintText: 'Correo electrónico',
+          initialText: 'sadsad',
+          canShowError: true,
+          onChanged: (value) => {},
+        ),
         const SizedBox(height: 20, width: double.infinity),
         PrimaryButton(
           maintext: 'SIGUIENTE',

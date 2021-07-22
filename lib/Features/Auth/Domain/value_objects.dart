@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:nuwe/Feature/Shared/Domain/failures.dart';
-import 'package:nuwe/Feature/Shared/Domain/value_object_base.dart';
-import 'package:nuwe/Feature/User/Domain/value_objects.dart';
+import 'package:nuwe/Features/Shared/Domain/failures.dart';
+import 'package:nuwe/Features/Shared/Domain/value_object_base.dart';
+import 'package:nuwe/Features/User/Domain/value_objects.dart';
 
 class NicknameOrEmail extends ValueObject<String> {
   @override
@@ -17,6 +17,8 @@ class NicknameOrEmail extends ValueObject<String> {
   const NicknameOrEmail._(this.value);
 
   static Either<ValueFailure<String>, String> validateNicknameOrEmail(String input) {
+    if (input.isEmpty) return left(ValueFailure.emptyValue(failedValue: input));
+
     final isEmail = EmailAddress.validateEmailAddress(input);
 
     if (isEmail.isRight()) return right(input);
@@ -48,7 +50,7 @@ class EmailAddress extends ValueObject<String> {
   const EmailAddress._(this.value);
 
   static Either<ValueFailure<String>, String> validateEmailAddress(String input) {
-    if (input.isEmpty) return left(ValueFailure.shortCharacters(failedValue: input));
+    if (input.isEmpty) return left(ValueFailure.emptyValue(failedValue: input));
 
     if (input.length > maxLength) return left(ValueFailure.characterLimitExceeded(failedValue: input));
 
@@ -71,6 +73,7 @@ class Password extends ValueObject<String> {
 
   const Password._(this.value);
   static Either<ValueFailure<String>, String> validatePassword(String input) {
+    if (input.isEmpty) return left(ValueFailure.emptyValue(failedValue: input));
     // You can also add some advanced password checks (uppercase/lowercase, at least 1 number, ...)
     if (input.length < minLength) return left(ValueFailure.shortCharacters(failedValue: input));
 

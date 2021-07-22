@@ -9,44 +9,68 @@ import 'package:nuwe/Pages/Auth/widgets/social_buttons.dart';
 import 'package:nuwe/Pages/Auth/widgets/text_main.dart';
 import 'package:nuwe/Settings/router.dart';
 
+import 'container/input_container.dart';
+
 class LoginPage extends StatelessWidget {
-  static const primaryColor = Color(0xFF569B51);
-  const LoginPage({Key? key}) : super(key: key);
+  final void Function(String) onChangePassword;
+  final void Function(String) onChangeNickOrEmail;
+  final void Function() logigWithCredentials;
+  final bool isSubmitting;
+  const LoginPage({
+    Key? key,
+    required this.onChangePassword,
+    required this.onChangeNickOrEmail,
+    required this.logigWithCredentials,
+    required this.isSubmitting,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF232730),
       body: SingleChildScrollView(
-        //  reverse: true,
+        // reverse: true,
         child: SizedBox(
-          height: MediaQuery.of(context).size.longestSide,
-          child: Column(
-            children: [
-              const Spacer(flex: 6),
-              const Logo(),
-              const SizedBox(height: 10),
-              const TextMain(),
-              const Spacer(flex: 3),
-              const InputNuwe(hintText: 'Usuario o correo'),
-              const InputNuwe(hintText: 'Contraseña'),
-              const TextNuweButton(
-                maintext: '¿Has olvidado la contraseña?',
-                alignment: Alignment.centerRight,
-              ),
-              const Spacer(flex: 2),
-              const PrimaryButton(maintext: 'INICIAR SESIÓN'),
-              const Spacer(flex: 4),
-              const SocialButtons(),
-              const Spacer(),
-              Divider(color: Theme.of(context).primaryColor),
-              Footer(
-                textFooter: 'Todavía no tienes cuenta?',
-                textLink: 'Regístrate',
-                onPress: () => goToTheRegisterPage(context),
-              ),
-              const SizedBox(height: 15),
-            ],
+          height: min(900, MediaQuery.of(context).size.longestSide),
+          child: SafeArea(
+            child: Column(
+              children: [
+                if (isSubmitting) LinearProgressIndicator(color: Theme.of(context).primaryColor),
+                const Spacer(flex: 8),
+                const Logo(),
+                const SizedBox(height: 10),
+                const TextMain(),
+                const Spacer(flex: 6),
+                InputsLogin(
+                  onChangeNickOrEmail: onChangeNickOrEmail,
+                  onChangePassword: onChangePassword,
+                ),
+                TextNuweButton(
+                  maintext: '¿Has olvidado la contraseña?',
+                  alignment: Alignment.centerRight,
+                  onPress: () {},
+                ),
+                const Spacer(),
+                PrimaryButton(
+                  maintext: 'INICIAR SESIÓN',
+                  onPress: () => {
+                    logigWithCredentials(),
+                    FocusScope.of(context).unfocus(),
+                  },
+                  isSubmitting: isSubmitting,
+                ),
+                const Spacer(flex: 6),
+                const SocialButtons(),
+                const Spacer(),
+                Divider(color: Theme.of(context).primaryColor),
+                Footer(
+                  textFooter: 'Todavía no tienes cuenta? ',
+                  textLink: ' Regístrate',
+                  onPress: () => goToTheRegisterPage(context),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
           ),
         ),
       ),
@@ -55,5 +79,35 @@ class LoginPage extends StatelessWidget {
 
   static void goToTheRegisterPage(BuildContext context) {
     Navigator.pushReplacementNamed(context, AuthRoutes.register);
+  }
+}
+
+class InputsLogin extends StatelessWidget {
+  final void Function(String) onChangePassword;
+  final void Function(String) onChangeNickOrEmail;
+  const InputsLogin({Key? key, required this.onChangePassword, required this.onChangeNickOrEmail})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InputContainer(builder: (context, authState) {
+      return Column(
+        children: [
+          InputNuwe(
+            hintText: 'Usuario o correo',
+            initialText: authState.nicknameOrEmailLoging,
+            canShowError: authState.canShowNicknameOrEmailError,
+            onChanged: onChangeNickOrEmail,
+          ),
+          InputNuwe(
+            hintText: 'Contraseña',
+            initialText: authState.passwordLogin,
+            canShowError: authState.canShowPassworLoginError,
+            onChanged: onChangePassword,
+            isPassword: true,
+          ),
+        ],
+      );
+    });
   }
 }

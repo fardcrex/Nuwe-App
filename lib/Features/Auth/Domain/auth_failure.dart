@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:nuwe/Feature/Shared/Domain/failures.dart';
+import 'package:nuwe/Features/Shared/Domain/failures.dart';
 
 part 'auth_failure.freezed.dart';
 

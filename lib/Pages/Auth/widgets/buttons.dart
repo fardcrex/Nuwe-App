@@ -5,14 +5,17 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   final String maintext;
   final void Function()? onPress;
-  const PrimaryButton({Key? key, required this.maintext, this.onPress}) : super(key: key);
+  final bool isSubmitting;
+  const PrimaryButton({Key? key, required this.maintext, this.onPress, this.isSubmitting = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: onPress,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+          backgroundColor: MaterialStateProperty.all(
+              isSubmitting ? Theme.of(context).canvasColor : Theme.of(context).primaryColor),
           padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 16)),
         ),
         child: Container(
