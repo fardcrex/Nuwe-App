@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
       body: SingleChildScrollView(
         //  reverse: true,
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.longestSide,
           child: Column(
             children: [
               const Spacer(flex: 6),

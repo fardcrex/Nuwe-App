@@ -19,7 +19,10 @@ class PrimaryButton extends StatelessWidget {
           alignment: Alignment.center,
           // padding: const EdgeInsets.symmetric(vertical: 16),
           width: min(360, MediaQuery.of(context).size.width * 0.92),
-          child: Text(maintext),
+          child: Text(
+            maintext,
+            style: const TextStyle(color: Colors.white),
+          ),
         ));
   }
 }
@@ -64,7 +67,7 @@ class TextNuweButton extends StatelessWidget {
           //color: Colors.red,
           alignment: alignment,
           child: TextButton(
-              onPressed: () {},
+              onPressed: onPress,
               style: TextButton.styleFrom(
                 primary: Theme.of(context).primaryColor,
                 padding: EdgeInsets.zero,

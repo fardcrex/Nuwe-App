@@ -17,7 +17,7 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: const Color(0xFF232730),
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.longestSide,
           child: Column(
             children: [
               const Spacer(flex: 5),
@@ -25,19 +25,7 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 10),
               const TextMain(),
               const Spacer(flex: 3),
-              /*     const InputNuwe(hintText: 'Nombre público de usuario'),
-              const InputNuwe(hintText: 'Nombre completo'),
-              const InputNuwe(hintText: 'Correo electrónico'), */
-              const InputNuwe(hintText: 'Contraseña'),
-              const InputNuwe(hintText: 'Repetir Contraseña'),
-              const TextNuweButton(
-                maintext: '< Anterior',
-                alignment: Alignment.centerLeft,
-              ),
-
-              const Spacer(flex: 2),
-              //    const PrimaryButton(maintext: 'SIGUIENTE'),
-              const PrimaryButton(maintext: 'CREAR MI CUENTA'),
+              const StepPageForms(),
               const Spacer(flex: 3),
               const SocialButtons(),
               const Spacer(),
@@ -57,5 +45,98 @@ class RegisterPage extends StatelessWidget {
 
   static void goToTheLoginPage(BuildContext context) {
     Navigator.pushReplacementNamed(context, AuthRoutes.login);
+  }
+}
+
+class StepPageForms extends StatefulWidget {
+  const StepPageForms({Key? key}) : super(key: key);
+
+  @override
+  _StepPageFormsState createState() => _StepPageFormsState();
+}
+
+class _StepPageFormsState extends State<StepPageForms> {
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 260,
+      child: PageView(
+        controller: _pageController,
+        allowImplicitScrolling: true,
+        physics: const NeverScrollableScrollPhysics(),
+        children: <Widget>[
+          FinalStep(onChangeStep: () => _animateToPage(1)),
+          FirstStep(onChangeStep: () => _animateToPage(0)),
+        ],
+      ),
+    );
+  }
+
+  void _animateToPage(int page) => _pageController.animateToPage(
+        page,
+        duration: const Duration(seconds: 1),
+        curve: Curves.ease,
+      );
+}
+
+class FirstStep extends StatelessWidget {
+  final Function()? onChangeStep;
+  const FirstStep({Key? key, this.onChangeStep}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      //   mainAxisSize: MainAxisSize.min,
+      //alignment: WrapAlignment.center,
+      children: [
+        const InputNuwe(hintText: 'Contraseña'),
+        const InputNuwe(hintText: 'Repetir Contraseña'),
+        TextNuweButton(
+          maintext: '< Anterior',
+          alignment: Alignment.centerLeft,
+          onPress: onChangeStep,
+        ),
+        const SizedBox(height: 25, width: double.infinity),
+        PrimaryButton(
+          maintext: 'CREAR MI CUENTA',
+          onPress: () {},
+        ),
+      ],
+    );
+  }
+}
+
+class FinalStep extends StatelessWidget {
+  final Function()? onChangeStep;
+  const FinalStep({Key? key, this.onChangeStep}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const InputNuwe(hintText: 'Nombre público de usuario'),
+        const InputNuwe(hintText: 'Nombre completo'),
+        const InputNuwe(hintText: 'Correo electrónico'),
+        const SizedBox(height: 20, width: double.infinity),
+        PrimaryButton(
+          maintext: 'SIGUIENTE',
+          onPress: onChangeStep,
+        ),
+      ],
+    );
   }
 }

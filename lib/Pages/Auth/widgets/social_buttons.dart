@@ -10,17 +10,17 @@ class SocialButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         GoogleButton(onTap: () {}),
-        const FacebookButton(),
-        MicrosoftButton(onTap: () {}),
+        const TwitterButton(),
+        GithubButton(onTap: () {}),
       ],
     );
   }
 }
 
-class FacebookButton extends StatelessWidget {
+class TwitterButton extends StatelessWidget {
   static const colorTwitter = Color(0xff1D9BF0);
 
-  const FacebookButton({Key? key}) : super(key: key);
+  const TwitterButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,6 @@ class FacebookButton extends StatelessWidget {
       child: Container(
         width: 55,
         height: 55,
-        margin: const EdgeInsets.only(top: 35.0),
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: colorTwitter,
@@ -56,7 +55,6 @@ class GoogleButton extends StatelessWidget {
       child: Container(
         width: 55,
         height: 55,
-        margin: const EdgeInsets.only(top: 35.0),
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: colorGoogle,
@@ -71,10 +69,10 @@ class GoogleButton extends StatelessWidget {
   }
 }
 
-class MicrosoftButton extends StatelessWidget {
+class GithubButton extends StatelessWidget {
   static const colorMicrosof = Color(0xff2E353F);
   final void Function() onTap;
-  const MicrosoftButton({Key? key, required this.onTap}) : super(key: key);
+  const GithubButton({Key? key, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +81,6 @@ class MicrosoftButton extends StatelessWidget {
       child: Container(
         width: 55,
         height: 55,
-        margin: const EdgeInsets.only(top: 35.0),
         padding: const EdgeInsets.only(bottom: 2),
         decoration: const BoxDecoration(
           color: Colors.white,
