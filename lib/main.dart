@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:nuwe/Redux/app_state.dart';
 import 'package:nuwe/Settings/router.dart';
 
+import 'package:redux_epics/redux_epics.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import 'Features/Auth/Application/Login/login.dart';
 import 'Features/Auth/Application/register.dart';
+import 'Features/User/Application/verified_email.dart';
+import 'Features/User/Infrastructure/mock_user_repository.dart';
 import 'Redux/Auth/middleware.dart';
+import 'Redux/User/middleware.dart';
+import 'Redux/epics_middlewares.dart';
 import 'Redux/reducer.dart';
 
 void main() {
@@ -19,7 +24,12 @@ void main() {
         ...createAuthMiddlewares(
           loginWithCredentials: LoginWithCredentials(),
           registerWithCredentials: RegisterWithCredentials(),
-        )
+        ),
+        ...createUserMiddlewares(
+          verifyEmail: VerifyEmail(),
+          sendVerifyEmail: SendVerifyEmail(),
+        ),
+        EpicMiddleware(getEpicsMiddleware(userRepository: MockUserRepository()))
       ],
     ),
   ));
@@ -39,20 +49,29 @@ class MyApp extends StatelessWidget {
         initialRoute: AuthRoutes.initial,
         routes: getRoutesDinamoApp(),
         theme: ThemeData(
-          brightness: Brightness.light,
-          primaryColor: const Color(0xFF569B51),
-          errorColor: const Color(0xFFe84545),
-          canvasColor: const Color(0xFF8E8E8E).withOpacity(0.4),
-
-          /* light theme settings */
-        ),
+            brightness: Brightness.light,
+            primaryColor: const Color(0xFF569B51),
+            errorColor: const Color(0xFFe84545),
+            canvasColor: const Color(0xFF8E8E8E).withOpacity(0.4),
+            fontFamily: 'MontserratMedium'
+            /* light theme settings */
+            ),
         darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: const Color(0xFF569B51),
-          canvasColor: const Color(0xFF8E8E8E).withOpacity(0.4),
-          errorColor: const Color(0xFFd32f2f),
-          /* dark theme settings */
-        ),
+            brightness: Brightness.dark,
+            primaryColor: const Color(0xFF569B51),
+            backgroundColor: const Color(0xFF232730),
+            canvasColor: const Color(0xFF8E8E8E).withOpacity(0.4),
+            errorColor: const Color(0xFFd32f2f),
+            fontFamily: 'MontserratMedium',
+            elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color(0xFF569B51)))),
+            outlinedButtonTheme: OutlinedButtonThemeData(
+                style: OutlinedButton.styleFrom(
+                    primary: const Color(0xFF569B51),
+                    shadowColor: Theme.of(context).primaryColor,
+                    side: const BorderSide(color: Color(0xFF569B51))))
+            /* dark theme settings */
+            ),
         themeMode: ThemeMode.dark,
       ),
     );

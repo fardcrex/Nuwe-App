@@ -1,5 +1,5 @@
 import 'package:nuwe/Redux/Auth/actions.dart';
-import 'package:nuwe/Redux/Auth/auth_modelo/auth_state.dart';
+import 'package:nuwe/Redux/Auth/auth_state/auth_state.dart';
 import 'package:redux/redux.dart';
 
 final authReducer = combineReducers<AuthState>([

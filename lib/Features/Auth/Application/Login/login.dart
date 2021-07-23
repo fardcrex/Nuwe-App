@@ -11,9 +11,9 @@ class LoginWithCredentials {
     final password = Password(passwordStr);
 
     final validate = _validateCredentials(nicknameOrEmail, password);
-    await Future.delayed(const Duration(seconds: 2));
 
     if (validate.isLeft()) return validate;
+    await Future.delayed(const Duration(seconds: 2));
 
     return right(unit);
   }

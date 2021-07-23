@@ -14,7 +14,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF232730),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.longestSide,

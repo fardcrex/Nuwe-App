@@ -1,11 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:nuwe/Features/Auth/Application/Login/login.dart';
 import 'package:nuwe/Features/Auth/Application/register.dart';
+import 'package:nuwe/Redux/User/actions.dart';
+import 'package:nuwe/Redux/User/user_state/user_state.dart';
 
 import 'package:redux/redux.dart';
 import '../app_state.dart';
 import 'actions.dart';
-import 'auth_modelo/auth_state.dart';
+import 'auth_state/auth_state.dart';
 
 List<Middleware<AppState>> createAuthMiddlewares({
   required LoginWithCredentials loginWithCredentials,
@@ -65,6 +67,7 @@ MiddlewareAct<AppState, SignUpWithCredentialsAction> getRegisterMiddleware(Regis
     );
 
     if (loginWithCredentials.isRight()) {
+      next(const UpdateUserStateAction(UserState.emailNotVerified()));
       return next(UpdateAuthStateAction(AuthState.initial().copyWith(
         authFailureOrSuccessOption: optionOf(loginWithCredentials),
       )));

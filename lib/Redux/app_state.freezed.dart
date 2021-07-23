@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({required AuthState authState}) {
+  _AppState call({required AuthState authState, required UserState userState}) {
     return _AppState(
       authState: authState,
+      userState: userState,
     );
   }
 }
@@ -29,6 +30,7 @@ const $AppState = _$AppStateTearOff();
 /// @nodoc
 mixin _$AppState {
   AuthState get authState => throw _privateConstructorUsedError;
+  UserState get userState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -39,9 +41,10 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({AuthState authState});
+  $Res call({AuthState authState, UserState userState});
 
   $AuthStateCopyWith<$Res> get authState;
+  $UserStateCopyWith<$Res> get userState;
 }
 
 /// @nodoc
@@ -55,12 +58,17 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call({
     Object? authState = freezed,
+    Object? userState = freezed,
   }) {
     return _then(_value.copyWith(
       authState: authState == freezed
           ? _value.authState
           : authState // ignore: cast_nullable_to_non_nullable
               as AuthState,
+      userState: userState == freezed
+          ? _value.userState
+          : userState // ignore: cast_nullable_to_non_nullable
+              as UserState,
     ));
   }
 
@@ -70,6 +78,13 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
       return _then(_value.copyWith(authState: value));
     });
   }
+
+  @override
+  $UserStateCopyWith<$Res> get userState {
+    return $UserStateCopyWith<$Res>(_value.userState, (value) {
+      return _then(_value.copyWith(userState: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -77,10 +92,12 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({AuthState authState});
+  $Res call({AuthState authState, UserState userState});
 
   @override
   $AuthStateCopyWith<$Res> get authState;
+  @override
+  $UserStateCopyWith<$Res> get userState;
 }
 
 /// @nodoc
@@ -95,12 +112,17 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? authState = freezed,
+    Object? userState = freezed,
   }) {
     return _then(_AppState(
       authState: authState == freezed
           ? _value.authState
           : authState // ignore: cast_nullable_to_non_nullable
               as AuthState,
+      userState: userState == freezed
+          ? _value.userState
+          : userState // ignore: cast_nullable_to_non_nullable
+              as UserState,
     ));
   }
 }
@@ -108,14 +130,16 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({required this.authState});
+  const _$_AppState({required this.authState, required this.userState});
 
   @override
   final AuthState authState;
+  @override
+  final UserState userState;
 
   @override
   String toString() {
-    return 'AppState(authState: $authState)';
+    return 'AppState(authState: $authState, userState: $userState)';
   }
 
   @override
@@ -124,12 +148,17 @@ class _$_AppState implements _AppState {
         (other is _AppState &&
             (identical(other.authState, authState) ||
                 const DeepCollectionEquality()
-                    .equals(other.authState, authState)));
+                    .equals(other.authState, authState)) &&
+            (identical(other.userState, userState) ||
+                const DeepCollectionEquality()
+                    .equals(other.userState, userState)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(authState);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(authState) ^
+      const DeepCollectionEquality().hash(userState);
 
   @JsonKey(ignore: true)
   @override
@@ -138,10 +167,14 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({required AuthState authState}) = _$_AppState;
+  const factory _AppState(
+      {required AuthState authState,
+      required UserState userState}) = _$_AppState;
 
   @override
   AuthState get authState => throw _privateConstructorUsedError;
+  @override
+  UserState get userState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

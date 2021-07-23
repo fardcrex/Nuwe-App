@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flash/flash.dart';
 import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
-import 'package:nuwe/Redux/Auth/auth_modelo/auth_state.dart';
+import 'package:nuwe/Redux/Auth/auth_state/auth_state.dart';
 
 void showSnackbarAuth(AuthFailure authFailure, BuildContext context) {
   authFailure.when(
@@ -54,7 +54,8 @@ AuthFailure? getAuthFailureFromFirstStep(AuthState authState) {
   );
 }
 
-void showSnackBar(String message, BuildContext context, {required IconData icon}) {
+void showSnackBar(String message, BuildContext context, {required IconData icon, Color? color}) {
+  final backgroundColor = color ?? Theme.of(context).errorColor;
   showFlash(
     context: context,
     duration: const Duration(seconds: 6),
@@ -62,7 +63,7 @@ void showSnackBar(String message, BuildContext context, {required IconData icon}
       return Flash.bar(
         controller: controller,
         position: FlashPosition.top,
-        backgroundColor: Theme.of(context).errorColor,
+        backgroundColor: backgroundColor,
         horizontalDismissDirection: HorizontalDismissDirection.startToEnd,
         margin: const EdgeInsets.all(8),
         borderRadius: const BorderRadius.all(Radius.circular(8)),

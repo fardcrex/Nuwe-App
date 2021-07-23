@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:nuwe/Redux/Auth/auth_modelo/auth_state.dart';
+import 'package:nuwe/Redux/Auth/auth_state/auth_state.dart';
 import 'package:nuwe/Redux/app_state.dart';
 
 class InputContainer extends StatelessWidget {

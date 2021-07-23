@@ -15,6 +15,7 @@ abstract class IAuthRepository {
     required Password password,
   });
   Future<void> signOut();
+
   Future<Either<AuthFailure, Unit>> recoverPassword({required EmailAddress emailAddress});
 }
 

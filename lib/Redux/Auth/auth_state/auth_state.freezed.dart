@@ -29,7 +29,9 @@ class _$AuthStateTearOff {
       required bool showErrorMessageRegisterFirstStep,
       required bool showErrorMessageRecoverEmail,
       required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      required Option<Either<UserFailure, UserSuccess>>
+          userFailureOrSuccessOption}) {
     return _AuthState(
       nicknameOrEmailLoging: nicknameOrEmailLoging,
       passwordLogin: passwordLogin,
@@ -44,6 +46,7 @@ class _$AuthStateTearOff {
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
+      userFailureOrSuccessOption: userFailureOrSuccessOption,
     );
   }
 }
@@ -69,6 +72,8 @@ mixin _$AuthState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  Option<Either<UserFailure, UserSuccess>> get userFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -92,7 +97,8 @@ abstract class $AuthStateCopyWith<$Res> {
       bool showErrorMessageRegisterFirstStep,
       bool showErrorMessageRecoverEmail,
       bool isSubmitting,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      Option<Either<UserFailure, UserSuccess>> userFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -118,6 +124,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? showErrorMessageRecoverEmail = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? userFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
       nicknameOrEmailLoging: nicknameOrEmailLoging == freezed
@@ -174,6 +181,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      userFailureOrSuccessOption: userFailureOrSuccessOption == freezed
+          ? _value.userFailureOrSuccessOption
+          : userFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<UserFailure, UserSuccess>>,
     ));
   }
 }
@@ -197,7 +208,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       bool showErrorMessageRegisterFirstStep,
       bool showErrorMessageRecoverEmail,
       bool isSubmitting,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      Option<Either<UserFailure, UserSuccess>> userFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -224,6 +236,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? showErrorMessageRecoverEmail = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? userFailureOrSuccessOption = freezed,
   }) {
     return _then(_AuthState(
       nicknameOrEmailLoging: nicknameOrEmailLoging == freezed
@@ -280,6 +293,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      userFailureOrSuccessOption: userFailureOrSuccessOption == freezed
+          ? _value.userFailureOrSuccessOption
+          : userFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<UserFailure, UserSuccess>>,
     ));
   }
 }
@@ -300,7 +317,8 @@ class _$_AuthState extends _AuthState {
       required this.showErrorMessageRegisterFirstStep,
       required this.showErrorMessageRecoverEmail,
       required this.isSubmitting,
-      required this.authFailureOrSuccessOption})
+      required this.authFailureOrSuccessOption,
+      required this.userFailureOrSuccessOption})
       : super._();
 
   @override
@@ -329,10 +347,12 @@ class _$_AuthState extends _AuthState {
   final bool isSubmitting;
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
+  @override
+  final Option<Either<UserFailure, UserSuccess>> userFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AuthState(nicknameOrEmailLoging: $nicknameOrEmailLoging, passwordLogin: $passwordLogin, emailAddressRegister: $emailAddressRegister, passwordRegister: $passwordRegister, passwordConfirm: $passwordConfirm, namePerson: $namePerson, nickname: $nickname, showErrorMessageLogin: $showErrorMessageLogin, showErrorMessageRegisterFinalStep: $showErrorMessageRegisterFinalStep, showErrorMessageRegisterFirstStep: $showErrorMessageRegisterFirstStep, showErrorMessageRecoverEmail: $showErrorMessageRecoverEmail, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'AuthState(nicknameOrEmailLoging: $nicknameOrEmailLoging, passwordLogin: $passwordLogin, emailAddressRegister: $emailAddressRegister, passwordRegister: $passwordRegister, passwordConfirm: $passwordConfirm, namePerson: $namePerson, nickname: $nickname, showErrorMessageLogin: $showErrorMessageLogin, showErrorMessageRegisterFinalStep: $showErrorMessageRegisterFinalStep, showErrorMessageRegisterFirstStep: $showErrorMessageRegisterFirstStep, showErrorMessageRecoverEmail: $showErrorMessageRecoverEmail, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, userFailureOrSuccessOption: $userFailureOrSuccessOption)';
   }
 
   @override
@@ -363,8 +383,7 @@ class _$_AuthState extends _AuthState {
             (identical(other.showErrorMessageLogin, showErrorMessageLogin) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageLogin, showErrorMessageLogin)) &&
-            (identical(other.showErrorMessageRegisterFinalStep,
-                    showErrorMessageRegisterFinalStep) ||
+            (identical(other.showErrorMessageRegisterFinalStep, showErrorMessageRegisterFinalStep) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageRegisterFinalStep,
                     showErrorMessageRegisterFinalStep)) &&
@@ -383,7 +402,10 @@ class _$_AuthState extends _AuthState {
             (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
                     other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+                    authFailureOrSuccessOption)) &&
+            (identical(other.userFailureOrSuccessOption, userFailureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.userFailureOrSuccessOption, userFailureOrSuccessOption)));
   }
 
   @override
@@ -401,7 +423,8 @@ class _$_AuthState extends _AuthState {
       const DeepCollectionEquality().hash(showErrorMessageRegisterFirstStep) ^
       const DeepCollectionEquality().hash(showErrorMessageRecoverEmail) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption);
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption) ^
+      const DeepCollectionEquality().hash(userFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -423,8 +446,9 @@ abstract class _AuthState extends AuthState {
       required bool showErrorMessageRegisterFirstStep,
       required bool showErrorMessageRecoverEmail,
       required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>>
-          authFailureOrSuccessOption}) = _$_AuthState;
+      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      required Option<Either<UserFailure, UserSuccess>>
+          userFailureOrSuccessOption}) = _$_AuthState;
   const _AuthState._() : super._();
 
   @override
@@ -455,6 +479,9 @@ abstract class _AuthState extends AuthState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  @override
+  Option<Either<UserFailure, UserSuccess>> get userFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
 import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
+import 'package:nuwe/Features/User/Domain/succes_failures.dart';
 import 'package:nuwe/Features/User/Domain/value_objects.dart';
 
 part 'auth_state.freezed.dart';
@@ -23,6 +24,7 @@ class AuthState with _$AuthState {
     required bool showErrorMessageRecoverEmail,
     required bool isSubmitting,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    required Option<Either<UserFailure, UserSuccess>> userFailureOrSuccessOption,
   }) = _AuthState;
   const AuthState._();
 
@@ -46,6 +48,7 @@ class AuthState with _$AuthState {
         showErrorMessageRecoverEmail: false,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
+        userFailureOrSuccessOption: none(),
       );
 
   bool get canShowNicknameOrEmailError =>

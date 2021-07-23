@@ -1,4 +1,4 @@
-import 'auth_modelo/auth_state.dart';
+import 'auth_state/auth_state.dart';
 
 class EmailOrNicknameOnChangeAction {
   final String emailOrNickname;

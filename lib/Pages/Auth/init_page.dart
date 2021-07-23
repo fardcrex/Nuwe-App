@@ -5,13 +5,12 @@ import 'package:nuwe/Pages/Auth/widgets/text_main.dart';
 import 'package:nuwe/Settings/router.dart';
 
 class InitPage extends StatelessWidget {
-  static const primaryColor = Color(0xFF569B51);
   const InitPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF232730),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: Column(
           children: [
