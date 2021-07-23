@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flash/flash.dart';
 import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
+import 'package:nuwe/Redux/Auth/auth_modelo/auth_state.dart';
 
 void showSnackbarAuth(AuthFailure authFailure, BuildContext context) {
   authFailure.when(
+      diferentPasswords: () => showSnackBar('Las contraseñas no coinciden', context, icon: Icons.lock),
       cancelledByUser: () => showSnackBar('Cancelado', context, icon: Icons.email),
       serverError: () => showSnackBar('Error en el servidor', context, icon: Icons.email),
       internalError: () => showSnackBar('Error interno', context, icon: Icons.email),
@@ -11,8 +13,25 @@ void showSnackbarAuth(AuthFailure authFailure, BuildContext context) {
       emailNotExist: () => showSnackBar('Email inexistente', context, icon: Icons.email),
       accountDisabled: () => showSnackBar('Cuannta bloqueada', context, icon: Icons.email),
       invalidEmailAndPasswordCombination: () =>
-          showSnackBar('Combinación de datos inválidos', context, icon: Icons.email),
-      invalidEmail: (failure) => showSnackBar('Su usuario o correo es inválido.', context, icon: Icons.email),
+          showSnackBar('Combinación de datos inválidos', context, icon: Icons.error),
+      invalidEmailOrNickname: (failure) =>
+          showSnackBar('Su usuario o correo es inválido.', context, icon: Icons.error),
+      invalidEmail: (failure) => failure.maybeWhen(
+            orElse: () => showSnackBar('Correo inválido', context, icon: Icons.email),
+            emptyValue: (_) => showSnackBar('Ingrese un correo', context, icon: Icons.email),
+          ),
+      invalidNamePerson: (failure) => failure.maybeWhen(
+          characterLimitExceeded: (_) =>
+              showSnackBar('El nombre superó el límite de carácteres', context, icon: Icons.error),
+          emptyValue: (_) => showSnackBar('Ingrese un nombre', context, icon: Icons.error),
+          orElse: () => showSnackBar('Nombre inválido (sólo letras).', context, icon: Icons.error)),
+      invalidNickname: (failure) => failure.when(
+          characterLimitExceeded: (_) =>
+              showSnackBar('El nombre público superó el límite de carácteres', context, icon: Icons.error),
+          shortCharacters: (_) => showSnackBar('Nombre público corto', context, icon: Icons.error),
+          emptyValue: (_) => showSnackBar('Ingrese un nombre público', context, icon: Icons.error),
+          invalidFormat: (_) =>
+              showSnackBar('Solo carácteres alfanuméricos y _', context, icon: Icons.error)),
       invalidPassword: (failure) => failure.when(
           characterLimitExceeded: (_) =>
               showSnackBar('La contraseña superó el límite de carácteres', context, icon: Icons.lock),
@@ -22,10 +41,23 @@ void showSnackbarAuth(AuthFailure authFailure, BuildContext context) {
       invalidAnyCredentials: () => showSnackBar('Datos inválidos', context, icon: Icons.error));
 }
 
+AuthFailure? getAuthFailureFromFirstStep(AuthState authState) {
+  return authState.nicknameValueObject.value.fold(
+    (l) => AuthFailure.invalidNickname(l),
+    (r) => authState.namePersonValueObject.value.fold(
+      (l) => AuthFailure.invalidNamePerson(l),
+      (r) => authState.emailRegisterValueObject.value.fold(
+        (l) => AuthFailure.invalidEmail(l),
+        (r) => null,
+      ),
+    ),
+  );
+}
+
 void showSnackBar(String message, BuildContext context, {required IconData icon}) {
   showFlash(
     context: context,
-    duration: const Duration(seconds: 2),
+    duration: const Duration(seconds: 6),
     builder: (context, controller) {
       return Flash.bar(
         controller: controller,

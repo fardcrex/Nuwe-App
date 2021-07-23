@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:nuwe/Features/Auth/Application/Login/login.dart';
+import 'package:nuwe/Features/Auth/Application/register.dart';
 
 import 'package:redux/redux.dart';
 import '../app_state.dart';
@@ -8,14 +9,17 @@ import 'auth_modelo/auth_state.dart';
 
 List<Middleware<AppState>> createAuthMiddlewares({
   required LoginWithCredentials loginWithCredentials,
+  required RegisterWithCredentials registerWithCredentials,
 }) {
-  final loginEmailAndPassword = getLogin(loginWithCredentials);
+  final loginEmailAndPasswordMiddleware = getLoginMiddleware(loginWithCredentials);
+  final registerWithCredentialsMiddleware = getRegisterMiddleware(registerWithCredentials);
   return [
-    TypedMiddleware<AppState, SignInWithCredentialsAction>(loginEmailAndPassword),
+    TypedMiddleware<AppState, SignInWithCredentialsAction>(loginEmailAndPasswordMiddleware),
+    TypedMiddleware<AppState, SignUpWithCredentialsAction>(registerWithCredentialsMiddleware),
   ];
 }
 
-MiddlewareAct<AppState, SignInWithCredentialsAction> getLogin(LoginWithCredentials login) {
+MiddlewareAct<AppState, SignInWithCredentialsAction> getLoginMiddleware(LoginWithCredentials login) {
   return (Store<AppState> store, action, NextDispatcher next) async {
     if (store.state.authState.isSubmitting) return;
 
@@ -38,6 +42,37 @@ MiddlewareAct<AppState, SignInWithCredentialsAction> getLogin(LoginWithCredentia
     next(UpdateAuthStateAction(store.state.authState.copyWith(
       isSubmitting: false,
       showErrorMessageLogin: true,
+      authFailureOrSuccessOption: optionOf(loginWithCredentials),
+    )));
+  };
+}
+
+MiddlewareAct<AppState, SignUpWithCredentialsAction> getRegisterMiddleware(RegisterWithCredentials register) {
+  return (Store<AppState> store, action, NextDispatcher next) async {
+    if (store.state.authState.isSubmitting) return;
+
+    next(UpdateAuthStateAction(store.state.authState.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    )));
+
+    final loginWithCredentials = await register(
+      emailStr: store.state.authState.emailAddressRegister,
+      namePersonStr: store.state.authState.namePerson,
+      nicknameStr: store.state.authState.nickname,
+      passwordConfirmStr: store.state.authState.passwordConfirm,
+      passwordStr: store.state.authState.passwordRegister,
+    );
+
+    if (loginWithCredentials.isRight()) {
+      return next(UpdateAuthStateAction(AuthState.initial().copyWith(
+        authFailureOrSuccessOption: optionOf(loginWithCredentials),
+      )));
+    }
+
+    next(UpdateAuthStateAction(store.state.authState.copyWith(
+      isSubmitting: false,
+      showErrorMessageRegisterFinalStep: true,
       authFailureOrSuccessOption: optionOf(loginWithCredentials),
     )));
   };

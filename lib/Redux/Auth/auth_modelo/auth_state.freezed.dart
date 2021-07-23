@@ -21,10 +21,12 @@ class _$AuthStateTearOff {
       required String passwordLogin,
       required String emailAddressRegister,
       required String passwordRegister,
+      required String passwordConfirm,
       required String namePerson,
       required String nickname,
       required bool showErrorMessageLogin,
-      required bool showErrorMessageRegister,
+      required bool showErrorMessageRegisterFinalStep,
+      required bool showErrorMessageRegisterFirstStep,
       required bool showErrorMessageRecoverEmail,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
@@ -33,10 +35,12 @@ class _$AuthStateTearOff {
       passwordLogin: passwordLogin,
       emailAddressRegister: emailAddressRegister,
       passwordRegister: passwordRegister,
+      passwordConfirm: passwordConfirm,
       namePerson: namePerson,
       nickname: nickname,
       showErrorMessageLogin: showErrorMessageLogin,
-      showErrorMessageRegister: showErrorMessageRegister,
+      showErrorMessageRegisterFinalStep: showErrorMessageRegisterFinalStep,
+      showErrorMessageRegisterFirstStep: showErrorMessageRegisterFirstStep,
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -53,10 +57,14 @@ mixin _$AuthState {
   String get passwordLogin => throw _privateConstructorUsedError;
   String get emailAddressRegister => throw _privateConstructorUsedError;
   String get passwordRegister => throw _privateConstructorUsedError;
+  String get passwordConfirm => throw _privateConstructorUsedError;
   String get namePerson => throw _privateConstructorUsedError;
   String get nickname => throw _privateConstructorUsedError;
   bool get showErrorMessageLogin => throw _privateConstructorUsedError;
-  bool get showErrorMessageRegister => throw _privateConstructorUsedError;
+  bool get showErrorMessageRegisterFinalStep =>
+      throw _privateConstructorUsedError;
+  bool get showErrorMessageRegisterFirstStep =>
+      throw _privateConstructorUsedError;
   bool get showErrorMessageRecoverEmail => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
@@ -76,10 +84,12 @@ abstract class $AuthStateCopyWith<$Res> {
       String passwordLogin,
       String emailAddressRegister,
       String passwordRegister,
+      String passwordConfirm,
       String namePerson,
       String nickname,
       bool showErrorMessageLogin,
-      bool showErrorMessageRegister,
+      bool showErrorMessageRegisterFinalStep,
+      bool showErrorMessageRegisterFirstStep,
       bool showErrorMessageRecoverEmail,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -99,10 +109,12 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? passwordLogin = freezed,
     Object? emailAddressRegister = freezed,
     Object? passwordRegister = freezed,
+    Object? passwordConfirm = freezed,
     Object? namePerson = freezed,
     Object? nickname = freezed,
     Object? showErrorMessageLogin = freezed,
-    Object? showErrorMessageRegister = freezed,
+    Object? showErrorMessageRegisterFinalStep = freezed,
+    Object? showErrorMessageRegisterFirstStep = freezed,
     Object? showErrorMessageRecoverEmail = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -124,6 +136,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.passwordRegister
           : passwordRegister // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordConfirm: passwordConfirm == freezed
+          ? _value.passwordConfirm
+          : passwordConfirm // ignore: cast_nullable_to_non_nullable
+              as String,
       namePerson: namePerson == freezed
           ? _value.namePerson
           : namePerson // ignore: cast_nullable_to_non_nullable
@@ -136,9 +152,15 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.showErrorMessageLogin
           : showErrorMessageLogin // ignore: cast_nullable_to_non_nullable
               as bool,
-      showErrorMessageRegister: showErrorMessageRegister == freezed
-          ? _value.showErrorMessageRegister
-          : showErrorMessageRegister // ignore: cast_nullable_to_non_nullable
+      showErrorMessageRegisterFinalStep: showErrorMessageRegisterFinalStep ==
+              freezed
+          ? _value.showErrorMessageRegisterFinalStep
+          : showErrorMessageRegisterFinalStep // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessageRegisterFirstStep: showErrorMessageRegisterFirstStep ==
+              freezed
+          ? _value.showErrorMessageRegisterFirstStep
+          : showErrorMessageRegisterFirstStep // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail == freezed
           ? _value.showErrorMessageRecoverEmail
@@ -167,10 +189,12 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       String passwordLogin,
       String emailAddressRegister,
       String passwordRegister,
+      String passwordConfirm,
       String namePerson,
       String nickname,
       bool showErrorMessageLogin,
-      bool showErrorMessageRegister,
+      bool showErrorMessageRegisterFinalStep,
+      bool showErrorMessageRegisterFirstStep,
       bool showErrorMessageRecoverEmail,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -191,10 +215,12 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? passwordLogin = freezed,
     Object? emailAddressRegister = freezed,
     Object? passwordRegister = freezed,
+    Object? passwordConfirm = freezed,
     Object? namePerson = freezed,
     Object? nickname = freezed,
     Object? showErrorMessageLogin = freezed,
-    Object? showErrorMessageRegister = freezed,
+    Object? showErrorMessageRegisterFinalStep = freezed,
+    Object? showErrorMessageRegisterFirstStep = freezed,
     Object? showErrorMessageRecoverEmail = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -216,6 +242,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.passwordRegister
           : passwordRegister // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordConfirm: passwordConfirm == freezed
+          ? _value.passwordConfirm
+          : passwordConfirm // ignore: cast_nullable_to_non_nullable
+              as String,
       namePerson: namePerson == freezed
           ? _value.namePerson
           : namePerson // ignore: cast_nullable_to_non_nullable
@@ -228,9 +258,15 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.showErrorMessageLogin
           : showErrorMessageLogin // ignore: cast_nullable_to_non_nullable
               as bool,
-      showErrorMessageRegister: showErrorMessageRegister == freezed
-          ? _value.showErrorMessageRegister
-          : showErrorMessageRegister // ignore: cast_nullable_to_non_nullable
+      showErrorMessageRegisterFinalStep: showErrorMessageRegisterFinalStep ==
+              freezed
+          ? _value.showErrorMessageRegisterFinalStep
+          : showErrorMessageRegisterFinalStep // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessageRegisterFirstStep: showErrorMessageRegisterFirstStep ==
+              freezed
+          ? _value.showErrorMessageRegisterFirstStep
+          : showErrorMessageRegisterFirstStep // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail == freezed
           ? _value.showErrorMessageRecoverEmail
@@ -256,10 +292,12 @@ class _$_AuthState extends _AuthState {
       required this.passwordLogin,
       required this.emailAddressRegister,
       required this.passwordRegister,
+      required this.passwordConfirm,
       required this.namePerson,
       required this.nickname,
       required this.showErrorMessageLogin,
-      required this.showErrorMessageRegister,
+      required this.showErrorMessageRegisterFinalStep,
+      required this.showErrorMessageRegisterFirstStep,
       required this.showErrorMessageRecoverEmail,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption})
@@ -274,13 +312,17 @@ class _$_AuthState extends _AuthState {
   @override
   final String passwordRegister;
   @override
+  final String passwordConfirm;
+  @override
   final String namePerson;
   @override
   final String nickname;
   @override
   final bool showErrorMessageLogin;
   @override
-  final bool showErrorMessageRegister;
+  final bool showErrorMessageRegisterFinalStep;
+  @override
+  final bool showErrorMessageRegisterFirstStep;
   @override
   final bool showErrorMessageRecoverEmail;
   @override
@@ -290,7 +332,7 @@ class _$_AuthState extends _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(nicknameOrEmailLoging: $nicknameOrEmailLoging, passwordLogin: $passwordLogin, emailAddressRegister: $emailAddressRegister, passwordRegister: $passwordRegister, namePerson: $namePerson, nickname: $nickname, showErrorMessageLogin: $showErrorMessageLogin, showErrorMessageRegister: $showErrorMessageRegister, showErrorMessageRecoverEmail: $showErrorMessageRecoverEmail, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'AuthState(nicknameOrEmailLoging: $nicknameOrEmailLoging, passwordLogin: $passwordLogin, emailAddressRegister: $emailAddressRegister, passwordRegister: $passwordRegister, passwordConfirm: $passwordConfirm, namePerson: $namePerson, nickname: $nickname, showErrorMessageLogin: $showErrorMessageLogin, showErrorMessageRegisterFinalStep: $showErrorMessageRegisterFinalStep, showErrorMessageRegisterFirstStep: $showErrorMessageRegisterFirstStep, showErrorMessageRecoverEmail: $showErrorMessageRecoverEmail, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -309,6 +351,9 @@ class _$_AuthState extends _AuthState {
             (identical(other.passwordRegister, passwordRegister) ||
                 const DeepCollectionEquality()
                     .equals(other.passwordRegister, passwordRegister)) &&
+            (identical(other.passwordConfirm, passwordConfirm) ||
+                const DeepCollectionEquality()
+                    .equals(other.passwordConfirm, passwordConfirm)) &&
             (identical(other.namePerson, namePerson) ||
                 const DeepCollectionEquality()
                     .equals(other.namePerson, namePerson)) &&
@@ -318,21 +363,24 @@ class _$_AuthState extends _AuthState {
             (identical(other.showErrorMessageLogin, showErrorMessageLogin) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageLogin, showErrorMessageLogin)) &&
-            (identical(
-                    other.showErrorMessageRegister, showErrorMessageRegister) ||
+            (identical(other.showErrorMessageRegisterFinalStep,
+                    showErrorMessageRegisterFinalStep) ||
                 const DeepCollectionEquality().equals(
-                    other.showErrorMessageRegister,
-                    showErrorMessageRegister)) &&
-            (identical(other.showErrorMessageRecoverEmail,
-                    showErrorMessageRecoverEmail) ||
+                    other.showErrorMessageRegisterFinalStep,
+                    showErrorMessageRegisterFinalStep)) &&
+            (identical(other.showErrorMessageRegisterFirstStep,
+                    showErrorMessageRegisterFirstStep) ||
+                const DeepCollectionEquality().equals(
+                    other.showErrorMessageRegisterFirstStep,
+                    showErrorMessageRegisterFirstStep)) &&
+            (identical(other.showErrorMessageRecoverEmail, showErrorMessageRecoverEmail) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageRecoverEmail,
                     showErrorMessageRecoverEmail)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
+            (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
                     other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption)));
@@ -345,10 +393,12 @@ class _$_AuthState extends _AuthState {
       const DeepCollectionEquality().hash(passwordLogin) ^
       const DeepCollectionEquality().hash(emailAddressRegister) ^
       const DeepCollectionEquality().hash(passwordRegister) ^
+      const DeepCollectionEquality().hash(passwordConfirm) ^
       const DeepCollectionEquality().hash(namePerson) ^
       const DeepCollectionEquality().hash(nickname) ^
       const DeepCollectionEquality().hash(showErrorMessageLogin) ^
-      const DeepCollectionEquality().hash(showErrorMessageRegister) ^
+      const DeepCollectionEquality().hash(showErrorMessageRegisterFinalStep) ^
+      const DeepCollectionEquality().hash(showErrorMessageRegisterFirstStep) ^
       const DeepCollectionEquality().hash(showErrorMessageRecoverEmail) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
@@ -365,10 +415,12 @@ abstract class _AuthState extends AuthState {
       required String passwordLogin,
       required String emailAddressRegister,
       required String passwordRegister,
+      required String passwordConfirm,
       required String namePerson,
       required String nickname,
       required bool showErrorMessageLogin,
-      required bool showErrorMessageRegister,
+      required bool showErrorMessageRegisterFinalStep,
+      required bool showErrorMessageRegisterFirstStep,
       required bool showErrorMessageRecoverEmail,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>>
@@ -384,13 +436,19 @@ abstract class _AuthState extends AuthState {
   @override
   String get passwordRegister => throw _privateConstructorUsedError;
   @override
+  String get passwordConfirm => throw _privateConstructorUsedError;
+  @override
   String get namePerson => throw _privateConstructorUsedError;
   @override
   String get nickname => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessageLogin => throw _privateConstructorUsedError;
   @override
-  bool get showErrorMessageRegister => throw _privateConstructorUsedError;
+  bool get showErrorMessageRegisterFinalStep =>
+      throw _privateConstructorUsedError;
+  @override
+  bool get showErrorMessageRegisterFirstStep =>
+      throw _privateConstructorUsedError;
   @override
   bool get showErrorMessageRecoverEmail => throw _privateConstructorUsedError;
   @override

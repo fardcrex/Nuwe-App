@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 
 class InputNuwe extends StatefulWidget {
   final String? hintText;
+  final TextInputType? keyboardType;
   final String initialText;
   final bool canShowError;
+  final TextCapitalization textCapitalization;
+  final TextInputAction? textInputAction;
   final bool isPassword;
   final void Function(String)? onChanged;
   const InputNuwe(
@@ -14,7 +17,10 @@ class InputNuwe extends StatefulWidget {
       required this.initialText,
       this.onChanged,
       required this.canShowError,
-      this.isPassword = false})
+      this.isPassword = false,
+      this.keyboardType,
+      this.textCapitalization = TextCapitalization.none,
+      this.textInputAction})
       : super(key: key);
 
   @override
@@ -52,8 +58,10 @@ class _InputNuweState extends State<InputNuwe> {
       child: TextField(
         controller: textController,
         obscureText: widget.isPassword,
+        keyboardType: widget.keyboardType,
         cursorColor: const Color(0xFF569B51),
-        textCapitalization: TextCapitalization.sentences,
+        textCapitalization: widget.textCapitalization,
+        textInputAction: widget.textInputAction,
         onChanged: widget.onChanged,
         decoration: InputDecoration(
           border: InputBorder.none,

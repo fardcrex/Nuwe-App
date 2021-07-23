@@ -4,22 +4,22 @@ import 'package:nuwe/Features/Shared/Domain/value_object_base.dart';
 
 class NamePerson extends ValueObject<String> {
   static const int maxLength = 120;
-
+  static const String _nameRegex = r'^([a-zA-ZñÑ ])*$';
   @override
   final Either<ValueFailure<String>, String> value;
 
   factory NamePerson(String input) {
-    return NamePerson._(
-      validateNamePerson(input.trim()),
-    );
+    return NamePerson._(validateNamePerson(input.trim()));
   }
 
   const NamePerson._(this.value);
 
   static Either<ValueFailure<String>, String> validateNamePerson(String input) {
-    if (input.isEmpty) return Left(ValueFailure.shortCharacters(failedValue: input));
+    if (input.isEmpty) return Left(ValueFailure.emptyValue(failedValue: input));
 
     if (input.length > maxLength) return Left(ValueFailure.characterLimitExceeded(failedValue: input));
+
+    if (!RegExp(_nameRegex).hasMatch(input)) return left(ValueFailure.invalidFormat(failedValue: input));
 
     return Right(input);
   }
@@ -35,14 +35,14 @@ class Nickname extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Nickname(String input) {
-    return Nickname._(
-      validateNickname(input.trim()),
-    );
+    return Nickname._(validateNickname(input.trim()));
   }
 
   const Nickname._(this.value);
 
   static Either<ValueFailure<String>, String> validateNickname(String input) {
+    if (input.isEmpty) return left(ValueFailure.emptyValue(failedValue: input));
+
     if (input.length < minLengthNick) return left(ValueFailure.shortCharacters(failedValue: input));
 
     if (input.length > maxLength) return left(ValueFailure.characterLimitExceeded(failedValue: input));

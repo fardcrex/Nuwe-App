@@ -95,13 +95,15 @@ class InputsLogin extends StatelessWidget {
         children: [
           InputNuwe(
             hintText: 'Usuario o correo',
-            initialText: authState.nicknameOrEmailLoging,
+            initialText: authState.nicknameOrEmailLoging.trim(),
             canShowError: authState.canShowNicknameOrEmailError,
             onChanged: onChangeNickOrEmail,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
           ),
           InputNuwe(
             hintText: 'Contraseña',
-            initialText: authState.passwordLogin,
+            initialText: '' /* authState.passwordLogin.trim() */,
             canShowError: authState.canShowPassworLoginError,
             onChanged: onChangePassword,
             isPassword: true,

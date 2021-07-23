@@ -11,7 +11,7 @@ class LoginWithCredentials {
     final password = Password(passwordStr);
 
     final validate = _validateCredentials(nicknameOrEmail, password);
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
 
     if (validate.isLeft()) return validate;
 
@@ -23,7 +23,8 @@ class LoginWithCredentials {
       return const Left(AuthFailure.invalidAnyCredentials());
     }
     if (!nicknameOrEmail.isValid()) {
-      return nicknameOrEmail.value.fold((l) => Left(AuthFailure.invalidEmail(l)), (r) => right(unit));
+      return nicknameOrEmail.value
+          .fold((l) => Left(AuthFailure.invalidEmailOrNickname(l)), (r) => right(unit));
     }
     if (!password.isValid()) {
       return password.value.fold((l) => Left(AuthFailure.invalidPassword(l)), (r) => right(unit));

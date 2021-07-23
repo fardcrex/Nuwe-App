@@ -6,19 +6,23 @@ import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import 'Features/Auth/Application/Login/login.dart';
+import 'Features/Auth/Application/register.dart';
 import 'Redux/Auth/middleware.dart';
 import 'Redux/reducer.dart';
 
 void main() {
-  runApp(
-    MyApp(
-      store: Store<AppState>(
-        appReducer,
-        initialState: AppState.initial(),
-        middleware: [...createAuthMiddlewares(loginWithCredentials: LoginWithCredentials())],
-      ),
+  runApp(MyApp(
+    store: Store<AppState>(
+      appReducer,
+      initialState: AppState.initial(),
+      middleware: [
+        ...createAuthMiddlewares(
+          loginWithCredentials: LoginWithCredentials(),
+          registerWithCredentials: RegisterWithCredentials(),
+        )
+      ],
     ),
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {

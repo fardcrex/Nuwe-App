@@ -50,6 +50,24 @@ class _$AuthFailureTearOff {
     );
   }
 
+  InvalidEmailOrNickname invalidEmailOrNickname(ValueFailure<dynamic> failure) {
+    return InvalidEmailOrNickname(
+      failure,
+    );
+  }
+
+  InvalidNickname invalidNickname(ValueFailure<dynamic> failure) {
+    return InvalidNickname(
+      failure,
+    );
+  }
+
+  InvalidNamePerson invalidNamePerson(ValueFailure<dynamic> failure) {
+    return InvalidNamePerson(
+      failure,
+    );
+  }
+
   InvalidPassword invalidPassword(ValueFailure<dynamic> failure) {
     return InvalidPassword(
       failure,
@@ -58,6 +76,10 @@ class _$AuthFailureTearOff {
 
   InvalidAnyCredentials invalidAnyCredentials() {
     return const InvalidAnyCredentials();
+  }
+
+  DiferentPasswords diferentPasswords() {
+    return const DiferentPasswords();
   }
 }
 
@@ -76,8 +98,13 @@ mixin _$AuthFailure {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,8 +117,12 @@ mixin _$AuthFailure {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,9 +137,14 @@ mixin _$AuthFailure {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -122,8 +158,12 @@ mixin _$AuthFailure {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -193,8 +233,13 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return cancelledByUser();
   }
@@ -210,8 +255,12 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -232,9 +281,14 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return cancelledByUser(this);
   }
@@ -251,8 +305,12 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -313,8 +371,13 @@ class _$ServerError implements ServerError {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return serverError();
   }
@@ -330,8 +393,12 @@ class _$ServerError implements ServerError {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -352,9 +419,14 @@ class _$ServerError implements ServerError {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return serverError(this);
   }
@@ -371,8 +443,12 @@ class _$ServerError implements ServerError {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -433,8 +509,13 @@ class _$InternalError implements InternalError {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return internalError();
   }
@@ -450,8 +531,12 @@ class _$InternalError implements InternalError {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (internalError != null) {
@@ -472,9 +557,14 @@ class _$InternalError implements InternalError {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return internalError(this);
   }
@@ -491,8 +581,12 @@ class _$InternalError implements InternalError {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (internalError != null) {
@@ -554,8 +648,13 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return emailAlreadyInUse();
   }
@@ -571,8 +670,12 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -593,9 +696,14 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -612,8 +720,12 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -674,8 +786,13 @@ class _$EmailNotExist implements EmailNotExist {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return emailNotExist();
   }
@@ -691,8 +808,12 @@ class _$EmailNotExist implements EmailNotExist {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (emailNotExist != null) {
@@ -713,9 +834,14 @@ class _$EmailNotExist implements EmailNotExist {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return emailNotExist(this);
   }
@@ -732,8 +858,12 @@ class _$EmailNotExist implements EmailNotExist {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (emailNotExist != null) {
@@ -795,8 +925,13 @@ class _$AccountDisabled implements AccountDisabled {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return accountDisabled();
   }
@@ -812,8 +947,12 @@ class _$AccountDisabled implements AccountDisabled {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (accountDisabled != null) {
@@ -834,9 +973,14 @@ class _$AccountDisabled implements AccountDisabled {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return accountDisabled(this);
   }
@@ -853,8 +997,12 @@ class _$AccountDisabled implements AccountDisabled {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (accountDisabled != null) {
@@ -921,8 +1069,13 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return invalidEmailAndPasswordCombination();
   }
@@ -938,8 +1091,12 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPasswordCombination != null) {
@@ -960,9 +1117,14 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return invalidEmailAndPasswordCombination(this);
   }
@@ -979,8 +1141,12 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPasswordCombination != null) {
@@ -1076,8 +1242,13 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return invalidEmail(failure);
   }
@@ -1093,8 +1264,12 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -1115,9 +1290,14 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return invalidEmail(this);
   }
@@ -1134,8 +1314,12 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -1151,6 +1335,544 @@ abstract class InvalidEmail implements AuthFailure {
   ValueFailure<dynamic> get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $InvalidEmailCopyWith<InvalidEmail> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidEmailOrNicknameCopyWith<$Res> {
+  factory $InvalidEmailOrNicknameCopyWith(InvalidEmailOrNickname value,
+          $Res Function(InvalidEmailOrNickname) then) =
+      _$InvalidEmailOrNicknameCopyWithImpl<$Res>;
+  $Res call({ValueFailure<dynamic> failure});
+
+  $ValueFailureCopyWith<dynamic, $Res> get failure;
+}
+
+/// @nodoc
+class _$InvalidEmailOrNicknameCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $InvalidEmailOrNicknameCopyWith<$Res> {
+  _$InvalidEmailOrNicknameCopyWithImpl(InvalidEmailOrNickname _value,
+      $Res Function(InvalidEmailOrNickname) _then)
+      : super(_value, (v) => _then(v as InvalidEmailOrNickname));
+
+  @override
+  InvalidEmailOrNickname get _value => super._value as InvalidEmailOrNickname;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(InvalidEmailOrNickname(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as ValueFailure<dynamic>,
+    ));
+  }
+
+  @override
+  $ValueFailureCopyWith<dynamic, $Res> get failure {
+    return $ValueFailureCopyWith<dynamic, $Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$InvalidEmailOrNickname implements InvalidEmailOrNickname {
+  const _$InvalidEmailOrNickname(this.failure);
+
+  @override
+  final ValueFailure<dynamic> failure;
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidEmailOrNickname(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidEmailOrNickname &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidEmailOrNicknameCopyWith<InvalidEmailOrNickname> get copyWith =>
+      _$InvalidEmailOrNicknameCopyWithImpl<InvalidEmailOrNickname>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() internalError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() emailNotExist,
+    required TResult Function() accountDisabled,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
+    required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
+    required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
+  }) {
+    return invalidEmailOrNickname(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? internalError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? emailNotExist,
+    TResult Function()? accountDisabled,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
+    TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
+    TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (invalidEmailOrNickname != null) {
+      return invalidEmailOrNickname(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(InternalError value) internalError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(EmailNotExist value) emailNotExist,
+    required TResult Function(AccountDisabled value) accountDisabled,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(InvalidAnyCredentials value)
+        invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
+  }) {
+    return invalidEmailOrNickname(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InternalError value)? internalError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(EmailNotExist value)? emailNotExist,
+    TResult Function(AccountDisabled value)? accountDisabled,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (invalidEmailOrNickname != null) {
+      return invalidEmailOrNickname(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidEmailOrNickname implements AuthFailure {
+  const factory InvalidEmailOrNickname(ValueFailure<dynamic> failure) =
+      _$InvalidEmailOrNickname;
+
+  ValueFailure<dynamic> get failure => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InvalidEmailOrNicknameCopyWith<InvalidEmailOrNickname> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidNicknameCopyWith<$Res> {
+  factory $InvalidNicknameCopyWith(
+          InvalidNickname value, $Res Function(InvalidNickname) then) =
+      _$InvalidNicknameCopyWithImpl<$Res>;
+  $Res call({ValueFailure<dynamic> failure});
+
+  $ValueFailureCopyWith<dynamic, $Res> get failure;
+}
+
+/// @nodoc
+class _$InvalidNicknameCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $InvalidNicknameCopyWith<$Res> {
+  _$InvalidNicknameCopyWithImpl(
+      InvalidNickname _value, $Res Function(InvalidNickname) _then)
+      : super(_value, (v) => _then(v as InvalidNickname));
+
+  @override
+  InvalidNickname get _value => super._value as InvalidNickname;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(InvalidNickname(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as ValueFailure<dynamic>,
+    ));
+  }
+
+  @override
+  $ValueFailureCopyWith<dynamic, $Res> get failure {
+    return $ValueFailureCopyWith<dynamic, $Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$InvalidNickname implements InvalidNickname {
+  const _$InvalidNickname(this.failure);
+
+  @override
+  final ValueFailure<dynamic> failure;
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidNickname(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidNickname &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidNicknameCopyWith<InvalidNickname> get copyWith =>
+      _$InvalidNicknameCopyWithImpl<InvalidNickname>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() internalError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() emailNotExist,
+    required TResult Function() accountDisabled,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
+    required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
+    required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
+  }) {
+    return invalidNickname(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? internalError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? emailNotExist,
+    TResult Function()? accountDisabled,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
+    TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
+    TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (invalidNickname != null) {
+      return invalidNickname(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(InternalError value) internalError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(EmailNotExist value) emailNotExist,
+    required TResult Function(AccountDisabled value) accountDisabled,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(InvalidAnyCredentials value)
+        invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
+  }) {
+    return invalidNickname(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InternalError value)? internalError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(EmailNotExist value)? emailNotExist,
+    TResult Function(AccountDisabled value)? accountDisabled,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (invalidNickname != null) {
+      return invalidNickname(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidNickname implements AuthFailure {
+  const factory InvalidNickname(ValueFailure<dynamic> failure) =
+      _$InvalidNickname;
+
+  ValueFailure<dynamic> get failure => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InvalidNicknameCopyWith<InvalidNickname> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidNamePersonCopyWith<$Res> {
+  factory $InvalidNamePersonCopyWith(
+          InvalidNamePerson value, $Res Function(InvalidNamePerson) then) =
+      _$InvalidNamePersonCopyWithImpl<$Res>;
+  $Res call({ValueFailure<dynamic> failure});
+
+  $ValueFailureCopyWith<dynamic, $Res> get failure;
+}
+
+/// @nodoc
+class _$InvalidNamePersonCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $InvalidNamePersonCopyWith<$Res> {
+  _$InvalidNamePersonCopyWithImpl(
+      InvalidNamePerson _value, $Res Function(InvalidNamePerson) _then)
+      : super(_value, (v) => _then(v as InvalidNamePerson));
+
+  @override
+  InvalidNamePerson get _value => super._value as InvalidNamePerson;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(InvalidNamePerson(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as ValueFailure<dynamic>,
+    ));
+  }
+
+  @override
+  $ValueFailureCopyWith<dynamic, $Res> get failure {
+    return $ValueFailureCopyWith<dynamic, $Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$InvalidNamePerson implements InvalidNamePerson {
+  const _$InvalidNamePerson(this.failure);
+
+  @override
+  final ValueFailure<dynamic> failure;
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidNamePerson(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidNamePerson &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidNamePersonCopyWith<InvalidNamePerson> get copyWith =>
+      _$InvalidNamePersonCopyWithImpl<InvalidNamePerson>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() internalError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() emailNotExist,
+    required TResult Function() accountDisabled,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
+    required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
+    required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
+  }) {
+    return invalidNamePerson(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? internalError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? emailNotExist,
+    TResult Function()? accountDisabled,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
+    TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
+    TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (invalidNamePerson != null) {
+      return invalidNamePerson(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(InternalError value) internalError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(EmailNotExist value) emailNotExist,
+    required TResult Function(AccountDisabled value) accountDisabled,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(InvalidAnyCredentials value)
+        invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
+  }) {
+    return invalidNamePerson(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InternalError value)? internalError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(EmailNotExist value)? emailNotExist,
+    TResult Function(AccountDisabled value)? accountDisabled,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (invalidNamePerson != null) {
+      return invalidNamePerson(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidNamePerson implements AuthFailure {
+  const factory InvalidNamePerson(ValueFailure<dynamic> failure) =
+      _$InvalidNamePerson;
+
+  ValueFailure<dynamic> get failure => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InvalidNamePersonCopyWith<InvalidNamePerson> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1236,8 +1958,13 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return invalidPassword(failure);
   }
@@ -1253,8 +1980,12 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -1275,9 +2006,14 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return invalidPassword(this);
   }
@@ -1294,8 +2030,12 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -1363,8 +2103,13 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
     required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
     required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
   }) {
     return invalidAnyCredentials();
   }
@@ -1380,8 +2125,12 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
     TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
     TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidAnyCredentials != null) {
@@ -1402,9 +2151,14 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(InvalidAnyCredentials value)
         invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
   }) {
     return invalidAnyCredentials(this);
   }
@@ -1421,8 +2175,12 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
     required TResult orElse(),
   }) {
     if (invalidAnyCredentials != null) {
@@ -1434,4 +2192,143 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
 
 abstract class InvalidAnyCredentials implements AuthFailure {
   const factory InvalidAnyCredentials() = _$InvalidAnyCredentials;
+}
+
+/// @nodoc
+abstract class $DiferentPasswordsCopyWith<$Res> {
+  factory $DiferentPasswordsCopyWith(
+          DiferentPasswords value, $Res Function(DiferentPasswords) then) =
+      _$DiferentPasswordsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$DiferentPasswordsCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $DiferentPasswordsCopyWith<$Res> {
+  _$DiferentPasswordsCopyWithImpl(
+      DiferentPasswords _value, $Res Function(DiferentPasswords) _then)
+      : super(_value, (v) => _then(v as DiferentPasswords));
+
+  @override
+  DiferentPasswords get _value => super._value as DiferentPasswords;
+}
+
+/// @nodoc
+
+class _$DiferentPasswords implements DiferentPasswords {
+  const _$DiferentPasswords();
+
+  @override
+  String toString() {
+    return 'AuthFailure.diferentPasswords()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is DiferentPasswords);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() internalError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() emailNotExist,
+    required TResult Function() accountDisabled,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
+    required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
+    required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
+  }) {
+    return diferentPasswords();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? internalError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? emailNotExist,
+    TResult Function()? accountDisabled,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
+    TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
+    TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (diferentPasswords != null) {
+      return diferentPasswords();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(InternalError value) internalError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(EmailNotExist value) emailNotExist,
+    required TResult Function(AccountDisabled value) accountDisabled,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(InvalidAnyCredentials value)
+        invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
+  }) {
+    return diferentPasswords(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InternalError value)? internalError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(EmailNotExist value)? emailNotExist,
+    TResult Function(AccountDisabled value)? accountDisabled,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (diferentPasswords != null) {
+      return diferentPasswords(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DiferentPasswords implements AuthFailure {
+  const factory DiferentPasswords() = _$DiferentPasswords;
 }
