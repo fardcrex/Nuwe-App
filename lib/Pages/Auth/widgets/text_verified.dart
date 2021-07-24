@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nuwe/Settings/style.dart';
 
 class TextVerified extends StatelessWidget {
   const TextVerified({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class TextVerified extends StatelessWidget {
             'Te hemos enviado un correo de verificación a modo de validación. '
             'Ingrese al link adjunto al correo para verificar que es tu cuenta.',
             textAlign: TextAlign.center,
-            style: TextStyle(fontFamily: 'MontserratRegular'),
+            style: TextStyle(fontFamily: FontNuweFamily.montserratRegular),
           ),
         ),
       ],

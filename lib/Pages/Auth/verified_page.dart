@@ -6,7 +6,6 @@ import 'widgets/text_main.dart';
 import 'widgets/text_verified.dart';
 
 class VerifiedPage extends StatelessWidget {
-  static const primaryColor = Color(0xFF569B51);
   const VerifiedPage({Key? key}) : super(key: key);
 
   @override

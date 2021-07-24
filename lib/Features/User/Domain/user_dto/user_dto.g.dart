@@ -8,7 +8,7 @@ part of 'user_dto.dart';
 
 _$_User _$_$_UserFromJson(Map<String, dynamic> json) {
   return _$_User(
-    isEmailVerified: json['isEmailVerified'] as bool,
+    isEmailVerified: json['isEmailVerified'] as bool? ?? false,
     emailAddress: json['emailAddress'] as String,
     nickname: json['nickname'] as String,
     name: json['name'] as String,

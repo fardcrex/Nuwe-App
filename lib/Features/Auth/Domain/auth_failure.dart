@@ -9,6 +9,7 @@ class AuthFailure with _$AuthFailure {
   const factory AuthFailure.serverError() = ServerError;
   const factory AuthFailure.internalError() = InternalError;
   const factory AuthFailure.emailAlreadyInUse() = EmailAlreadyInUse;
+  const factory AuthFailure.nicknameAlreadyInUse() = NicknameAlreadyInUse;
   const factory AuthFailure.emailNotExist() = EmailNotExist;
   const factory AuthFailure.accountDisabled() = AccountDisabled;
   const factory AuthFailure.invalidEmailAndPasswordCombination() = InvalidEmailAndPasswordCombination;

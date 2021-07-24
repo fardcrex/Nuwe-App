@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:nuwe/Redux/Auth/actions.dart';
 import 'package:nuwe/Redux/User/user_state/user_state.dart';
+import 'package:nuwe/Redux/app_state.dart';
 import 'package:nuwe/Settings/router.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,13 +18,23 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //  mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(userData.toString()),
+            const Spacer(flex: 2),
+            const Text('Nombre Público:'),
+            Text(userData.user.nickname),
+            const Spacer(flex: 2),
+            const Text('Nombre Completo:'),
+            Text(userData.user.name),
+            const Spacer(flex: 2),
+            const Text('Correo:'),
+            Text(userData.user.emailAddress),
+            const Spacer(flex: 2),
             ElevatedButton(
               onPressed: () => goToTheLogoutPage(context),
               child: const Text('Salirse'),
             ),
+            const Spacer(flex: 2),
           ],
         ),
       ),
@@ -29,6 +42,8 @@ class HomePage extends StatelessWidget {
   }
 
   static void goToTheLogoutPage(BuildContext context) {
+    //TODO Extraer este método
+    StoreProvider.of<AppState>(context).dispatch(const SignOutAction());
     Navigator.pushReplacementNamed(context, AuthRoutes.initial);
   }
 }

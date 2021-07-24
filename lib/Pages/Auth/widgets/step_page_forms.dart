@@ -125,7 +125,7 @@ class FinalStep extends StatelessWidget {
         children: [
           InputNuwe(
             hintText: 'Contraseña',
-            initialText: '',
+            initialText: authState.passwordRegister,
             canShowError: authState.canShowPassworRegisterError,
             isPassword: true,
             onChanged: onChangePassword,

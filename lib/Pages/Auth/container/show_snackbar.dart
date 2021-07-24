@@ -9,7 +9,9 @@ void showSnackbarAuth(AuthFailure authFailure, BuildContext context) {
       cancelledByUser: () => showSnackBar('Cancelado', context, icon: Icons.email),
       serverError: () => showSnackBar('Error en el servidor', context, icon: Icons.email),
       internalError: () => showSnackBar('Error interno', context, icon: Icons.email),
-      emailAlreadyInUse: () => showSnackBar('El email ya está en uso', context, icon: Icons.email),
+      nicknameAlreadyInUse: () =>
+          showSnackBar('El nombre público ya está en uso', context, icon: Icons.error),
+      emailAlreadyInUse: () => showSnackBar('El correo ya está en uso', context, icon: Icons.email),
       emailNotExist: () => showSnackBar('Email inexistente', context, icon: Icons.email),
       accountDisabled: () => showSnackBar('Cuannta bloqueada', context, icon: Icons.email),
       invalidEmailAndPasswordCombination: () =>

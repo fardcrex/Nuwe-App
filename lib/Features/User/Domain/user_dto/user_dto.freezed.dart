@@ -21,7 +21,7 @@ class _$UserTearOff {
   const _$UserTearOff();
 
   _User call(
-      {required bool isEmailVerified,
+      {bool isEmailVerified = false,
       required String emailAddress,
       required String nickname,
       required String name}) {
@@ -153,7 +153,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_User implements _User {
   _$_User(
-      {required this.isEmailVerified,
+      {this.isEmailVerified = false,
       required this.emailAddress,
       required this.nickname,
       required this.name});
@@ -161,6 +161,7 @@ class _$_User implements _User {
   factory _$_User.fromJson(Map<String, dynamic> json) =>
       _$_$_UserFromJson(json);
 
+  @JsonKey(defaultValue: false)
   @override
   final bool isEmailVerified;
   @override
@@ -213,7 +214,7 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   factory _User(
-      {required bool isEmailVerified,
+      {bool isEmailVerified,
       required String emailAddress,
       required String nickname,
       required String name}) = _$_User;

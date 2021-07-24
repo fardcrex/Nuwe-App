@@ -1,8 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
+import 'package:nuwe/Features/Auth/Domain/i_auth_repository.dart';
 import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
 
 class LoginWithCredentials {
+  final IAuthRepository _authRepository;
+
+  LoginWithCredentials(this._authRepository);
+
   Future<Either<AuthFailure, Unit>> call({
     required String nicknameOrEmailStr,
     required String passwordStr,
@@ -13,9 +18,10 @@ class LoginWithCredentials {
     final validate = _validateCredentials(nicknameOrEmail, password);
 
     if (validate.isLeft()) return validate;
-    await Future.delayed(const Duration(seconds: 2));
 
-    return right(unit);
+    final result = await _authRepository.signInWithEmailAndPassword(nicknameOrEmail, password);
+
+    return result;
   }
 
   Either<AuthFailure, Unit> _validateCredentials(NicknameOrEmail nicknameOrEmail, Password password) {

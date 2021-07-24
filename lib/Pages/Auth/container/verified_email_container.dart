@@ -4,6 +4,7 @@ import 'package:nuwe/Pages/Auth/container/show_snackbar.dart';
 import 'package:nuwe/Pages/Auth/widgets/buttons.dart';
 import 'package:nuwe/Redux/User/actions.dart';
 import 'package:nuwe/Redux/app_state.dart';
+import 'package:nuwe/Settings/style.dart';
 import 'package:redux/redux.dart';
 
 class VerifiedEmailBottom extends StatelessWidget {
@@ -58,12 +59,8 @@ class AlertDialogContainer extends StatelessWidget {
         // FlushbarHelper.createError(message: "Error carajo", duration: Duration(seconds: 2)).show(context);
         return AlertDialog(
           backgroundColor: const Color(0xFF2E353F),
-          title: const Text('Reenviar correo de verificación',
-              style: TextStyle(fontSize: 18, height: 1.5), textAlign: TextAlign.center),
-          content: const Text(
-            'Puede que el correo esté en el buzón de correos no deseados.',
-            style: TextStyle(fontFamily: 'MontserratRegular', color: Color(0xFFB5B5B5)),
-          ),
+          title: title,
+          content: content,
           actions: [
             ElevatedButton(
               onPressed: () => {
@@ -81,4 +78,18 @@ class AlertDialogContainer extends StatelessWidget {
       },
     );
   }
+
+  Widget get title => const Text(
+        'Reenviar correo de verificación',
+        style: TextStyle(fontSize: 18, height: 1.5),
+        textAlign: TextAlign.center,
+      );
+
+  Widget get content => const Text(
+        'Puede que el correo esté en el buzón de correos no deseados.',
+        style: TextStyle(
+          fontFamily: FontNuweFamily.montserratRegular,
+          color: Color(0xFFB5B5B5),
+        ),
+      );
 }

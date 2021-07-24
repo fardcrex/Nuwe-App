@@ -6,7 +6,7 @@ part 'user_dto.g.dart';
 @freezed
 class User with _$User {
   factory User({
-    required bool isEmailVerified,
+    @Default(false) bool isEmailVerified,
     required String emailAddress,
     required String nickname,
     required String name,

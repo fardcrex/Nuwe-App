@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:nuwe/Features/Auth/Application/Login/login.dart';
 import 'package:nuwe/Features/Auth/Application/register.dart';
+import 'package:nuwe/Features/Auth/Application/signout.dart';
 import 'package:nuwe/Redux/User/actions.dart';
 import 'package:nuwe/Redux/User/user_state/user_state.dart';
 
@@ -10,6 +11,7 @@ import 'actions.dart';
 import 'auth_state/auth_state.dart';
 
 List<Middleware<AppState>> createAuthMiddlewares({
+  required SignOut signOutApp,
   required LoginWithCredentials loginWithCredentials,
   required RegisterWithCredentials registerWithCredentials,
 }) {
@@ -18,6 +20,7 @@ List<Middleware<AppState>> createAuthMiddlewares({
   return [
     TypedMiddleware<AppState, SignInWithCredentialsAction>(loginEmailAndPasswordMiddleware),
     TypedMiddleware<AppState, SignUpWithCredentialsAction>(registerWithCredentialsMiddleware),
+    TypedMiddleware<AppState, SignOutAction>(getSignOutmiddleware(signOutApp)),
   ];
 }
 
@@ -78,5 +81,12 @@ MiddlewareAct<AppState, SignUpWithCredentialsAction> getRegisterMiddleware(Regis
       showErrorMessageRegisterFinalStep: true,
       authFailureOrSuccessOption: optionOf(loginWithCredentials),
     )));
+  };
+}
+
+MiddlewareAct<AppState, SignOutAction> getSignOutmiddleware(SignOut signOutApp) {
+  return (Store<AppState> store, action, NextDispatcher next) async {
+    await signOutApp();
+    next(action);
   };
 }

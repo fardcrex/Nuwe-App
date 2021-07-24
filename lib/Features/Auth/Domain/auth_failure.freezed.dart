@@ -32,6 +32,10 @@ class _$AuthFailureTearOff {
     return const EmailAlreadyInUse();
   }
 
+  NicknameAlreadyInUse nicknameAlreadyInUse() {
+    return const NicknameAlreadyInUse();
+  }
+
   EmailNotExist emailNotExist() {
     return const EmailNotExist();
   }
@@ -94,6 +98,7 @@ mixin _$AuthFailure {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -113,6 +118,7 @@ mixin _$AuthFailure {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -132,6 +138,7 @@ mixin _$AuthFailure {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -153,6 +160,7 @@ mixin _$AuthFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -229,6 +237,7 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -251,6 +260,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -276,6 +286,7 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -300,6 +311,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -367,6 +379,7 @@ class _$ServerError implements ServerError {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -389,6 +402,7 @@ class _$ServerError implements ServerError {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -414,6 +428,7 @@ class _$ServerError implements ServerError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -438,6 +453,7 @@ class _$ServerError implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -505,6 +521,7 @@ class _$InternalError implements InternalError {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -527,6 +544,7 @@ class _$InternalError implements InternalError {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -552,6 +570,7 @@ class _$InternalError implements InternalError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -576,6 +595,7 @@ class _$InternalError implements InternalError {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -644,6 +664,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -666,6 +687,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -691,6 +713,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -715,6 +738,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -737,6 +761,149 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 
 abstract class EmailAlreadyInUse implements AuthFailure {
   const factory EmailAlreadyInUse() = _$EmailAlreadyInUse;
+}
+
+/// @nodoc
+abstract class $NicknameAlreadyInUseCopyWith<$Res> {
+  factory $NicknameAlreadyInUseCopyWith(NicknameAlreadyInUse value,
+          $Res Function(NicknameAlreadyInUse) then) =
+      _$NicknameAlreadyInUseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NicknameAlreadyInUseCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $NicknameAlreadyInUseCopyWith<$Res> {
+  _$NicknameAlreadyInUseCopyWithImpl(
+      NicknameAlreadyInUse _value, $Res Function(NicknameAlreadyInUse) _then)
+      : super(_value, (v) => _then(v as NicknameAlreadyInUse));
+
+  @override
+  NicknameAlreadyInUse get _value => super._value as NicknameAlreadyInUse;
+}
+
+/// @nodoc
+
+class _$NicknameAlreadyInUse implements NicknameAlreadyInUse {
+  const _$NicknameAlreadyInUse();
+
+  @override
+  String toString() {
+    return 'AuthFailure.nicknameAlreadyInUse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is NicknameAlreadyInUse);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() internalError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
+    required TResult Function() emailNotExist,
+    required TResult Function() accountDisabled,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function(ValueFailure<dynamic> failure) invalidEmail,
+    required TResult Function(ValueFailure<dynamic> failure)
+        invalidEmailOrNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNickname,
+    required TResult Function(ValueFailure<dynamic> failure) invalidNamePerson,
+    required TResult Function(ValueFailure<dynamic> failure) invalidPassword,
+    required TResult Function() invalidAnyCredentials,
+    required TResult Function() diferentPasswords,
+  }) {
+    return nicknameAlreadyInUse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? internalError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
+    TResult Function()? emailNotExist,
+    TResult Function()? accountDisabled,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmail,
+    TResult Function(ValueFailure<dynamic> failure)? invalidEmailOrNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNickname,
+    TResult Function(ValueFailure<dynamic> failure)? invalidNamePerson,
+    TResult Function(ValueFailure<dynamic> failure)? invalidPassword,
+    TResult Function()? invalidAnyCredentials,
+    TResult Function()? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (nicknameAlreadyInUse != null) {
+      return nicknameAlreadyInUse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(InternalError value) internalError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
+    required TResult Function(EmailNotExist value) emailNotExist,
+    required TResult Function(AccountDisabled value) accountDisabled,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(InvalidEmailOrNickname value)
+        invalidEmailOrNickname,
+    required TResult Function(InvalidNickname value) invalidNickname,
+    required TResult Function(InvalidNamePerson value) invalidNamePerson,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(InvalidAnyCredentials value)
+        invalidAnyCredentials,
+    required TResult Function(DiferentPasswords value) diferentPasswords,
+  }) {
+    return nicknameAlreadyInUse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(InternalError value)? internalError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
+    TResult Function(EmailNotExist value)? emailNotExist,
+    TResult Function(AccountDisabled value)? accountDisabled,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(InvalidEmailOrNickname value)? invalidEmailOrNickname,
+    TResult Function(InvalidNickname value)? invalidNickname,
+    TResult Function(InvalidNamePerson value)? invalidNamePerson,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(InvalidAnyCredentials value)? invalidAnyCredentials,
+    TResult Function(DiferentPasswords value)? diferentPasswords,
+    required TResult orElse(),
+  }) {
+    if (nicknameAlreadyInUse != null) {
+      return nicknameAlreadyInUse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NicknameAlreadyInUse implements AuthFailure {
+  const factory NicknameAlreadyInUse() = _$NicknameAlreadyInUse;
 }
 
 /// @nodoc
@@ -782,6 +949,7 @@ class _$EmailNotExist implements EmailNotExist {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -804,6 +972,7 @@ class _$EmailNotExist implements EmailNotExist {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -829,6 +998,7 @@ class _$EmailNotExist implements EmailNotExist {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -853,6 +1023,7 @@ class _$EmailNotExist implements EmailNotExist {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -921,6 +1092,7 @@ class _$AccountDisabled implements AccountDisabled {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -943,6 +1115,7 @@ class _$AccountDisabled implements AccountDisabled {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -968,6 +1141,7 @@ class _$AccountDisabled implements AccountDisabled {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -992,6 +1166,7 @@ class _$AccountDisabled implements AccountDisabled {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -1065,6 +1240,7 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -1087,6 +1263,7 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -1112,6 +1289,7 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -1136,6 +1314,7 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -1238,6 +1417,7 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -1260,6 +1440,7 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -1285,6 +1466,7 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -1309,6 +1491,7 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -1417,6 +1600,7 @@ class _$InvalidEmailOrNickname implements InvalidEmailOrNickname {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -1439,6 +1623,7 @@ class _$InvalidEmailOrNickname implements InvalidEmailOrNickname {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -1464,6 +1649,7 @@ class _$InvalidEmailOrNickname implements InvalidEmailOrNickname {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -1488,6 +1674,7 @@ class _$InvalidEmailOrNickname implements InvalidEmailOrNickname {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -1596,6 +1783,7 @@ class _$InvalidNickname implements InvalidNickname {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -1618,6 +1806,7 @@ class _$InvalidNickname implements InvalidNickname {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -1643,6 +1832,7 @@ class _$InvalidNickname implements InvalidNickname {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -1667,6 +1857,7 @@ class _$InvalidNickname implements InvalidNickname {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -1775,6 +1966,7 @@ class _$InvalidNamePerson implements InvalidNamePerson {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -1797,6 +1989,7 @@ class _$InvalidNamePerson implements InvalidNamePerson {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -1822,6 +2015,7 @@ class _$InvalidNamePerson implements InvalidNamePerson {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -1846,6 +2040,7 @@ class _$InvalidNamePerson implements InvalidNamePerson {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -1954,6 +2149,7 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -1976,6 +2172,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -2001,6 +2198,7 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -2025,6 +2223,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -2099,6 +2298,7 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -2121,6 +2321,7 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -2146,6 +2347,7 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -2170,6 +2372,7 @@ class _$InvalidAnyCredentials implements InvalidAnyCredentials {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?
@@ -2238,6 +2441,7 @@ class _$DiferentPasswords implements DiferentPasswords {
     required TResult Function() serverError,
     required TResult Function() internalError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function() nicknameAlreadyInUse,
     required TResult Function() emailNotExist,
     required TResult Function() accountDisabled,
     required TResult Function() invalidEmailAndPasswordCombination,
@@ -2260,6 +2464,7 @@ class _$DiferentPasswords implements DiferentPasswords {
     TResult Function()? serverError,
     TResult Function()? internalError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function()? nicknameAlreadyInUse,
     TResult Function()? emailNotExist,
     TResult Function()? accountDisabled,
     TResult Function()? invalidEmailAndPasswordCombination,
@@ -2285,6 +2490,7 @@ class _$DiferentPasswords implements DiferentPasswords {
     required TResult Function(ServerError value) serverError,
     required TResult Function(InternalError value) internalError,
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(NicknameAlreadyInUse value) nicknameAlreadyInUse,
     required TResult Function(EmailNotExist value) emailNotExist,
     required TResult Function(AccountDisabled value) accountDisabled,
     required TResult Function(InvalidEmailAndPasswordCombination value)
@@ -2309,6 +2515,7 @@ class _$DiferentPasswords implements DiferentPasswords {
     TResult Function(ServerError value)? serverError,
     TResult Function(InternalError value)? internalError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(NicknameAlreadyInUse value)? nicknameAlreadyInUse,
     TResult Function(EmailNotExist value)? emailNotExist,
     TResult Function(AccountDisabled value)? accountDisabled,
     TResult Function(InvalidEmailAndPasswordCombination value)?

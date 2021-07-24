@@ -15,9 +15,9 @@ class InitPageLogged extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, UserState>(
-      converter: (store) => store.state.userState,
       onInit: (store) => store.dispatch(const InitStreamUserStateAction()),
       onDispose: (store) => store.dispatch(const CancelStreamUserStateAction()),
+      converter: (store) => store.state.userState,
       builder: (context, userState) {
         return userState.map(
           (userData) => HomePage(userData: userData),

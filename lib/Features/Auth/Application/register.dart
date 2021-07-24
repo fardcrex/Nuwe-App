@@ -1,9 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
+import 'package:nuwe/Features/Auth/Domain/i_auth_repository.dart';
 import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
 import 'package:nuwe/Features/User/Domain/value_objects.dart';
 
 class RegisterWithCredentials {
+  final IAuthRepository _authRepository;
+
+  RegisterWithCredentials(this._authRepository);
+
   Future<Either<AuthFailure, Unit>> call({
     required String nicknameStr,
     required String emailStr,
@@ -13,17 +18,23 @@ class RegisterWithCredentials {
   }) async {
     if (passwordStr != passwordConfirmStr) return left(const AuthFailure.diferentPasswords());
 
-    final nicknameOrEmail = Nickname(nicknameStr);
+    final nickname = Nickname(nicknameStr);
     final password = Password(passwordStr);
-    final namePerson = NamePerson(passwordStr);
-    final emailAddress = EmailAddress(passwordStr);
+    final namePerson = NamePerson(namePersonStr);
+    final emailAddress = EmailAddress(emailStr);
 
     final validate = _validateCredentials(password);
 
     if (validate.isLeft()) return validate;
 
-    await Future.delayed(const Duration(seconds: 2));
-    return right(unit);
+    final result = await _authRepository.registerWithCredentials(
+      emailAddress,
+      password,
+      namePerson,
+      nickname,
+    );
+
+    return result.map((r) => unit);
   }
 
   Either<AuthFailure, Unit> _validateCredentials(Password password) {

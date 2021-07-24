@@ -43,6 +43,10 @@ class SignUpWithCredentialsAction {
   const SignUpWithCredentialsAction();
 }
 
+class SignOutAction {
+  const SignOutAction();
+}
+
 class UpdateAuthStateAction {
   final AuthState authState;
 

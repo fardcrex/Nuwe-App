@@ -19,14 +19,18 @@ dependencies:
   json_annotation: ^4.0.1
   font_awesome_flutter: ^9.1.0
   animated_text_kit: ^4.2.1
-  path_provider: ^1.6.27
+  
   dartz: ^0.10.0-nullsafety.2
 
   flutter_redux: ^0.8.2
   redux_epics: ^0.15.0
   redux: ^5.0.0 
 
-  mailer: ^5.0.1
+
+  cloud_firestore: "^2.4.0"
+  firebase_core: "^1.4.0"
+  firebase_auth: "^3.0.1"
+  google_sign_in: ^5.0.4
 
 
   # The following adds the Cupertino Icons font to your application.
