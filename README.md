@@ -1,6 +1,6 @@
 # Nuwe App
 
-Proyecto de reto
+Proyecto de reto - [DESCARGAR DEMO](https://drive.google.com/drive/folders/180jt-TSqPQElNoHVzL3pRDzG1T1nJypI?usp=sharing)
 
 ![alt text](assets/capture_1.png "code")
 ![alt text](assets/capture_2.png "code")
@@ -56,11 +56,12 @@ flutter build apk -t lib/main.dart
 ## Construido con 🛠️
 
 - [Redux](http://www.dropwizard.io/1.0.2/docs/) - Como manejador de estados para que otros devs que vengan del frontend con React se integren rápido.
+- [Rx.dart](https://pub.dev/packages/rxdart) y [Redux_epics](https://pub.dev/packages/redux_epics)- Para manejar los estados en tiempo real.
 
 ![alt text](assets/redux.png "code")
 
 - [pub](https://maven.apache.org/) - Manejador de dependencias
-- [Firebase](https://firebase.google.com/) - Usado como base de datos y authenticacion
+- [Firebase](https://firebase.google.com/) - Como base de datos y authenticacion.
 - [DDD](https://en.wikipedia.org/wiki/Domain-driven_design) - como arquitectura de la app para escalar comodamente y alternar entre diferentes fuentes de datos rápidamente.
 
 ![alt text](assets/arquitectura.png "code")
