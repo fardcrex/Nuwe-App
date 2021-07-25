@@ -26,7 +26,7 @@ class NamePerson extends ValueObject<String> {
 }
 
 class Nickname extends ValueObject<String> {
-  static const int maxLength = 20;
+  static const int maxLength = 25;
   static const int minLengthNick = 6;
   static const String _nicknameRegex = r'^(?![_])[a-zA-Z0-9_]+(?<![_])$';
   static const String _notNumericRegex = r'^([0-9])*$';

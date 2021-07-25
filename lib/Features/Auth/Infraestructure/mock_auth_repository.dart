@@ -4,7 +4,7 @@ import 'package:nuwe/Features/Auth/Domain/i_auth_repository.dart';
 import 'package:nuwe/Features/User/Domain/value_objects.dart';
 import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
 
-class MockAuthRepository implements IAuthRepository {
+class FakeAuthRepository implements IAuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> registerWithCredentials(
     EmailAddress emailAddress,
@@ -31,7 +31,7 @@ class MockAuthRepository implements IAuthRepository {
   Future<void> signOut() async {}
 }
 
-class MockSocialRepository implements IAuthSocialRepository {
+class FakeSocialRepository implements IAuthSocialRepository {
   @override
   Future<Either<AuthFailure, Unit>> signInWithGithub() async {
     return right(unit);

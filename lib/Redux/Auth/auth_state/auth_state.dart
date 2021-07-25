@@ -18,9 +18,11 @@ class AuthState with _$AuthState {
     required String passwordConfirm,
     required String namePerson,
     required String nickname,
+    required String nicknameSocial,
     required bool showErrorMessageLogin,
     required bool showErrorMessageRegisterFinalStep,
     required bool showErrorMessageRegisterFirstStep,
+    required bool showErrorMessageisNicknameSocial,
     required bool showErrorMessageRecoverEmail,
     required bool isSubmitting,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -37,6 +39,7 @@ class AuthState with _$AuthState {
         passwordRegister: Password(''), */
         nicknameOrEmailLoging: '',
         nickname: '',
+        nicknameSocial: '',
         namePerson: '',
         passwordLogin: '',
         emailAddressRegister: '',
@@ -46,6 +49,7 @@ class AuthState with _$AuthState {
         showErrorMessageRegisterFinalStep: false,
         showErrorMessageRegisterFirstStep: false,
         showErrorMessageRecoverEmail: false,
+        showErrorMessageisNicknameSocial: false,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
         userFailureOrSuccessOption: none(),
@@ -57,6 +61,8 @@ class AuthState with _$AuthState {
   bool get canShowPassworLoginError => showErrorMessageLogin && !Password(passwordLogin).isValid();
 
   bool get canShowNicknameError => showErrorMessageRegisterFirstStep && isNicknameRegisterInvalid;
+
+  bool get canShowNicknameSocialError => showErrorMessageisNicknameSocial && isNicknameSocialInvalid;
 
   bool get canShowEmailRegisterError => showErrorMessageRegisterFirstStep && isEmailRegisterInvalid;
 
@@ -75,8 +81,10 @@ class AuthState with _$AuthState {
   bool get isNicknameRegisterInvalid => !nicknameValueObject.isValid();
   bool get isEmailRegisterInvalid => !emailRegisterValueObject.isValid();
   bool get isNamePersonInvalid => !namePersonValueObject.isValid();
+  bool get isNicknameSocialInvalid => !nicknameSocialValueObject.isValid();
 
   Nickname get nicknameValueObject => Nickname(nickname);
+  Nickname get nicknameSocialValueObject => Nickname(nicknameSocial);
   NamePerson get namePersonValueObject => NamePerson(namePerson);
   EmailAddress get emailRegisterValueObject => EmailAddress(emailAddressRegister);
 }

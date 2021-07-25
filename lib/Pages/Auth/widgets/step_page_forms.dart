@@ -101,6 +101,58 @@ class _StepPageFormsState extends State<StepPageForms> {
       );
 }
 
+class FirstStep extends StatelessWidget {
+  final Function(bool isDataValid) onChangeStep;
+  final void Function(String) onChangeEmail;
+  final void Function(String) onChangeNamePerson;
+  final void Function(String) onChangeNickname;
+  const FirstStep(
+      {Key? key,
+      required this.onChangeStep,
+      required this.onChangeEmail,
+      required this.onChangeNamePerson,
+      required this.onChangeNickname})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InputContainer(builder: (context, authState) {
+      return Column(
+        children: [
+          InputNuwe(
+            hintText: 'Nombre público de usuario',
+            initialText: authState.nickname.trim(),
+            canShowError: authState.canShowNicknameError,
+            onChanged: onChangeNickname,
+            textInputAction: TextInputAction.next,
+          ),
+          InputNuwe(
+            hintText: 'Nombre completo',
+            initialText: authState.namePerson.trim(),
+            canShowError: authState.canShowNamePersonError,
+            onChanged: onChangeNamePerson,
+            keyboardType: TextInputType.name,
+            textCapitalization: TextCapitalization.words,
+            textInputAction: TextInputAction.next,
+          ),
+          InputNuwe(
+            hintText: 'Correo electrónico',
+            initialText: authState.emailAddressRegister.trim(),
+            keyboardType: TextInputType.emailAddress,
+            canShowError: authState.canShowEmailRegisterError,
+            onChanged: onChangeEmail,
+          ),
+          const SizedBox(height: 20, width: double.infinity),
+          PrimaryButton(
+            maintext: 'SIGUIENTE',
+            onPress: () => onChangeStep(authState.isFirstDataStepValid),
+          ),
+        ],
+      );
+    });
+  }
+}
+
 class FinalStep extends StatelessWidget {
   final void Function(String) onChangePassword;
   final void Function() registerWithCredentials;
@@ -152,59 +204,6 @@ class FinalStep extends StatelessWidget {
               registerWithCredentials();
               FocusScope.of(context).unfocus();
             },
-          ),
-        ],
-      );
-    });
-  }
-}
-
-class FirstStep extends StatelessWidget {
-  final Function(bool isDataValid) onChangeStep;
-  final void Function(String) onChangeEmail;
-  final void Function(String) onChangeNamePerson;
-  final void Function(String) onChangeNickname;
-  const FirstStep(
-      {Key? key,
-      required this.onChangeStep,
-      required this.onChangeEmail,
-      required this.onChangeNamePerson,
-      required this.onChangeNickname})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InputContainer(builder: (context, authState) {
-      return Column(
-        children: [
-          InputNuwe(
-            key: Key(authState.nickname.trim()),
-            hintText: 'Nombre público de usuario',
-            initialText: authState.nickname.trim(),
-            canShowError: authState.canShowNicknameError,
-            onChanged: onChangeNickname,
-            textInputAction: TextInputAction.next,
-          ),
-          InputNuwe(
-            hintText: 'Nombre completo',
-            initialText: authState.namePerson.trim(),
-            canShowError: authState.canShowNamePersonError,
-            onChanged: onChangeNamePerson,
-            keyboardType: TextInputType.name,
-            textCapitalization: TextCapitalization.words,
-            textInputAction: TextInputAction.next,
-          ),
-          InputNuwe(
-            hintText: 'Correo electrónico',
-            initialText: authState.emailAddressRegister.trim(),
-            keyboardType: TextInputType.emailAddress,
-            canShowError: authState.canShowEmailRegisterError,
-            onChanged: onChangeEmail,
-          ),
-          const SizedBox(height: 20, width: double.infinity),
-          PrimaryButton(
-            maintext: 'SIGUIENTE',
-            onPress: () => onChangeStep(authState.isFirstDataStepValid),
           ),
         ],
       );

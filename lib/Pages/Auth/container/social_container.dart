@@ -58,7 +58,7 @@ class _ViewModel {
       isSubmitting: store.state.authState.isSubmitting,
       loginWithGoogleAction: () => store.dispatch(const LoginWithGoogleAction()),
       registerWithGoogleAction: () => store.dispatch(const RegisterWithGoogleAction()),
-      onChangeNickname: (value) => store.dispatch(NicknameRegisterOnChangeAction(value)),
+      onChangeNickname: (value) => store.dispatch(NicknameSocialOnChangeAction(value)),
     );
   }
 

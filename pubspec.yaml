@@ -47,7 +47,8 @@ dev_dependencies:
   freezed: ^0.14.2
   lint: ^1.5.3
   flash: ^2.0.1
-
+  test: any
+  mockito: any
 flutter_icons:
   android: true
   ios: true

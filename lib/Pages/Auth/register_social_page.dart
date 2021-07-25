@@ -69,10 +69,10 @@ class InputsNickname extends StatelessWidget {
     return InputContainer(builder: (context, authState) {
       return InputNuwe(
         hintText: 'Nombre público de usuario',
-        initialText: authState.nickname.trim(),
-        canShowError: authState.canShowNicknameError,
+        initialText: authState.nicknameSocial.trim(),
+        canShowError: authState.canShowNicknameSocialError,
         onChanged: onChangeNickname,
-        textInputAction: TextInputAction.next,
+        textInputAction: TextInputAction.done,
       );
     });
   }

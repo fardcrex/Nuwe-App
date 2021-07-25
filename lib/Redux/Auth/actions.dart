@@ -30,6 +30,11 @@ class NicknameRegisterOnChangeAction {
   const NicknameRegisterOnChangeAction(this.nickname);
 }
 
+class NicknameSocialOnChangeAction {
+  final String nickname;
+  const NicknameSocialOnChangeAction(this.nickname);
+}
+
 class NamePersonRegisterOnChangeAction {
   final String namePerson;
   const NamePersonRegisterOnChangeAction(this.namePerson);
@@ -41,6 +46,10 @@ class SignInWithCredentialsAction {
 
 class SignUpWithCredentialsAction {
   const SignUpWithCredentialsAction();
+}
+
+class GoToNextStepAction {
+  const GoToNextStepAction();
 }
 
 class SignOutAction {

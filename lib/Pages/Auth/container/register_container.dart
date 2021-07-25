@@ -73,7 +73,8 @@ class _ViewModel {
         onChangeNamePerson: (value) => store.dispatch(NamePersonRegisterOnChangeAction(value)),
         onChangeNickname: (value) => store.dispatch(NicknameRegisterOnChangeAction(value)),
         registerWithCredentials: () => store.dispatch(const SignUpWithCredentialsAction()),
-        goToNextStep: () async {
+        goToNextStep: () => store.dispatch(const GoToNextStepAction()),
+        /*    goToNextStep: ()  {
           final failure = getAuthFailureFromFirstStep(store.state.authState);
           store.dispatch(
             UpdateAuthStateAction(store.state.authState.copyWith(
@@ -81,7 +82,7 @@ class _ViewModel {
               authFailureOrSuccessOption: failure == null ? none() : optionOf(left(failure)),
             )),
           );
-        },
+        }, */
         authFailureOrSuccessOption: store.state.authState.authFailureOrSuccessOption
         //    isChatPageActive: store.state.notificationState.isChatPage,
         );

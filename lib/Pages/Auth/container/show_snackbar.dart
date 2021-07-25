@@ -30,7 +30,7 @@ void showSnackbarAuth(AuthFailure authFailure, BuildContext context) {
       invalidNickname: (failure) => failure.when(
           characterLimitExceeded: (_) =>
               showSnackBar('El nombre público superó el límite de carácteres', context, icon: Icons.error),
-          shortCharacters: (_) => showSnackBar('Nombre público corto', context, icon: Icons.error),
+          shortCharacters: (_) => showSnackBar('Nombre público corto', context, icon: Icons.lock),
           emptyValue: (_) => showSnackBar('Ingrese un nombre público', context, icon: Icons.error),
           invalidFormat: (_) =>
               showSnackBar('Solo carácteres alfanuméricos y _', context, icon: Icons.error)),

@@ -24,9 +24,11 @@ class _$AuthStateTearOff {
       required String passwordConfirm,
       required String namePerson,
       required String nickname,
+      required String nicknameSocial,
       required bool showErrorMessageLogin,
       required bool showErrorMessageRegisterFinalStep,
       required bool showErrorMessageRegisterFirstStep,
+      required bool showErrorMessageisNicknameSocial,
       required bool showErrorMessageRecoverEmail,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -40,9 +42,11 @@ class _$AuthStateTearOff {
       passwordConfirm: passwordConfirm,
       namePerson: namePerson,
       nickname: nickname,
+      nicknameSocial: nicknameSocial,
       showErrorMessageLogin: showErrorMessageLogin,
       showErrorMessageRegisterFinalStep: showErrorMessageRegisterFinalStep,
       showErrorMessageRegisterFirstStep: showErrorMessageRegisterFirstStep,
+      showErrorMessageisNicknameSocial: showErrorMessageisNicknameSocial,
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -63,10 +67,13 @@ mixin _$AuthState {
   String get passwordConfirm => throw _privateConstructorUsedError;
   String get namePerson => throw _privateConstructorUsedError;
   String get nickname => throw _privateConstructorUsedError;
+  String get nicknameSocial => throw _privateConstructorUsedError;
   bool get showErrorMessageLogin => throw _privateConstructorUsedError;
   bool get showErrorMessageRegisterFinalStep =>
       throw _privateConstructorUsedError;
   bool get showErrorMessageRegisterFirstStep =>
+      throw _privateConstructorUsedError;
+  bool get showErrorMessageisNicknameSocial =>
       throw _privateConstructorUsedError;
   bool get showErrorMessageRecoverEmail => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
@@ -92,9 +99,11 @@ abstract class $AuthStateCopyWith<$Res> {
       String passwordConfirm,
       String namePerson,
       String nickname,
+      String nicknameSocial,
       bool showErrorMessageLogin,
       bool showErrorMessageRegisterFinalStep,
       bool showErrorMessageRegisterFirstStep,
+      bool showErrorMessageisNicknameSocial,
       bool showErrorMessageRecoverEmail,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -118,9 +127,11 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? passwordConfirm = freezed,
     Object? namePerson = freezed,
     Object? nickname = freezed,
+    Object? nicknameSocial = freezed,
     Object? showErrorMessageLogin = freezed,
     Object? showErrorMessageRegisterFinalStep = freezed,
     Object? showErrorMessageRegisterFirstStep = freezed,
+    Object? showErrorMessageisNicknameSocial = freezed,
     Object? showErrorMessageRecoverEmail = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -155,6 +166,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      nicknameSocial: nicknameSocial == freezed
+          ? _value.nicknameSocial
+          : nicknameSocial // ignore: cast_nullable_to_non_nullable
+              as String,
       showErrorMessageLogin: showErrorMessageLogin == freezed
           ? _value.showErrorMessageLogin
           : showErrorMessageLogin // ignore: cast_nullable_to_non_nullable
@@ -168,6 +183,11 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
               freezed
           ? _value.showErrorMessageRegisterFirstStep
           : showErrorMessageRegisterFirstStep // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessageisNicknameSocial: showErrorMessageisNicknameSocial ==
+              freezed
+          ? _value.showErrorMessageisNicknameSocial
+          : showErrorMessageisNicknameSocial // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail == freezed
           ? _value.showErrorMessageRecoverEmail
@@ -203,9 +223,11 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       String passwordConfirm,
       String namePerson,
       String nickname,
+      String nicknameSocial,
       bool showErrorMessageLogin,
       bool showErrorMessageRegisterFinalStep,
       bool showErrorMessageRegisterFirstStep,
+      bool showErrorMessageisNicknameSocial,
       bool showErrorMessageRecoverEmail,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -230,9 +252,11 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? passwordConfirm = freezed,
     Object? namePerson = freezed,
     Object? nickname = freezed,
+    Object? nicknameSocial = freezed,
     Object? showErrorMessageLogin = freezed,
     Object? showErrorMessageRegisterFinalStep = freezed,
     Object? showErrorMessageRegisterFirstStep = freezed,
+    Object? showErrorMessageisNicknameSocial = freezed,
     Object? showErrorMessageRecoverEmail = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -267,6 +291,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      nicknameSocial: nicknameSocial == freezed
+          ? _value.nicknameSocial
+          : nicknameSocial // ignore: cast_nullable_to_non_nullable
+              as String,
       showErrorMessageLogin: showErrorMessageLogin == freezed
           ? _value.showErrorMessageLogin
           : showErrorMessageLogin // ignore: cast_nullable_to_non_nullable
@@ -280,6 +308,11 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
               freezed
           ? _value.showErrorMessageRegisterFirstStep
           : showErrorMessageRegisterFirstStep // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessageisNicknameSocial: showErrorMessageisNicknameSocial ==
+              freezed
+          ? _value.showErrorMessageisNicknameSocial
+          : showErrorMessageisNicknameSocial // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessageRecoverEmail: showErrorMessageRecoverEmail == freezed
           ? _value.showErrorMessageRecoverEmail
@@ -312,9 +345,11 @@ class _$_AuthState extends _AuthState {
       required this.passwordConfirm,
       required this.namePerson,
       required this.nickname,
+      required this.nicknameSocial,
       required this.showErrorMessageLogin,
       required this.showErrorMessageRegisterFinalStep,
       required this.showErrorMessageRegisterFirstStep,
+      required this.showErrorMessageisNicknameSocial,
       required this.showErrorMessageRecoverEmail,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption,
@@ -336,11 +371,15 @@ class _$_AuthState extends _AuthState {
   @override
   final String nickname;
   @override
+  final String nicknameSocial;
+  @override
   final bool showErrorMessageLogin;
   @override
   final bool showErrorMessageRegisterFinalStep;
   @override
   final bool showErrorMessageRegisterFirstStep;
+  @override
+  final bool showErrorMessageisNicknameSocial;
   @override
   final bool showErrorMessageRecoverEmail;
   @override
@@ -352,7 +391,7 @@ class _$_AuthState extends _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(nicknameOrEmailLoging: $nicknameOrEmailLoging, passwordLogin: $passwordLogin, emailAddressRegister: $emailAddressRegister, passwordRegister: $passwordRegister, passwordConfirm: $passwordConfirm, namePerson: $namePerson, nickname: $nickname, showErrorMessageLogin: $showErrorMessageLogin, showErrorMessageRegisterFinalStep: $showErrorMessageRegisterFinalStep, showErrorMessageRegisterFirstStep: $showErrorMessageRegisterFirstStep, showErrorMessageRecoverEmail: $showErrorMessageRecoverEmail, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, userFailureOrSuccessOption: $userFailureOrSuccessOption)';
+    return 'AuthState(nicknameOrEmailLoging: $nicknameOrEmailLoging, passwordLogin: $passwordLogin, emailAddressRegister: $emailAddressRegister, passwordRegister: $passwordRegister, passwordConfirm: $passwordConfirm, namePerson: $namePerson, nickname: $nickname, nicknameSocial: $nicknameSocial, showErrorMessageLogin: $showErrorMessageLogin, showErrorMessageRegisterFinalStep: $showErrorMessageRegisterFinalStep, showErrorMessageRegisterFirstStep: $showErrorMessageRegisterFirstStep, showErrorMessageisNicknameSocial: $showErrorMessageisNicknameSocial, showErrorMessageRecoverEmail: $showErrorMessageRecoverEmail, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, userFailureOrSuccessOption: $userFailureOrSuccessOption)';
   }
 
   @override
@@ -380,6 +419,9 @@ class _$_AuthState extends _AuthState {
             (identical(other.nickname, nickname) ||
                 const DeepCollectionEquality()
                     .equals(other.nickname, nickname)) &&
+            (identical(other.nicknameSocial, nicknameSocial) ||
+                const DeepCollectionEquality()
+                    .equals(other.nicknameSocial, nicknameSocial)) &&
             (identical(other.showErrorMessageLogin, showErrorMessageLogin) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageLogin, showErrorMessageLogin)) &&
@@ -387,11 +429,14 @@ class _$_AuthState extends _AuthState {
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageRegisterFinalStep,
                     showErrorMessageRegisterFinalStep)) &&
-            (identical(other.showErrorMessageRegisterFirstStep,
-                    showErrorMessageRegisterFirstStep) ||
+            (identical(other.showErrorMessageRegisterFirstStep, showErrorMessageRegisterFirstStep) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageRegisterFirstStep,
                     showErrorMessageRegisterFirstStep)) &&
+            (identical(other.showErrorMessageisNicknameSocial, showErrorMessageisNicknameSocial) ||
+                const DeepCollectionEquality().equals(
+                    other.showErrorMessageisNicknameSocial,
+                    showErrorMessageisNicknameSocial)) &&
             (identical(other.showErrorMessageRecoverEmail, showErrorMessageRecoverEmail) ||
                 const DeepCollectionEquality().equals(
                     other.showErrorMessageRecoverEmail,
@@ -403,9 +448,7 @@ class _$_AuthState extends _AuthState {
                 const DeepCollectionEquality().equals(
                     other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption)) &&
-            (identical(other.userFailureOrSuccessOption, userFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.userFailureOrSuccessOption, userFailureOrSuccessOption)));
+            (identical(other.userFailureOrSuccessOption, userFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.userFailureOrSuccessOption, userFailureOrSuccessOption)));
   }
 
   @override
@@ -418,9 +461,11 @@ class _$_AuthState extends _AuthState {
       const DeepCollectionEquality().hash(passwordConfirm) ^
       const DeepCollectionEquality().hash(namePerson) ^
       const DeepCollectionEquality().hash(nickname) ^
+      const DeepCollectionEquality().hash(nicknameSocial) ^
       const DeepCollectionEquality().hash(showErrorMessageLogin) ^
       const DeepCollectionEquality().hash(showErrorMessageRegisterFinalStep) ^
       const DeepCollectionEquality().hash(showErrorMessageRegisterFirstStep) ^
+      const DeepCollectionEquality().hash(showErrorMessageisNicknameSocial) ^
       const DeepCollectionEquality().hash(showErrorMessageRecoverEmail) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption) ^
@@ -441,9 +486,11 @@ abstract class _AuthState extends AuthState {
       required String passwordConfirm,
       required String namePerson,
       required String nickname,
+      required String nicknameSocial,
       required bool showErrorMessageLogin,
       required bool showErrorMessageRegisterFinalStep,
       required bool showErrorMessageRegisterFirstStep,
+      required bool showErrorMessageisNicknameSocial,
       required bool showErrorMessageRecoverEmail,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -466,12 +513,17 @@ abstract class _AuthState extends AuthState {
   @override
   String get nickname => throw _privateConstructorUsedError;
   @override
+  String get nicknameSocial => throw _privateConstructorUsedError;
+  @override
   bool get showErrorMessageLogin => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessageRegisterFinalStep =>
       throw _privateConstructorUsedError;
   @override
   bool get showErrorMessageRegisterFirstStep =>
+      throw _privateConstructorUsedError;
+  @override
+  bool get showErrorMessageisNicknameSocial =>
       throw _privateConstructorUsedError;
   @override
   bool get showErrorMessageRecoverEmail => throw _privateConstructorUsedError;

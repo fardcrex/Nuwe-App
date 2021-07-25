@@ -22,8 +22,8 @@ import 'Redux/reducer.dart';
 import 'Settings/style.dart';
 
 void main() {
-  final authRepository = MockAuthRepository();
-  final authSocialRepository = MockSocialRepository();
+  final authRepository = FakeAuthRepository();
+  final authSocialRepository = FakeSocialRepository();
   final emailRepository = MockEmailRepository();
   runApp(MyApp(
     store: Store<AppState>(

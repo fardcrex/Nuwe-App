@@ -27,6 +27,7 @@ class TwitterButton extends StatelessWidget {
       );
 
   void goToTheRegisterPage(BuildContext context) {
+    FocusScope.of(context).unfocus();
     if (!isNavigate) return onTap?.call();
     Navigator.push(
       context,
@@ -68,6 +69,7 @@ class GoogleButton extends StatelessWidget {
       );
 
   void goToTheRegisterPage(BuildContext context) {
+    FocusScope.of(context).unfocus();
     if (!isNavigate) return onTap?.call();
     Navigator.push(
       context,
@@ -114,6 +116,7 @@ class GithubButton extends StatelessWidget {
       );
 
   void goToTheRegisterPage(BuildContext context) {
+    FocusScope.of(context).unfocus();
     if (!isNavigate) return onTap?.call();
     Navigator.push(
       context,

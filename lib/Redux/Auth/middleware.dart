@@ -108,7 +108,6 @@ MiddlewareAct<AppState, LoginWithGoogleAction> getLoginWithGoogleMiddleware(Logi
 
     next(UpdateAuthStateAction(store.state.authState.copyWith(
       isSubmitting: false,
-      showErrorMessageRegisterFinalStep: true,
       authFailureOrSuccessOption: optionOf(result),
     )));
   };
@@ -124,7 +123,7 @@ MiddlewareAct<AppState, RegisterWithGoogleAction> getRegisterWithGoogleMiddlewar
       authFailureOrSuccessOption: none(),
     )));
 
-    final result = await registerWithGoogle(store.state.authState.nickname);
+    final result = await registerWithGoogle(store.state.authState.nicknameSocial);
 
     if (result.isRight()) {
       return next(UpdateAuthStateAction(AuthState.initial().copyWith(
@@ -134,7 +133,7 @@ MiddlewareAct<AppState, RegisterWithGoogleAction> getRegisterWithGoogleMiddlewar
 
     next(UpdateAuthStateAction(store.state.authState.copyWith(
       isSubmitting: false,
-      showErrorMessageRegisterFinalStep: true,
+      showErrorMessageisNicknameSocial: true,
       authFailureOrSuccessOption: optionOf(result),
     )));
   };
