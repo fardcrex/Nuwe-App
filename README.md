@@ -7,7 +7,7 @@ Proyecto de reto - [DESCARGAR DEMO](https://drive.google.com/drive/folders/180jt
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+_Estas instrucciones te permitirán obtener una versión del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
 ### Pre-requisitos 📋
 
@@ -35,7 +35,7 @@ flutter run --debug -t lib/main_mock.dart
 flutter run --release -t lib/main_mock.dart
 ```
 
-### Para los servicios con Firebase descomentar linea en 'android\app\build.gradle' y configurar los google-services.json en los folders 'android\app\'
+### Para los servicios con Firebase descomentar linea 25 en 'android\app\build.gradle' y configurar el archivo google-services.json en la carpeta 'android\app\'
 
 ![alt text](assets/code.png "code")
 
@@ -61,7 +61,7 @@ flutter build apk -t lib/main.dart
 ![alt text](assets/redux.png "code")
 
 - [pub](https://maven.apache.org/) - Manejador de dependencias
-- [Firebase](https://firebase.google.com/) - Como base de datos y authenticacion.
+- [Firebase](https://firebase.google.com/) - Como base de datos y autentificación.
 - [DDD](https://en.wikipedia.org/wiki/Domain-driven_design) - como arquitectura de la app para escalar comodamente y alternar entre diferentes fuentes de datos rápidamente.
 
 ![alt text](assets/arquitectura.png "code")
