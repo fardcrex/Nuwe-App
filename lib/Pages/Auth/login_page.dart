@@ -5,11 +5,11 @@ import 'package:nuwe/Pages/Auth/widgets/buttons.dart';
 import 'package:nuwe/Pages/Auth/widgets/footer.dart';
 import 'package:nuwe/Pages/Auth/widgets/input_text.dart';
 import 'package:nuwe/Pages/Auth/widgets/logo.dart';
-import 'package:nuwe/Pages/Auth/widgets/social_buttons.dart';
 import 'package:nuwe/Pages/Auth/widgets/text_main.dart';
 import 'package:nuwe/Settings/router.dart';
 
 import 'container/input_container.dart';
+import 'container/social_container.dart';
 
 class LoginPage extends StatelessWidget {
   final void Function(String) onChangePassword;
@@ -60,7 +60,7 @@ class LoginPage extends StatelessWidget {
                   isSubmitting: isSubmitting,
                 ),
                 const Spacer(flex: 6),
-                const SocialButtons(),
+                const SocialContainer(),
                 const Spacer(),
                 Divider(color: Theme.of(context).primaryColor),
                 Footer(

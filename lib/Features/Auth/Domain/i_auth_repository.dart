@@ -18,6 +18,9 @@ abstract class IAuthRepository {
 }
 
 abstract class IAuthSocialRepository {
-  Future<Either<AuthFailure, String>> signInWithGoogle();
-  Future<Either<AuthFailure, String>> signInWithTwitter();
+  Future<Either<AuthFailure, Unit>> registerWithGoogle(Nickname nickname);
+  Future<Either<AuthFailure, Unit>> signInWithGoogle();
+  Future<Either<AuthFailure, Unit>> signInWithGithub();
+  Future<Either<AuthFailure, Unit>> signInWithTwitter();
+  Future<void> signOut();
 }

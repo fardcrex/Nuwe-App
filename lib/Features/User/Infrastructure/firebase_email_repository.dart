@@ -35,8 +35,16 @@ class FirebaseEmailRepository implements IEmailRepository {
   }
 
   @override
-  Future<Either<UserFailure, Unit>> recoverPassword({required EmailAddress emailAddress}) {
-    // TODO: implement recoverPassword
-    throw UnimplementedError();
+  Future<Either<UserFailure, Unit>> recoverPassword({required EmailAddress emailAddress}) async {
+    final emailAddressStr = emailAddress.getOrCrash();
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: emailAddressStr);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') return left(const UserFailure.emailNotVerified());
+      return left(UserFailure.error(e));
+    } catch (e) {
+      return left(UserFailure.error(e));
+    }
   }
 }

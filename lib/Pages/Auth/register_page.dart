@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nuwe/Pages/Auth/widgets/footer.dart';
 import 'package:nuwe/Pages/Auth/widgets/logo.dart';
-import 'package:nuwe/Pages/Auth/widgets/social_buttons.dart';
 import 'package:nuwe/Pages/Auth/widgets/text_main.dart';
 import 'package:nuwe/Settings/router.dart';
 
 import 'container/register_container.dart';
+import 'container/social_container.dart';
 
 class RegisterPage extends StatelessWidget {
   static const primaryColor = Color(0xFF569B51);
@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
               const Spacer(flex: 3),
               const ContainerRegisterPage(),
               const Spacer(flex: 3),
-              const SocialButtons(),
+              const SocialContainer(isFromRegisterPage: true),
               const Spacer(),
               Divider(color: Theme.of(context).primaryColor),
               Footer(

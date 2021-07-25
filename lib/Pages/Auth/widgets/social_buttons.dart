@@ -1,42 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SocialButtons extends StatelessWidget {
-  const SocialButtons({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        GoogleButton(onTap: () {}),
-        const TwitterButton(),
-        GithubButton(onTap: () {}),
-      ],
-    );
-  }
-}
+import '../register_social_page.dart';
 
 class TwitterButton extends StatelessWidget {
   static const colorTwitter = Color(0xff1D9BF0);
-
-  const TwitterButton({Key? key}) : super(key: key);
+  final void Function()? onTap;
+  final void Function(String) onChangeNickname;
+  final bool isNavigate;
+  const TwitterButton({Key? key, this.onTap, required this.onChangeNickname, required this.isNavigate})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {},
-      child: Container(
-        width: 55,
-        height: 55,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: colorTwitter,
-        ),
-        child: const Icon(
-          FontAwesomeIcons.twitter,
-          color: Colors.white,
-          size: 25,
+      onTap: () => goToTheRegisterPage(context),
+      child: _getIcon(radius: 55, size: 28),
+    );
+  }
+
+  Widget _getIcon({required double radius, required double size}) => SocialIcon(
+        radius: radius,
+        backgroundColor: colorTwitter,
+        icon: Icon(FontAwesomeIcons.twitter, color: Colors.white, size: size),
+      );
+
+  void goToTheRegisterPage(BuildContext context) {
+    if (!isNavigate) return onTap?.call();
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (_) => RegisterSocialPage(
+          registerWithSocial: onTap,
+          onChangeNickname: onChangeNickname,
+          socialIcon: _getIcon(radius: 120, size: 60),
         ),
       ),
     );
@@ -45,24 +43,39 @@ class TwitterButton extends StatelessWidget {
 
 class GoogleButton extends StatelessWidget {
   static const colorGoogle = Color(0xffDB3D29);
-  final void Function() onTap;
-  const GoogleButton({Key? key, required this.onTap}) : super(key: key);
+  final void Function()? onTap;
+  final void Function(String) onChangeNickname;
+  final bool isNavigate;
+  const GoogleButton({
+    Key? key,
+    this.onTap,
+    required this.onChangeNickname,
+    required this.isNavigate,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 55,
-        height: 55,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: colorGoogle,
-        ),
-        child: const Icon(
-          FontAwesomeIcons.google,
-          color: Colors.white,
-          size: 25,
+      onTap: () => goToTheRegisterPage(context),
+      child: _getIcon(radius: 55, size: 28),
+    );
+  }
+
+  Widget _getIcon({required double radius, required double size}) => SocialIcon(
+        radius: radius,
+        backgroundColor: colorGoogle,
+        icon: Icon(FontAwesomeIcons.google, color: Colors.white, size: size),
+      );
+
+  void goToTheRegisterPage(BuildContext context) {
+    if (!isNavigate) return onTap?.call();
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (_) => RegisterSocialPage(
+          registerWithSocial: onTap,
+          onChangeNickname: onChangeNickname,
+          socialIcon: _getIcon(radius: 120, size: 60),
         ),
       ),
     );
@@ -71,39 +84,79 @@ class GoogleButton extends StatelessWidget {
 
 class GithubButton extends StatelessWidget {
   static const colorMicrosof = Color(0xff2E353F);
-  final void Function() onTap;
-  const GithubButton({Key? key, required this.onTap}) : super(key: key);
+
+  final void Function(String) onChangeNickname;
+
+  final void Function()? onTap;
+
+  final bool isNavigate;
+
+  const GithubButton({
+    Key? key,
+    this.onTap,
+    required this.isNavigate,
+    required this.onChangeNickname,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 55,
-        height: 55,
+      onTap: () => goToTheRegisterPage(context),
+      child: _getIcon(radius: 55, size: 40),
+    );
+  }
+
+  Widget _getIcon({required double radius, required double size}) => SocialIcon(
+        radius: radius,
+        backgroundColor: Colors.white,
+        icon: Icon(FontAwesomeIcons.github, color: Colors.black, size: size),
         padding: const EdgeInsets.only(bottom: 2),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-        ),
-        alignment: Alignment.center,
-        child: const Icon(
-          FontAwesomeIcons.github,
-          color: Colors.black,
-          size: 40,
+      );
+
+  void goToTheRegisterPage(BuildContext context) {
+    if (!isNavigate) return onTap?.call();
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (_) => RegisterSocialPage(
+          registerWithSocial: onTap,
+          onChangeNickname: onChangeNickname,
+          socialIcon: _getIcon(radius: 120, size: 80),
         ),
       ),
     );
   }
 }
 
-class _SocialButton extends StatelessWidget {
-  const _SocialButton({Key? key}) : super(key: key);
+class SocialIcon extends StatelessWidget {
+  final Widget icon;
+
+  final EdgeInsetsGeometry? padding;
+
+  final double radius;
+
+  final Color backgroundColor;
+
+  const SocialIcon({
+    Key? key,
+    required this.icon,
+    this.padding,
+    required this.backgroundColor,
+    required this.radius,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: null,
+      width: radius,
+      height: radius,
+      padding: padding,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        shape: BoxShape.circle,
+      ),
+      alignment: Alignment.center,
+      child: icon,
     );
   }
 }

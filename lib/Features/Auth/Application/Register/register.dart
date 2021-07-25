@@ -38,9 +38,9 @@ class RegisterWithCredentials {
   }
 
   Either<AuthFailure, Unit> _validateCredentials(Password password) {
-    if (!password.isValid()) {
-      return password.value.fold((l) => Left(AuthFailure.invalidPassword(l)), (r) => right(unit));
-    }
-    return right(unit);
+    return password.value.fold(
+      (l) => Left(AuthFailure.invalidPassword(l)),
+      (_) => right(unit),
+    );
   }
 }

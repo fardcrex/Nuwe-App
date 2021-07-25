@@ -47,6 +47,14 @@ class SignOutAction {
   const SignOutAction();
 }
 
+class LoginWithGoogleAction {
+  const LoginWithGoogleAction();
+}
+
+class RegisterWithGoogleAction {
+  const RegisterWithGoogleAction();
+}
+
 class UpdateAuthStateAction {
   final AuthState authState;
 

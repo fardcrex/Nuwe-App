@@ -2,14 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:firebase_auth_oauth/firebase_auth_oauth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
 import 'package:nuwe/Features/Auth/Domain/i_auth_repository.dart';
 import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
 import 'package:nuwe/Features/User/Domain/user_dto/user_dto.dart' as user;
 import 'package:nuwe/Features/User/Domain/value_objects.dart';
 
-class FirebaseAuthRepository implements IAuthRepository {
+class FirebaseAuthRepository with ErrorCode implements IAuthRepository {
   // final IservicesOfToken _servicesOfToken;
   final FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firestore;
@@ -38,7 +37,7 @@ class FirebaseAuthRepository implements IAuthRepository {
 
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      return _getAuthFailure(e);
+      return getAuthFailure(e);
     } catch (e) {
       return left(const AuthFailure.serverError());
     }
@@ -99,7 +98,7 @@ class FirebaseAuthRepository implements IAuthRepository {
     } on FirebaseAuthException catch (e) {
       await docRef.delete();
 
-      return _getAuthFailure(e);
+      return getAuthFailure(e);
     } catch (e) {
       return left(const AuthFailure.serverError());
     }
@@ -130,7 +129,14 @@ class FirebaseAuthRepository implements IAuthRepository {
     }
   } */
 
-  Either<AuthFailure, Unit> _getAuthFailure(FirebaseAuthException e) {
+  @override
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+  }
+}
+
+mixin ErrorCode {
+  Either<AuthFailure, Unit> getAuthFailure(FirebaseAuthException e) {
     if (e.code == 'wrong-password' || e.code == 'user-not-found') {
       return left(const AuthFailure.invalidEmailAndPasswordCombination());
     }
@@ -140,24 +146,5 @@ class FirebaseAuthRepository implements IAuthRepository {
     if (e.code == 'email-already-in-use') return left(const AuthFailure.emailAlreadyInUse());
 
     return left(const AuthFailure.serverError());
-  }
-
-  @override
-  Future<Either<AuthFailure, Unit>> recoverPassword({required EmailAddress emailAddress}) async {
-    final emailAddressStr = emailAddress.getOrCrash();
-    try {
-      await _firebaseAuth.sendPasswordResetEmail(email: emailAddressStr);
-      return right(unit);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') return left(const AuthFailure.emailNotExist());
-      return left(const AuthFailure.serverError());
-    } catch (e) {
-      return left(const AuthFailure.serverError());
-    }
-  }
-
-  @override
-  Future<void> signOut() async {
-    await _firebaseAuth.signOut();
   }
 }

@@ -178,6 +178,7 @@ class FirstStep extends StatelessWidget {
       return Column(
         children: [
           InputNuwe(
+            key: Key(authState.nickname.trim()),
             hintText: 'Nombre público de usuario',
             initialText: authState.nickname.trim(),
             canShowError: authState.canShowNicknameError,

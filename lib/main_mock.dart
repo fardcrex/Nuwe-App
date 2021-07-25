@@ -7,7 +7,9 @@ import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import 'Features/Auth/Application/Login/login.dart';
-import 'Features/Auth/Application/register.dart';
+import 'Features/Auth/Application/Login/login_with_google.dart';
+import 'Features/Auth/Application/Register/register.dart';
+import 'Features/Auth/Application/Register/register_with_google.dart';
 import 'Features/Auth/Application/signout.dart';
 import 'Features/Auth/Infraestructure/mock_auth_repository.dart';
 import 'Features/User/Application/verified_email.dart';
@@ -21,6 +23,7 @@ import 'Settings/style.dart';
 
 void main() {
   final authRepository = MockAuthRepository();
+  final authSocialRepository = MockSocialRepository();
   final emailRepository = MockEmailRepository();
   runApp(MyApp(
     store: Store<AppState>(
@@ -28,7 +31,9 @@ void main() {
       initialState: AppState.initial(),
       middleware: [
         ...createAuthMiddlewares(
-          signOutApp: SignOut(authRepository),
+          registerWithGoogle: RegisterWithGoogle(authSocialRepository),
+          loginWithGoogle: LoginWithGoogle(authSocialRepository),
+          signOutApp: SignOut(authRepository, authSocialRepository),
           loginWithCredentials: LoginWithCredentials(authRepository),
           registerWithCredentials: RegisterWithCredentials(authRepository),
         ),

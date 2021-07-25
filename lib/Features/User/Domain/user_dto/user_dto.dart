@@ -9,6 +9,7 @@ class User with _$User {
     @Default(false) bool isEmailVerified,
     required String emailAddress,
     required String nickname,
+    String? avatarImage,
     required String name,
   }) = _User;
 

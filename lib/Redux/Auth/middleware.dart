@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:nuwe/Features/Auth/Application/Login/login.dart';
-import 'package:nuwe/Features/Auth/Application/register.dart';
+import 'package:nuwe/Features/Auth/Application/Login/login_with_google.dart';
+import 'package:nuwe/Features/Auth/Application/Register/register.dart';
+import 'package:nuwe/Features/Auth/Application/Register/register_with_google.dart';
 import 'package:nuwe/Features/Auth/Application/signout.dart';
 import 'package:nuwe/Redux/User/actions.dart';
 import 'package:nuwe/Redux/User/user_state/user_state.dart';
@@ -12,6 +14,8 @@ import 'auth_state/auth_state.dart';
 
 List<Middleware<AppState>> createAuthMiddlewares({
   required SignOut signOutApp,
+  required LoginWithGoogle loginWithGoogle,
+  required RegisterWithGoogle registerWithGoogle,
   required LoginWithCredentials loginWithCredentials,
   required RegisterWithCredentials registerWithCredentials,
 }) {
@@ -20,7 +24,9 @@ List<Middleware<AppState>> createAuthMiddlewares({
   return [
     TypedMiddleware<AppState, SignInWithCredentialsAction>(loginEmailAndPasswordMiddleware),
     TypedMiddleware<AppState, SignUpWithCredentialsAction>(registerWithCredentialsMiddleware),
-    TypedMiddleware<AppState, SignOutAction>(getSignOutmiddleware(signOutApp)),
+    TypedMiddleware<AppState, LoginWithGoogleAction>(getLoginWithGoogleMiddleware(loginWithGoogle)),
+    TypedMiddleware<AppState, RegisterWithGoogleAction>(getRegisterWithGoogleMiddleware(registerWithGoogle)),
+    TypedMiddleware<AppState, SignOutAction>(getSignOutMiddleware(signOutApp)),
   ];
 }
 
@@ -84,7 +90,57 @@ MiddlewareAct<AppState, SignUpWithCredentialsAction> getRegisterMiddleware(Regis
   };
 }
 
-MiddlewareAct<AppState, SignOutAction> getSignOutmiddleware(SignOut signOutApp) {
+MiddlewareAct<AppState, LoginWithGoogleAction> getLoginWithGoogleMiddleware(LoginWithGoogle loginWithGoogle) {
+  return (Store<AppState> store, action, NextDispatcher next) async {
+    if (store.state.authState.isSubmitting) return;
+
+    next(UpdateAuthStateAction(store.state.authState.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    )));
+
+    final result = await loginWithGoogle();
+    if (result.isRight()) {
+      return next(UpdateAuthStateAction(AuthState.initial().copyWith(
+        authFailureOrSuccessOption: optionOf(result),
+      )));
+    }
+
+    next(UpdateAuthStateAction(store.state.authState.copyWith(
+      isSubmitting: false,
+      showErrorMessageRegisterFinalStep: true,
+      authFailureOrSuccessOption: optionOf(result),
+    )));
+  };
+}
+
+MiddlewareAct<AppState, RegisterWithGoogleAction> getRegisterWithGoogleMiddleware(
+    RegisterWithGoogle registerWithGoogle) {
+  return (Store<AppState> store, action, NextDispatcher next) async {
+    if (store.state.authState.isSubmitting) return;
+
+    next(UpdateAuthStateAction(store.state.authState.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    )));
+
+    final result = await registerWithGoogle(store.state.authState.nickname);
+
+    if (result.isRight()) {
+      return next(UpdateAuthStateAction(AuthState.initial().copyWith(
+        authFailureOrSuccessOption: optionOf(result),
+      )));
+    }
+
+    next(UpdateAuthStateAction(store.state.authState.copyWith(
+      isSubmitting: false,
+      showErrorMessageRegisterFinalStep: true,
+      authFailureOrSuccessOption: optionOf(result),
+    )));
+  };
+}
+
+MiddlewareAct<AppState, SignOutAction> getSignOutMiddleware(SignOut signOutApp) {
   return (Store<AppState> store, action, NextDispatcher next) async {
     await signOutApp();
     next(action);

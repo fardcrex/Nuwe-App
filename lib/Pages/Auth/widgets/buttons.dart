@@ -24,7 +24,7 @@ class PrimaryButton extends StatelessWidget {
           width: min(360, MediaQuery.of(context).size.width * 0.92),
           child: Text(
             maintext,
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: isSubmitting ? const Color(0xFFB5B5B5) : Colors.white),
           ),
         ));
   }

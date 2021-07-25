@@ -20,7 +20,15 @@ class HomePage extends StatelessWidget {
         child: Column(
           //  mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Spacer(flex: 2),
+            const Spacer(),
+            if (userData.user.avatarImage == null)
+              const Icon(Icons.person, size: 120)
+            else
+              CircleAvatar(
+                backgroundImage: NetworkImage(userData.user.avatarImage!),
+                radius: 60,
+              ),
+            const Spacer(),
             const Text('Nombre Público:'),
             Text(userData.user.nickname),
             const Spacer(flex: 2),

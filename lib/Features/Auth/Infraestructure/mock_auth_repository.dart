@@ -6,11 +6,6 @@ import 'package:nuwe/Features/Auth/Domain/value_objects.dart';
 
 class MockAuthRepository implements IAuthRepository {
   @override
-  Future<Either<AuthFailure, Unit>> recoverPassword({required EmailAddress emailAddress}) {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<AuthFailure, Unit>> registerWithCredentials(
     EmailAddress emailAddress,
     Password password,
@@ -34,4 +29,29 @@ class MockAuthRepository implements IAuthRepository {
 
   @override
   Future<void> signOut() async {}
+}
+
+class MockSocialRepository implements IAuthSocialRepository {
+  @override
+  Future<Either<AuthFailure, Unit>> signInWithGithub() async {
+    return right(unit);
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
+    return right(unit);
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> signInWithTwitter() async {
+    return right(unit);
+  }
+
+  @override
+  Future<void> signOut() async {}
+
+  @override
+  Future<Either<AuthFailure, Unit>> registerWithGoogle(Nickname nickname) async {
+    return right(unit);
+  }
 }

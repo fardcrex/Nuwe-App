@@ -24,11 +24,13 @@ class _$UserTearOff {
       {bool isEmailVerified = false,
       required String emailAddress,
       required String nickname,
+      String? avatarImage,
       required String name}) {
     return _User(
       isEmailVerified: isEmailVerified,
       emailAddress: emailAddress,
       nickname: nickname,
+      avatarImage: avatarImage,
       name: name,
     );
   }
@@ -46,6 +48,7 @@ mixin _$User {
   bool get isEmailVerified => throw _privateConstructorUsedError;
   String get emailAddress => throw _privateConstructorUsedError;
   String get nickname => throw _privateConstructorUsedError;
+  String? get avatarImage => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -61,6 +64,7 @@ abstract class $UserCopyWith<$Res> {
       {bool isEmailVerified,
       String emailAddress,
       String nickname,
+      String? avatarImage,
       String name});
 }
 
@@ -77,6 +81,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? isEmailVerified = freezed,
     Object? emailAddress = freezed,
     Object? nickname = freezed,
+    Object? avatarImage = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
@@ -92,6 +97,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      avatarImage: avatarImage == freezed
+          ? _value.avatarImage
+          : avatarImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -109,6 +118,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       {bool isEmailVerified,
       String emailAddress,
       String nickname,
+      String? avatarImage,
       String name});
 }
 
@@ -126,6 +136,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? isEmailVerified = freezed,
     Object? emailAddress = freezed,
     Object? nickname = freezed,
+    Object? avatarImage = freezed,
     Object? name = freezed,
   }) {
     return _then(_User(
@@ -141,6 +152,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      avatarImage: avatarImage == freezed
+          ? _value.avatarImage
+          : avatarImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -156,6 +171,7 @@ class _$_User implements _User {
       {this.isEmailVerified = false,
       required this.emailAddress,
       required this.nickname,
+      this.avatarImage,
       required this.name});
 
   factory _$_User.fromJson(Map<String, dynamic> json) =>
@@ -169,11 +185,13 @@ class _$_User implements _User {
   @override
   final String nickname;
   @override
+  final String? avatarImage;
+  @override
   final String name;
 
   @override
   String toString() {
-    return 'User(isEmailVerified: $isEmailVerified, emailAddress: $emailAddress, nickname: $nickname, name: $name)';
+    return 'User(isEmailVerified: $isEmailVerified, emailAddress: $emailAddress, nickname: $nickname, avatarImage: $avatarImage, name: $name)';
   }
 
   @override
@@ -189,6 +207,9 @@ class _$_User implements _User {
             (identical(other.nickname, nickname) ||
                 const DeepCollectionEquality()
                     .equals(other.nickname, nickname)) &&
+            (identical(other.avatarImage, avatarImage) ||
+                const DeepCollectionEquality()
+                    .equals(other.avatarImage, avatarImage)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
@@ -199,6 +220,7 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(isEmailVerified) ^
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(nickname) ^
+      const DeepCollectionEquality().hash(avatarImage) ^
       const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
@@ -217,6 +239,7 @@ abstract class _User implements User {
       {bool isEmailVerified,
       required String emailAddress,
       required String nickname,
+      String? avatarImage,
       required String name}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
@@ -227,6 +250,8 @@ abstract class _User implements User {
   String get emailAddress => throw _privateConstructorUsedError;
   @override
   String get nickname => throw _privateConstructorUsedError;
+  @override
+  String? get avatarImage => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
