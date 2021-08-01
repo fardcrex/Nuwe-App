@@ -68,3 +68,9 @@ flutter build apk -t lib/main.dart
 ![alt text](assets/folders.png "code")
 
 # SEMANA 2
+
+![alt text](assets/semana_2/first_step.png "code")
+![alt text](assets/semana_2/second_step.png "code")
+![alt text](assets/semana_2/third_step.png "code")
+![alt text](assets/semana_2/fourth_step.png "code")
+![alt text](assets/semana_2/final_step.png "code")
