@@ -3,7 +3,7 @@ analyzer:
   exclude:
     - "**/**.g.dart"
     - "**/**.freezed.dart"
-    - "**.yaml"
+    - "./pubspec.yaml"
 
 
 linter:

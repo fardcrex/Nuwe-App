@@ -8,6 +8,7 @@ class AssetsImage {
 class FontNuweFamily {
   static const montserratMedium = 'MontserratMedium';
   static const montserratRegular = 'MontserratRegular';
+  static const montserratBold = 'MontserratBold';
 }
 
 class NuweThemeData {

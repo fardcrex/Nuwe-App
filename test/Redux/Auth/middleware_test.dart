@@ -1,7 +1,5 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'dart:async';
 import 'package:mockito/mockito.dart';
 import 'package:nuwe/Features/Auth/Application/Login/login.dart';
 import 'package:nuwe/Features/Auth/Application/Login/login_with_google.dart';
@@ -20,9 +18,9 @@ class MockAuthRepository extends Mock implements IAuthRepository {}
 
 class MockSocialRepository extends Mock implements IAuthSocialRepository {}
 
-main() {
+void main() {
   group('Middleware', () {
-    test('Should sing out with credentials', () {
+    test('Should sing out with credentials', () async {
       final authRepository = MockAuthRepository();
       final authSocialRepository = MockSocialRepository();
 
@@ -46,8 +44,10 @@ main() {
 
       store.dispatch(const SignOutAction());
 
-      verify(authSocialRepository.signOut());
-      verify(authRepository.signOut());
+      await Future.delayed(const Duration(seconds: 2));
+
+      verify(authSocialRepository.signOut()).called(1);
+      verify(authRepository.signOut()).called(1);
     });
   });
 }

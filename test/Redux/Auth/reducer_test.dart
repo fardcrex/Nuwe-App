@@ -3,7 +3,6 @@ import 'package:nuwe/Features/Auth/Domain/auth_failure.dart';
 import 'package:nuwe/Features/Shared/Domain/failures.dart';
 import 'package:nuwe/Features/User/Domain/user_dto/user_dto.dart';
 import 'package:nuwe/Redux/Auth/actions.dart';
-import 'package:nuwe/Redux/Auth/auth_state/auth_state.dart';
 import 'package:nuwe/Redux/User/user_state/user_state.dart';
 import 'package:nuwe/Redux/app_state.dart';
 import 'package:nuwe/Redux/reducer.dart';
@@ -11,7 +10,7 @@ import 'package:redux/redux.dart';
 
 import 'package:test/test.dart';
 
-main() {
+void main() {
   group('State Reducer', () {
     test('Deberia reiniciarse el estado  de UserState en un sign out', () {
       final store = Store<AppState>(
@@ -48,7 +47,7 @@ main() {
       expect(store.state.authState.passwordLogin, passwordLogin);
     });
 
-    test('Deberia cambiar registrar credentials en change Action', () {
+    test('Deberia cambiar registrar credentials on change Action', () {
       const nickname = 'nickname';
       const namePerson = 'Nuwe Fulano';
       const emailAddress = 'nuwe2021Loging';
