@@ -11,6 +11,7 @@ import 'package:nuwe/Pages/Initial_forms/widgets/dot_steepper_view.dart';
 import 'container/buttom_next.dart';
 import 'container/buttom_previus.dart';
 import 'container/container_step.dart';
+import 'container/first_step_container.dart';
 import 'final_step.dart';
 import 'first_step.dart';
 import 'fourth_step.dart';
@@ -36,7 +37,7 @@ class InitFormPage extends StatelessWidget {
                 IndexedStack(
                   index: activeStep,
                   children: const [
-                    FirsStep(),
+                    FirsStepContainer(),
                     SecondStep(),
                     ThirdStep(),
                     FourthStep(),

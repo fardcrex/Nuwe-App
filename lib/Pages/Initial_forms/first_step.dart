@@ -6,7 +6,23 @@ import 'package:nuwe/Pages/Initial_forms/widgets/title_form.dart';
 import 'container/buttom_next.dart';
 
 class FirsStep extends StatelessWidget {
-  const FirsStep({Key? key}) : super(key: key);
+  final void Function(String) onChangeCountry;
+  final void Function(String) onChangeCity;
+  final void Function(String) onChangeBio;
+  final void Function(String) onChangeAge;
+  final bool canShowCountryError;
+  final bool canShowCityError;
+  final bool canShowAgeError;
+  const FirsStep(
+      {Key? key,
+      required this.onChangeCountry,
+      required this.onChangeCity,
+      required this.onChangeBio,
+      required this.canShowCountryError,
+      required this.canShowCityError,
+      required this.canShowAgeError,
+      required this.onChangeAge})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,31 +31,35 @@ class FirsStep extends StatelessWidget {
         const SizedBox(height: 20.0),
         const TitleInput('INFORMACIÓN PERSONAL'),
         const SizedBox(height: 30.0),
-        const InputForm(
+        InputForm(
           initialText: '',
-          canShowError: false,
+          canShowError: canShowCountryError,
           hintText: 'País de residencia *',
           textInputAction: TextInputAction.done,
+          onChanged: onChangeCountry,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
-          canShowError: false,
+          canShowError: canShowCityError,
           hintText: 'Ciudad de residencia *',
           textInputAction: TextInputAction.done,
+          onChanged: onChangeCity,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
-          canShowError: false,
+          canShowError: canShowAgeError,
           hintText: 'Edad *',
           keyboardType: TextInputType.number,
           textInputAction: TextInputAction.done,
+          onChanged: onChangeAge,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Bio',
           lines: 5,
           textInputAction: TextInputAction.done,
+          onChanged: onChangeBio,
         ),
         const SizedBox(height: 20.0),
         Row(

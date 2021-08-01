@@ -39,7 +39,7 @@ class InputForm extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(6)),
       ),
       alignment: Alignment.center,
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 6),
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: TextField(
         controller: textController,

@@ -12,7 +12,7 @@ class ToggleBarNuwe extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+        Text(title, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.normal)),
         FlutterToggleTab(
           width: 16,
           height: 20,

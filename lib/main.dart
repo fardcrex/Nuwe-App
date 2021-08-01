@@ -71,6 +71,7 @@ class MyApp extends StatelessWidget {
       store: store,
       child: MaterialApp(
         title: 'Nuwe',
+        debugShowCheckedModeBanner: false,
         initialRoute: isLogged ? HomeRoutes.dashboard : AuthRoutes.initial,
         routes: getRoutesDinamoApp(),
         theme: NuweThemeData.theme,

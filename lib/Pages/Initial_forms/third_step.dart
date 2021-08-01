@@ -11,7 +11,7 @@ import 'widgets/input_form.dart';
 class ThirdStep extends StatelessWidget {
   const ThirdStep({Key? key}) : super(key: key);
   static const sizedBox15 = SizedBox(height: 15.0);
-  static const sizedBox18 = SizedBox(height: 18.0);
+  static const sizedBoxToggle = SizedBox(height: 20.0);
   @override
   Widget build(BuildContext context) {
     return InputBox(
@@ -46,11 +46,11 @@ class ThirdStep extends StatelessWidget {
         ),
         sizedBox15,
         const ToggleBarNuwe(title: 'Quiero recibir notificaciones de empresas'),
-        sizedBox18,
+        sizedBoxToggle,
         const ToggleBarNuwe(title: 'Disponibilidad para viajar'),
-        sizedBox18,
+        sizedBoxToggle,
         const ToggleBarNuwe(title: 'Trabajo en remoto'),
-        sizedBox18,
+        sizedBoxToggle,
         const ToggleBarNuwe(title: 'Incorporación inmediata'),
         sizedBox15,
         Row(

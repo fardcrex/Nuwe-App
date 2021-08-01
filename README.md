@@ -66,3 +66,5 @@ flutter build apk -t lib/main.dart
 
 ![alt text](assets/arquitectura.png "code")
 ![alt text](assets/folders.png "code")
+
+# SEMANA 2
