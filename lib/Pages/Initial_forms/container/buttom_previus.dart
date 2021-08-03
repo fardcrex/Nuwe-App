@@ -18,7 +18,7 @@ class ButtomPrevius extends StatelessWidget {
         return OutlinedButton(
           onPressed: goToNextStep,
           child: Container(
-            width: 120,
+            width: 80,
             alignment: Alignment.center,
             child: const Text('Volver'),
           ),

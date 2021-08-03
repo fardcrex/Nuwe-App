@@ -3,7 +3,6 @@ import 'package:nuwe/Pages/Auth/container/login_container.dart';
 import 'package:nuwe/Pages/Auth/init_page.dart';
 import 'package:nuwe/Pages/Auth/register_page.dart';
 import 'package:nuwe/Pages/Auth/verified_page.dart';
-import 'package:nuwe/Pages/Initial_forms/init_form_page.dart';
 import 'package:nuwe/Pages/init_page_logged.dart';
 
 class AuthRoutes {
@@ -23,5 +22,5 @@ Map<String, WidgetBuilder> getRoutesDinamoApp() => {
       AuthRoutes.login: (_) => const ContainerLoginPage(),
       AuthRoutes.register: (_) => const RegisterPage(),
       AuthRoutes.verified: (_) => const VerifiedPage(),
-      HomeRoutes.dashboard: (_) => const InitFormPage(),
+      HomeRoutes.dashboard: (_) => const InitPageLogged(),
     };

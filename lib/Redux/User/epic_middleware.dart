@@ -17,9 +17,10 @@ class UserStateEpic implements EpicClass<AppState> {
       return service
           .getUserSnapshot()
           .map((result) => result.fold(
-                (error) => UserState.error(error),
-                (r) => r.isEmailVerified ? UserState(user: r) : const UserState.emailNotVerified(),
-              ))
+              (error) => UserStates.error(error),
+              (user) => user.map((value) => UserStates(user: value),
+                  emailNotVerified: (_) => const UserStates.emailNotVerified(),
+                  isNotCreateInformation: (value) => UserStates.notCreateUserInformation(value))))
           .map((userState) => UpdateUserStateAction(userState))
           .takeUntil(actions.whereType<CancelStreamUserStateAction>()); // 8
     });

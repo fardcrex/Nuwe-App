@@ -1,20 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:im_stepper/stepper.dart';
 import 'package:nuwe/Pages/Auth/widgets/logo.dart';
 import 'package:nuwe/Pages/Auth/widgets/text_main.dart';
-import 'package:nuwe/Pages/Initial_forms/second_step.dart';
-import 'package:nuwe/Pages/Initial_forms/third_step.dart';
 import 'package:nuwe/Pages/Initial_forms/widgets/dot_steepper_view.dart';
 
-import 'container/buttom_next.dart';
-import 'container/buttom_previus.dart';
 import 'container/container_step.dart';
 import 'container/first_step_container.dart';
+import 'container/fourth_step_container.dart';
+import 'container/second_step_container.dart';
+import 'container/third_step_container.dart';
 import 'final_step.dart';
-import 'first_step.dart';
-import 'fourth_step.dart';
 
 class InitFormPage extends StatelessWidget {
   const InitFormPage({Key? key}) : super(key: key);
@@ -28,24 +24,29 @@ class InitFormPage extends StatelessWidget {
           height: min(900, MediaQuery.of(context).size.longestSide),
           child: ContainerStep(builder: (context, activeStep) {
             return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                const Spacer(flex: 2),
-                const Logo(),
-                const SizedBox(height: 10),
-                const TextMain(),
                 const Spacer(),
+                const SizedBox(height: 10),
+                /*    const Logo(),
+                const SizedBox(height: 10), */
+                /*    const TextMain(),
+                const Spacer(), */
                 IndexedStack(
+                  alignment: Alignment.center,
                   index: activeStep,
                   children: const [
                     FirsStepContainer(),
-                    SecondStep(),
-                    ThirdStep(),
-                    FourthStep(),
+                    SecondStepContainer(),
+                    ThirdStepContainer(),
+                    FourthStepContainer(),
                     FinalStep(),
                   ],
                 ),
                 const Spacer(),
-                Expanded(flex: 2, child: DotStepperView(activeStep: activeStep)),
+                DotStepperView(activeStep: activeStep),
+                const Spacer(),
               ],
             );
           }),

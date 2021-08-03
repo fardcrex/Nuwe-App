@@ -13,21 +13,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$UserStateTearOff {
-  const _$UserStateTearOff();
+class _$UserStatesTearOff {
+  const _$UserStatesTearOff();
 
-  UserData call({required User user}) {
-    return UserData(
+  UserState call({required UserData user}) {
+    return UserState(
       user: user,
     );
   }
 
-  UserStateLoading loading() {
-    return const UserStateLoading();
+  UserStatesLoading loading() {
+    return const UserStatesLoading();
   }
 
   EmailNotVerified emailNotVerified() {
     return const EmailNotVerified();
+  }
+
+  NotCreateUserInformation notCreateUserInformation(
+      IsNotCreateInformation userBasic) {
+    return NotCreateUserInformation(
+      userBasic,
+    );
   }
 
   UserStateError error(Object error) {
@@ -38,40 +45,47 @@ class _$UserStateTearOff {
 }
 
 /// @nodoc
-const $UserState = _$UserStateTearOff();
+const $UserStates = _$UserStatesTearOff();
 
 /// @nodoc
-mixin _$UserState {
+mixin _$UserStates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(User user) $default, {
+    TResult Function(UserData user) $default, {
     required TResult Function() loading,
     required TResult Function() emailNotVerified,
+    required TResult Function(IsNotCreateInformation userBasic)
+        notCreateUserInformation,
     required TResult Function(Object error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(User user)? $default, {
+    TResult Function(UserData user)? $default, {
     TResult Function()? loading,
     TResult Function()? emailNotVerified,
+    TResult Function(IsNotCreateInformation userBasic)?
+        notCreateUserInformation,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserData value) $default, {
-    required TResult Function(UserStateLoading value) loading,
+    TResult Function(UserState value) $default, {
+    required TResult Function(UserStatesLoading value) loading,
     required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(NotCreateUserInformation value)
+        notCreateUserInformation,
     required TResult Function(UserStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserData value)? $default, {
-    TResult Function(UserStateLoading value)? loading,
+    TResult Function(UserState value)? $default, {
+    TResult Function(UserStatesLoading value)? loading,
     TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(NotCreateUserInformation value)? notCreateUserInformation,
     TResult Function(UserStateError value)? error,
     required TResult orElse(),
   }) =>
@@ -79,75 +93,67 @@ mixin _$UserState {
 }
 
 /// @nodoc
+abstract class $UserStatesCopyWith<$Res> {
+  factory $UserStatesCopyWith(
+          UserStates value, $Res Function(UserStates) then) =
+      _$UserStatesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserStatesCopyWithImpl<$Res> implements $UserStatesCopyWith<$Res> {
+  _$UserStatesCopyWithImpl(this._value, this._then);
+
+  final UserStates _value;
+  // ignore: unused_field
+  final $Res Function(UserStates) _then;
+}
+
+/// @nodoc
 abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res>;
+  $Res call({UserData user});
 }
 
 /// @nodoc
-class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
-  _$UserStateCopyWithImpl(this._value, this._then);
-
-  final UserState _value;
-  // ignore: unused_field
-  final $Res Function(UserState) _then;
-}
-
-/// @nodoc
-abstract class $UserDataCopyWith<$Res> {
-  factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
-      _$UserDataCopyWithImpl<$Res>;
-  $Res call({User user});
-
-  $UserCopyWith<$Res> get user;
-}
-
-/// @nodoc
-class _$UserDataCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
-    implements $UserDataCopyWith<$Res> {
-  _$UserDataCopyWithImpl(UserData _value, $Res Function(UserData) _then)
-      : super(_value, (v) => _then(v as UserData));
+class _$UserStateCopyWithImpl<$Res> extends _$UserStatesCopyWithImpl<$Res>
+    implements $UserStateCopyWith<$Res> {
+  _$UserStateCopyWithImpl(UserState _value, $Res Function(UserState) _then)
+      : super(_value, (v) => _then(v as UserState));
 
   @override
-  UserData get _value => super._value as UserData;
+  UserState get _value => super._value as UserState;
 
   @override
   $Res call({
     Object? user = freezed,
   }) {
-    return _then(UserData(
+    return _then(UserState(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as UserData,
     ));
-  }
-
-  @override
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$UserData implements UserData {
-  const _$UserData({required this.user});
+class _$UserState implements UserState {
+  const _$UserState({required this.user});
 
   @override
-  final User user;
+  final UserData user;
 
   @override
   String toString() {
-    return 'UserState(user: $user)';
+    return 'UserStates(user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UserData &&
+        (other is UserState &&
             (identical(other.user, user) ||
                 const DeepCollectionEquality().equals(other.user, user)));
   }
@@ -158,15 +164,17 @@ class _$UserData implements UserData {
 
   @JsonKey(ignore: true)
   @override
-  $UserDataCopyWith<UserData> get copyWith =>
-      _$UserDataCopyWithImpl<UserData>(this, _$identity);
+  $UserStateCopyWith<UserState> get copyWith =>
+      _$UserStateCopyWithImpl<UserState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(User user) $default, {
+    TResult Function(UserData user) $default, {
     required TResult Function() loading,
     required TResult Function() emailNotVerified,
+    required TResult Function(IsNotCreateInformation userBasic)
+        notCreateUserInformation,
     required TResult Function(Object error) error,
   }) {
     return $default(user);
@@ -175,9 +183,11 @@ class _$UserData implements UserData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(User user)? $default, {
+    TResult Function(UserData user)? $default, {
     TResult Function()? loading,
     TResult Function()? emailNotVerified,
+    TResult Function(IsNotCreateInformation userBasic)?
+        notCreateUserInformation,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -190,9 +200,11 @@ class _$UserData implements UserData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserData value) $default, {
-    required TResult Function(UserStateLoading value) loading,
+    TResult Function(UserState value) $default, {
+    required TResult Function(UserStatesLoading value) loading,
     required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(NotCreateUserInformation value)
+        notCreateUserInformation,
     required TResult Function(UserStateError value) error,
   }) {
     return $default(this);
@@ -201,9 +213,10 @@ class _$UserData implements UserData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserData value)? $default, {
-    TResult Function(UserStateLoading value)? loading,
+    TResult Function(UserState value)? $default, {
+    TResult Function(UserStatesLoading value)? loading,
     TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(NotCreateUserInformation value)? notCreateUserInformation,
     TResult Function(UserStateError value)? error,
     required TResult orElse(),
   }) {
@@ -214,46 +227,47 @@ class _$UserData implements UserData {
   }
 }
 
-abstract class UserData implements UserState {
-  const factory UserData({required User user}) = _$UserData;
+abstract class UserState implements UserStates {
+  const factory UserState({required UserData user}) = _$UserState;
 
-  User get user => throw _privateConstructorUsedError;
+  UserData get user => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserDataCopyWith<UserData> get copyWith =>
+  $UserStateCopyWith<UserState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserStateLoadingCopyWith<$Res> {
-  factory $UserStateLoadingCopyWith(
-          UserStateLoading value, $Res Function(UserStateLoading) then) =
-      _$UserStateLoadingCopyWithImpl<$Res>;
+abstract class $UserStatesLoadingCopyWith<$Res> {
+  factory $UserStatesLoadingCopyWith(
+          UserStatesLoading value, $Res Function(UserStatesLoading) then) =
+      _$UserStatesLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserStateLoadingCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
-    implements $UserStateLoadingCopyWith<$Res> {
-  _$UserStateLoadingCopyWithImpl(
-      UserStateLoading _value, $Res Function(UserStateLoading) _then)
-      : super(_value, (v) => _then(v as UserStateLoading));
+class _$UserStatesLoadingCopyWithImpl<$Res>
+    extends _$UserStatesCopyWithImpl<$Res>
+    implements $UserStatesLoadingCopyWith<$Res> {
+  _$UserStatesLoadingCopyWithImpl(
+      UserStatesLoading _value, $Res Function(UserStatesLoading) _then)
+      : super(_value, (v) => _then(v as UserStatesLoading));
 
   @override
-  UserStateLoading get _value => super._value as UserStateLoading;
+  UserStatesLoading get _value => super._value as UserStatesLoading;
 }
 
 /// @nodoc
 
-class _$UserStateLoading implements UserStateLoading {
-  const _$UserStateLoading();
+class _$UserStatesLoading implements UserStatesLoading {
+  const _$UserStatesLoading();
 
   @override
   String toString() {
-    return 'UserState.loading()';
+    return 'UserStates.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserStateLoading);
+    return identical(this, other) || (other is UserStatesLoading);
   }
 
   @override
@@ -262,9 +276,11 @@ class _$UserStateLoading implements UserStateLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(User user) $default, {
+    TResult Function(UserData user) $default, {
     required TResult Function() loading,
     required TResult Function() emailNotVerified,
+    required TResult Function(IsNotCreateInformation userBasic)
+        notCreateUserInformation,
     required TResult Function(Object error) error,
   }) {
     return loading();
@@ -273,9 +289,11 @@ class _$UserStateLoading implements UserStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(User user)? $default, {
+    TResult Function(UserData user)? $default, {
     TResult Function()? loading,
     TResult Function()? emailNotVerified,
+    TResult Function(IsNotCreateInformation userBasic)?
+        notCreateUserInformation,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -288,9 +306,11 @@ class _$UserStateLoading implements UserStateLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserData value) $default, {
-    required TResult Function(UserStateLoading value) loading,
+    TResult Function(UserState value) $default, {
+    required TResult Function(UserStatesLoading value) loading,
     required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(NotCreateUserInformation value)
+        notCreateUserInformation,
     required TResult Function(UserStateError value) error,
   }) {
     return loading(this);
@@ -299,9 +319,10 @@ class _$UserStateLoading implements UserStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserData value)? $default, {
-    TResult Function(UserStateLoading value)? loading,
+    TResult Function(UserState value)? $default, {
+    TResult Function(UserStatesLoading value)? loading,
     TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(NotCreateUserInformation value)? notCreateUserInformation,
     TResult Function(UserStateError value)? error,
     required TResult orElse(),
   }) {
@@ -312,8 +333,8 @@ class _$UserStateLoading implements UserStateLoading {
   }
 }
 
-abstract class UserStateLoading implements UserState {
-  const factory UserStateLoading() = _$UserStateLoading;
+abstract class UserStatesLoading implements UserStates {
+  const factory UserStatesLoading() = _$UserStatesLoading;
 }
 
 /// @nodoc
@@ -324,7 +345,8 @@ abstract class $EmailNotVerifiedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmailNotVerifiedCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
+class _$EmailNotVerifiedCopyWithImpl<$Res>
+    extends _$UserStatesCopyWithImpl<$Res>
     implements $EmailNotVerifiedCopyWith<$Res> {
   _$EmailNotVerifiedCopyWithImpl(
       EmailNotVerified _value, $Res Function(EmailNotVerified) _then)
@@ -341,7 +363,7 @@ class _$EmailNotVerified implements EmailNotVerified {
 
   @override
   String toString() {
-    return 'UserState.emailNotVerified()';
+    return 'UserStates.emailNotVerified()';
   }
 
   @override
@@ -355,9 +377,11 @@ class _$EmailNotVerified implements EmailNotVerified {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(User user) $default, {
+    TResult Function(UserData user) $default, {
     required TResult Function() loading,
     required TResult Function() emailNotVerified,
+    required TResult Function(IsNotCreateInformation userBasic)
+        notCreateUserInformation,
     required TResult Function(Object error) error,
   }) {
     return emailNotVerified();
@@ -366,9 +390,11 @@ class _$EmailNotVerified implements EmailNotVerified {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(User user)? $default, {
+    TResult Function(UserData user)? $default, {
     TResult Function()? loading,
     TResult Function()? emailNotVerified,
+    TResult Function(IsNotCreateInformation userBasic)?
+        notCreateUserInformation,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -381,9 +407,11 @@ class _$EmailNotVerified implements EmailNotVerified {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserData value) $default, {
-    required TResult Function(UserStateLoading value) loading,
+    TResult Function(UserState value) $default, {
+    required TResult Function(UserStatesLoading value) loading,
     required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(NotCreateUserInformation value)
+        notCreateUserInformation,
     required TResult Function(UserStateError value) error,
   }) {
     return emailNotVerified(this);
@@ -392,9 +420,10 @@ class _$EmailNotVerified implements EmailNotVerified {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserData value)? $default, {
-    TResult Function(UserStateLoading value)? loading,
+    TResult Function(UserState value)? $default, {
+    TResult Function(UserStatesLoading value)? loading,
     TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(NotCreateUserInformation value)? notCreateUserInformation,
     TResult Function(UserStateError value)? error,
     required TResult orElse(),
   }) {
@@ -405,8 +434,143 @@ class _$EmailNotVerified implements EmailNotVerified {
   }
 }
 
-abstract class EmailNotVerified implements UserState {
+abstract class EmailNotVerified implements UserStates {
   const factory EmailNotVerified() = _$EmailNotVerified;
+}
+
+/// @nodoc
+abstract class $NotCreateUserInformationCopyWith<$Res> {
+  factory $NotCreateUserInformationCopyWith(NotCreateUserInformation value,
+          $Res Function(NotCreateUserInformation) then) =
+      _$NotCreateUserInformationCopyWithImpl<$Res>;
+  $Res call({IsNotCreateInformation userBasic});
+}
+
+/// @nodoc
+class _$NotCreateUserInformationCopyWithImpl<$Res>
+    extends _$UserStatesCopyWithImpl<$Res>
+    implements $NotCreateUserInformationCopyWith<$Res> {
+  _$NotCreateUserInformationCopyWithImpl(NotCreateUserInformation _value,
+      $Res Function(NotCreateUserInformation) _then)
+      : super(_value, (v) => _then(v as NotCreateUserInformation));
+
+  @override
+  NotCreateUserInformation get _value =>
+      super._value as NotCreateUserInformation;
+
+  @override
+  $Res call({
+    Object? userBasic = freezed,
+  }) {
+    return _then(NotCreateUserInformation(
+      userBasic == freezed
+          ? _value.userBasic
+          : userBasic // ignore: cast_nullable_to_non_nullable
+              as IsNotCreateInformation,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NotCreateUserInformation implements NotCreateUserInformation {
+  const _$NotCreateUserInformation(this.userBasic);
+
+  @override
+  final IsNotCreateInformation userBasic;
+
+  @override
+  String toString() {
+    return 'UserStates.notCreateUserInformation(userBasic: $userBasic)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is NotCreateUserInformation &&
+            (identical(other.userBasic, userBasic) ||
+                const DeepCollectionEquality()
+                    .equals(other.userBasic, userBasic)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userBasic);
+
+  @JsonKey(ignore: true)
+  @override
+  $NotCreateUserInformationCopyWith<NotCreateUserInformation> get copyWith =>
+      _$NotCreateUserInformationCopyWithImpl<NotCreateUserInformation>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(UserData user) $default, {
+    required TResult Function() loading,
+    required TResult Function() emailNotVerified,
+    required TResult Function(IsNotCreateInformation userBasic)
+        notCreateUserInformation,
+    required TResult Function(Object error) error,
+  }) {
+    return notCreateUserInformation(userBasic);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(UserData user)? $default, {
+    TResult Function()? loading,
+    TResult Function()? emailNotVerified,
+    TResult Function(IsNotCreateInformation userBasic)?
+        notCreateUserInformation,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) {
+    if (notCreateUserInformation != null) {
+      return notCreateUserInformation(userBasic);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(UserState value) $default, {
+    required TResult Function(UserStatesLoading value) loading,
+    required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(NotCreateUserInformation value)
+        notCreateUserInformation,
+    required TResult Function(UserStateError value) error,
+  }) {
+    return notCreateUserInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UserState value)? $default, {
+    TResult Function(UserStatesLoading value)? loading,
+    TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(NotCreateUserInformation value)? notCreateUserInformation,
+    TResult Function(UserStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (notCreateUserInformation != null) {
+      return notCreateUserInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotCreateUserInformation implements UserStates {
+  const factory NotCreateUserInformation(IsNotCreateInformation userBasic) =
+      _$NotCreateUserInformation;
+
+  IsNotCreateInformation get userBasic => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NotCreateUserInformationCopyWith<NotCreateUserInformation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -418,7 +582,7 @@ abstract class $UserStateErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserStateErrorCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
+class _$UserStateErrorCopyWithImpl<$Res> extends _$UserStatesCopyWithImpl<$Res>
     implements $UserStateErrorCopyWith<$Res> {
   _$UserStateErrorCopyWithImpl(
       UserStateError _value, $Res Function(UserStateError) _then)
@@ -450,7 +614,7 @@ class _$UserStateError implements UserStateError {
 
   @override
   String toString() {
-    return 'UserState.error(error: $error)';
+    return 'UserStates.error(error: $error)';
   }
 
   @override
@@ -473,9 +637,11 @@ class _$UserStateError implements UserStateError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(User user) $default, {
+    TResult Function(UserData user) $default, {
     required TResult Function() loading,
     required TResult Function() emailNotVerified,
+    required TResult Function(IsNotCreateInformation userBasic)
+        notCreateUserInformation,
     required TResult Function(Object error) error,
   }) {
     return error(this.error);
@@ -484,9 +650,11 @@ class _$UserStateError implements UserStateError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(User user)? $default, {
+    TResult Function(UserData user)? $default, {
     TResult Function()? loading,
     TResult Function()? emailNotVerified,
+    TResult Function(IsNotCreateInformation userBasic)?
+        notCreateUserInformation,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -499,9 +667,11 @@ class _$UserStateError implements UserStateError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserData value) $default, {
-    required TResult Function(UserStateLoading value) loading,
+    TResult Function(UserState value) $default, {
+    required TResult Function(UserStatesLoading value) loading,
     required TResult Function(EmailNotVerified value) emailNotVerified,
+    required TResult Function(NotCreateUserInformation value)
+        notCreateUserInformation,
     required TResult Function(UserStateError value) error,
   }) {
     return error(this);
@@ -510,9 +680,10 @@ class _$UserStateError implements UserStateError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserData value)? $default, {
-    TResult Function(UserStateLoading value)? loading,
+    TResult Function(UserState value)? $default, {
+    TResult Function(UserStatesLoading value)? loading,
     TResult Function(EmailNotVerified value)? emailNotVerified,
+    TResult Function(NotCreateUserInformation value)? notCreateUserInformation,
     TResult Function(UserStateError value)? error,
     required TResult orElse(),
   }) {
@@ -523,7 +694,7 @@ class _$UserStateError implements UserStateError {
   }
 }
 
-abstract class UserStateError implements UserState {
+abstract class UserStateError implements UserStates {
   const factory UserStateError(Object error) = _$UserStateError;
 
   Object get error => throw _privateConstructorUsedError;

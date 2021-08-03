@@ -17,9 +17,11 @@ import 'Features/Auth/Application/Register/register_with_google.dart';
 import 'Features/Auth/Application/signout.dart';
 import 'Features/Auth/Infraestructure/firebase_auth_repository.dart';
 import 'Features/Auth/Infraestructure/firebase_auth_social_repository.dart';
+import 'Features/User/Application/create_information.dart';
 import 'Features/User/Application/verified_email.dart';
 import 'Features/User/Infrastructure/firebase_email_repository.dart';
 import 'Features/User/Infrastructure/firebase_user_repository.dart';
+import 'Features/User/Infrastructure/mock_user_repository.dart';
 import 'Redux/Auth/middleware.dart';
 import 'Redux/User/middleware.dart';
 import 'Redux/epics_middlewares.dart';
@@ -36,6 +38,7 @@ Future<void> main() async {
   final authRepository = FirebaseAuthRepository(firebaseAuth, firestore);
   final authSocialRepository = FirebaseAuthSocialRepository(firebaseAuth, firestore, googleSignIn);
   final emailRepository = FirebaseEmailRepository(firebaseAuth);
+  final userRepository = FirebaseUserRepository(firestore, firebaseAuth);
   runApp(MyApp(
     isLogged: firebaseAuth.currentUser != null && firebaseAuth.currentUser!.emailVerified,
     store: Store<AppState>(
@@ -50,10 +53,11 @@ Future<void> main() async {
           registerWithCredentials: RegisterWithCredentials(authRepository),
         ),
         ...createUserMiddlewares(
+          createUserInformation: CreateUserInformation(userRepository),
           verifyEmail: VerifyEmail(emailRepository),
           sendVerifyEmail: SendVerifyEmail(emailRepository),
         ),
-        EpicMiddleware(getEpicsMiddleware(userRepository: FirebaseUserRepository(firestore, firebaseAuth)))
+        EpicMiddleware(getEpicsMiddleware(userRepository: userRepository))
       ],
     ),
   ));

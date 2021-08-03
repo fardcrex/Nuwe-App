@@ -27,7 +27,7 @@ class FinalStep extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             ButtomPrevius(),
-            ButtomNext(),
+            ButtomFinish(),
           ],
         ),
       ],

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:nuwe/Pages/Initial_forms/widgets/input_box.dart';
 import 'package:nuwe/Pages/Initial_forms/widgets/input_form.dart';
+import 'package:nuwe/Pages/Initial_forms/widgets/primary_buttom.dart';
 
 import 'container/buttom_next.dart';
 import 'container/buttom_previus.dart';
 import 'widgets/title_form.dart';
 
 class FourthStep extends StatefulWidget {
-  const FourthStep({Key? key}) : super(key: key);
+  final void Function(String) onAddStack;
+  final void Function(String) removeStack;
+  final List<String> stacks;
+  const FourthStep({Key? key, required this.onAddStack, required this.stacks, required this.removeStack})
+      : super(key: key);
 
   @override
   _FourthStepState createState() => _FourthStepState();
@@ -15,12 +20,10 @@ class FourthStep extends StatefulWidget {
 
 class _FourthStepState extends State<FourthStep> {
   TextEditingController textController = TextEditingController();
-  final stacks = <String>{};
 
   void _addStack() {
-    stacks.add(textController.text);
+    widget.onAddStack(textController.text);
     textController.clear();
-    setState(() {});
   }
 
   @override
@@ -47,26 +50,21 @@ class _FourthStepState extends State<FourthStep> {
             PrimaryButtonInput(
               maintext: 'Agregar',
               isSubmitting: textController.text.isEmpty,
-              onPress: _addStack,
+              onPress: () {
+                if (textController.text.isNotEmpty) _addStack();
+              },
             )
           ],
         ),
         const SizedBox(height: 20.0),
         SizedBox(
-          height: 260.0,
+          height: 240.0,
           child: SingleChildScrollView(
             child: Wrap(
               runSpacing: 12,
               spacing: 12,
-              children: stacks
-                  .map((e) => StackView(
-                        stack: e,
-                        delete: (stack) {
-                          stacks.remove(stack);
-                          setState(() {});
-                        },
-                      ))
-                  .toList(),
+              children:
+                  widget.stacks.map((stack) => StackView(stack: stack, delete: widget.removeStack)).toList(),
             ),
           ),
         ),

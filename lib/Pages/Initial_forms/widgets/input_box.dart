@@ -10,7 +10,7 @@ class InputBox extends StatelessWidget {
       child: Container(
         color: const Color(0xFF2E353F),
         width: MediaQuery.of(context).size.width * 0.9,
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: children,

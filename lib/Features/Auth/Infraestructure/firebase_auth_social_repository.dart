@@ -101,8 +101,7 @@ class FirebaseAuthSocialRepository with ErrorCode implements IAuthSocialReposito
 
         transaction.set(
             docRefUser,
-            nuwe.User(
-                    isEmailVerified: true,
+            nuwe.User.isNotCreateInformation(
                     emailAddress: currentUser.email!,
                     avatarImage: currentUser.photoURL,
                     name: currentUser.displayName ?? '',

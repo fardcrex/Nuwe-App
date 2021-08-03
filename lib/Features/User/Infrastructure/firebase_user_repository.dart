@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:nuwe/Features/User/Domain/i_user_repository.dart';
+import 'package:nuwe/Features/User/Domain/succes_failures.dart';
 import 'package:nuwe/Features/User/Domain/user_dto/user_dto.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -17,7 +18,7 @@ class FirebaseUserRepository implements IUserRepository {
       _$userEmailVerified,
       _$userFirestore,
       (isEmailVerified, userEither) {
-        return userEither.map((user) => user.copyWith(isEmailVerified: isEmailVerified));
+        return userEither.map((user) => isEmailVerified ? user : User.emailNotVerified());
       },
     );
   }
@@ -27,8 +28,7 @@ class FirebaseUserRepository implements IUserRepository {
         return event.emailVerified;
       });
 
-  Stream<Either<Object, User>> get _$userFirestore =>
-      _firestore.collection('users').doc(_firebaseAuth.currentUser!.uid).snapshots().map((doc) {
+  Stream<Either<Object, User>> get _$userFirestore => userDoc.snapshots().map((doc) {
         try {
           final data = doc.data();
           return right(User.fromJson(data!));
@@ -36,4 +36,20 @@ class FirebaseUserRepository implements IUserRepository {
           return left(e);
         }
       });
+
+  DocumentReference<Map<String, dynamic>> get userDoc =>
+      _firestore.collection('users').doc(_firebaseAuth.currentUser!.uid);
+
+  @override
+  Future<Either<UserFailure, UserSuccess>> createUserInformation(UserData user) async {
+    try {
+      final userData = user.toJson()
+        ..addAll({User.SOCIAL_LINKS: user.socialLinks.map((link) => link.toJson()).toList()});
+
+      await userDoc.update(userData);
+      return right(const UserSuccess.empty());
+    } catch (e) {
+      return left(UserFailure.error(e));
+    }
+  }
 }

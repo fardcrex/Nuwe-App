@@ -76,7 +76,7 @@ MiddlewareAct<AppState, SignUpWithCredentialsAction> getRegisterMiddleware(Regis
     );
 
     if (loginWithCredentials.isRight()) {
-      next(const UpdateUserStateAction(UserState.emailNotVerified()));
+      next(const UpdateUserStateAction(UserStates.emailNotVerified()));
       return next(UpdateAuthStateAction(AuthState.initial().copyWith(
         authFailureOrSuccessOption: optionOf(loginWithCredentials),
       )));

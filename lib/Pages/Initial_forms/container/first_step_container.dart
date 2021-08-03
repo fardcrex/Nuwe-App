@@ -48,23 +48,25 @@ class _ViewModel {
 
   factory _ViewModel.fromStore(Store<AppState> store) {
     return _ViewModel(
-      onChangeCountry: (value) => store.dispatch(CountryOnChangeAction(value)),
-      onChangeCity: (value) => store.dispatch(CityOnChangeAction(value)),
       onChangeBio: (value) => store.dispatch(BioOnChangeAction(value)),
+      onChangeCity: (value) => store.dispatch(CityOnChangeAction(value)),
+      onChangeCountry: (value) => store.dispatch(CountryOnChangeAction(value)),
       onChangeAge: (value) => store.dispatch(AgeOnChangeAction(int.parse(value))),
-      canShowCountryError: store.state.initFormState.firstStepState.canShowCountryError,
-      canShowCityError: store.state.initFormState.firstStepState.canShowCityError,
       canShowAgeError: store.state.initFormState.firstStepState.canShowAgeError,
+      canShowCityError: store.state.initFormState.firstStepState.canShowCityError,
+      canShowCountryError: store.state.initFormState.firstStepState.canShowCountryError,
     );
   }
 
-  /* @override
+  @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is _ViewModel &&
           runtimeType == other.runtimeType &&
-          isSubmitting == other.isSubmitting &&
-          authFailureOrSuccessOption == other.authFailureOrSuccessOption;
+          canShowCountryError == other.canShowCountryError &&
+          canShowCityError == other.canShowCityError &&
+          canShowAgeError == other.canShowAgeError;
+
   @override
-  int get hashCode => authFailureOrSuccessOption.hashCode ^ isSubmitting.hashCode; */
+  int get hashCode => canShowCountryError.hashCode ^ canShowCityError.hashCode ^ canShowAgeError.hashCode;
 }

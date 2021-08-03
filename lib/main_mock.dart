@@ -12,6 +12,7 @@ import 'Features/Auth/Application/Register/register.dart';
 import 'Features/Auth/Application/Register/register_with_google.dart';
 import 'Features/Auth/Application/signout.dart';
 import 'Features/Auth/Infraestructure/mock_auth_repository.dart';
+import 'Features/User/Application/create_information.dart';
 import 'Features/User/Application/verified_email.dart';
 import 'Features/User/Infrastructure/mock_email_repository.dart';
 import 'Features/User/Infrastructure/mock_user_repository.dart';
@@ -23,25 +24,27 @@ import 'Settings/style.dart';
 
 void main() {
   final authRepository = FakeAuthRepository();
-  final authSocialRepository = FakeSocialRepository();
+  final userRepository = MockUserRepository();
   final emailRepository = MockEmailRepository();
+  final authSocialRepository = FakeSocialRepository();
   runApp(MyApp(
     store: Store<AppState>(
       appReducer,
       initialState: AppState.initial(),
       middleware: [
         ...createAuthMiddlewares(
-          registerWithGoogle: RegisterWithGoogle(authSocialRepository),
           loginWithGoogle: LoginWithGoogle(authSocialRepository),
           signOutApp: SignOut(authRepository, authSocialRepository),
           loginWithCredentials: LoginWithCredentials(authRepository),
+          registerWithGoogle: RegisterWithGoogle(authSocialRepository),
           registerWithCredentials: RegisterWithCredentials(authRepository),
         ),
         ...createUserMiddlewares(
           verifyEmail: VerifyEmail(emailRepository),
           sendVerifyEmail: SendVerifyEmail(emailRepository),
+          createUserInformation: CreateUserInformation(userRepository),
         ),
-        EpicMiddleware(getEpicsMiddleware(userRepository: MockUserRepository()))
+        EpicMiddleware(getEpicsMiddleware(userRepository: userRepository))
       ],
     ),
   ));

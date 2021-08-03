@@ -33,9 +33,7 @@ class InputForm extends StatelessWidget {
       width: min(360, MediaQuery.of(context).size.width * 0.92),
       decoration: BoxDecoration(
         //   color: Theme.of(context).primaryColor,
-        border: Border.all(
-          color: canShowError ? Theme.of(context).errorColor : Colors.white,
-        ),
+        border: Border.all(color: canShowError ? Theme.of(context).errorColor : Colors.white),
         borderRadius: const BorderRadius.all(Radius.circular(6)),
       ),
       alignment: Alignment.center,

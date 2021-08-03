@@ -7,7 +7,7 @@ class TitleInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title, style: TextStyle(fontSize: 18));
+    return Text(title, style: const TextStyle(fontSize: 18));
   }
 }
 
@@ -16,6 +16,7 @@ class SubTitleInput extends StatelessWidget {
   final String subTittle;
   @override
   Widget build(BuildContext context) {
-    return Text(subTittle, style: TextStyle(fontSize: 14, fontFamily: FontNuweFamily.montserratRegular));
+    return Text(subTittle,
+        style: const TextStyle(fontSize: 14, fontFamily: FontNuweFamily.montserratRegular));
   }
 }

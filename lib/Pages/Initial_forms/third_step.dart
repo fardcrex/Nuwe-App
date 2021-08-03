@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:nuwe/Pages/Initial_forms/container/buttom_next.dart';
 import 'package:nuwe/Pages/Initial_forms/widgets/input_box.dart';
 import 'package:nuwe/Pages/Initial_forms/widgets/title_form.dart';
@@ -9,7 +8,27 @@ import 'container/buttom_previus.dart';
 import 'widgets/input_form.dart';
 
 class ThirdStep extends StatelessWidget {
-  const ThirdStep({Key? key}) : super(key: key);
+  final void Function(String) onChangeLocation;
+  final void Function(String) onChangeDesiredJob;
+  final void Function(String) onChangeSalaryRange;
+  final void Function(String) onChangeLookingWork;
+  final bool canShowDesiredJobError;
+  final Function() workRemoteChange;
+  final Function() disponibilityToTravelChange;
+  final Function() immediateIncorporationChange;
+  final Function() receiveNotificationFromCompaniesChange;
+  const ThirdStep({
+    Key? key,
+    required this.onChangeLookingWork,
+    required this.onChangeDesiredJob,
+    required this.onChangeLocation,
+    required this.onChangeSalaryRange,
+    required this.canShowDesiredJobError,
+    required this.receiveNotificationFromCompaniesChange,
+    required this.disponibilityToTravelChange,
+    required this.workRemoteChange,
+    required this.immediateIncorporationChange,
+  }) : super(key: key);
   static const sizedBox15 = SizedBox(height: 15.0);
   static const sizedBoxToggle = SizedBox(height: 20.0);
   @override
@@ -19,39 +38,56 @@ class ThirdStep extends StatelessWidget {
         sizedBox15,
         const TitleInput('PREFERENCIAS LABORALES'),
         sizedBox15,
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Buscando trabajo activamente',
+          onChanged: onChangeLookingWork,
           textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
-          canShowError: false,
+          canShowError: canShowDesiredJobError,
           hintText: 'Puesto de trabajo deseado *',
+          onChanged: onChangeDesiredJob,
           textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Localización de preferencia',
+          onChanged: onChangeLocation,
           textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Rango salarial',
           keyboardType: TextInputType.number,
+          onChanged: onChangeSalaryRange,
           textInputAction: TextInputAction.done,
         ),
         sizedBox15,
-        const ToggleBarNuwe(title: 'Quiero recibir notificaciones de empresas'),
+        ToggleBarNuwe(
+          onChange: receiveNotificationFromCompaniesChange,
+          title: 'Quiero recibir notificaciones',
+        ),
+        const Text('de empresas'),
         sizedBoxToggle,
-        const ToggleBarNuwe(title: 'Disponibilidad para viajar'),
+        ToggleBarNuwe(
+          title: 'Disponibilidad para viajar',
+          onChange: disponibilityToTravelChange,
+        ),
         sizedBoxToggle,
-        const ToggleBarNuwe(title: 'Trabajo en remoto'),
+        ToggleBarNuwe(
+          title: 'Trabajo en remoto',
+          onChange: workRemoteChange,
+        ),
         sizedBoxToggle,
-        const ToggleBarNuwe(title: 'Incorporación inmediata'),
+        ToggleBarNuwe(
+          title: 'Incorporación inmediata',
+          onChange: immediateIncorporationChange,
+        ),
         sizedBox15,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

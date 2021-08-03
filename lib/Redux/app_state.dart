@@ -13,13 +13,13 @@ typedef MiddlewareAct<State, Action> = dynamic Function(
 abstract class AppState with _$AppState {
   const factory AppState({
     required AuthState authState,
-    required UserState userState,
+    required UserStates userState,
     required InitFormState initFormState,
   }) = _AppState;
 
   factory AppState.initial() => AppState(
         authState: AuthState.initial(),
-        userState: const UserState.loading(),
+        userState: const UserStates.loading(),
         initFormState: InitFormState.initial(),
       );
 }

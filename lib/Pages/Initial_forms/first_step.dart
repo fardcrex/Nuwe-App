@@ -28,14 +28,15 @@ class FirsStep extends StatelessWidget {
   Widget build(BuildContext context) {
     return InputBox(
       children: [
-        const SizedBox(height: 20.0),
+        const SizedBox(height: 10.0),
         const TitleInput('INFORMACIÓN PERSONAL'),
-        const SizedBox(height: 30.0),
+        const SizedBox(height: 20.0),
         InputForm(
           initialText: '',
           canShowError: canShowCountryError,
           hintText: 'País de residencia *',
           textInputAction: TextInputAction.done,
+          textCapitalization: TextCapitalization.words,
           onChanged: onChangeCountry,
         ),
         InputForm(
@@ -43,6 +44,7 @@ class FirsStep extends StatelessWidget {
           canShowError: canShowCityError,
           hintText: 'Ciudad de residencia *',
           textInputAction: TextInputAction.done,
+          textCapitalization: TextCapitalization.words,
           onChanged: onChangeCity,
         ),
         InputForm(
@@ -57,11 +59,12 @@ class FirsStep extends StatelessWidget {
           initialText: '',
           canShowError: false,
           hintText: 'Bio',
-          lines: 5,
+          lines: 4,
+          textCapitalization: TextCapitalization.sentences,
           textInputAction: TextInputAction.done,
           onChanged: onChangeBio,
         ),
-        const SizedBox(height: 20.0),
+        const SizedBox(height: 10.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: const [

@@ -4,15 +4,15 @@ import 'package:redux/redux.dart';
 
 import 'actions.dart';
 
-final userReducer = combineReducers<UserState>([
-  TypedReducer<UserState, UpdateUserStateAction>(_updateUserStateReducers),
-  TypedReducer<UserState, SignOutAction>(_cleanUserStateReducers),
+final userReducer = combineReducers<UserStates>([
+  TypedReducer<UserStates, UpdateUserStateAction>(_updateUserStateReducers),
+  TypedReducer<UserStates, SignOutAction>(_cleanUserStateReducers),
 ]);
 
-UserState _updateUserStateReducers(UserState state, UpdateUserStateAction action) {
+UserStates _updateUserStateReducers(UserStates state, UpdateUserStateAction action) {
   return action.userState;
 }
 
-UserState _cleanUserStateReducers(UserState _, SignOutAction __) {
-  return const UserState.loading();
+UserStates _cleanUserStateReducers(UserStates _, SignOutAction __) {
+  return const UserStates.loading();
 }

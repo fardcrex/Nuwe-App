@@ -65,6 +65,8 @@ void showSnackBar(String message, BuildContext context, {required IconData icon,
       return Flash.bar(
         controller: controller,
         position: FlashPosition.top,
+        useSafeArea: true,
+        brightness: Brightness.dark,
         backgroundColor: backgroundColor,
         horizontalDismissDirection: HorizontalDismissDirection.startToEnd,
         margin: const EdgeInsets.all(8),

@@ -7,7 +7,19 @@ import 'container/buttom_next.dart';
 import 'container/buttom_previus.dart';
 
 class SecondStep extends StatelessWidget {
-  const SecondStep({Key? key}) : super(key: key);
+  final void Function(String) onChangeGithubLink;
+  final void Function(String) onChangeLinkedinLink;
+  final void Function(String) onChangeTwitterLink;
+  final void Function(String) onChangeInstagramLink;
+  final void Function(String) onChangePortafolioLink;
+  const SecondStep({
+    Key? key,
+    required this.onChangeGithubLink,
+    required this.onChangeLinkedinLink,
+    required this.onChangeTwitterLink,
+    required this.onChangeInstagramLink,
+    required this.onChangePortafolioLink,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,33 +30,39 @@ class SecondStep extends StatelessWidget {
         const SizedBox(height: 20.0),
         const SubTitleInput('Introduce el enlace completo'),
         const SizedBox(height: 20.0),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Github',
-          textInputAction: TextInputAction.next,
+          onChanged: onChangeGithubLink,
+          textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Linkedin',
-          textInputAction: TextInputAction.next,
+          onChanged: onChangeLinkedinLink,
+          textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Twitter',
-          textInputAction: TextInputAction.next,
+          onChanged: onChangeTwitterLink,
+          textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
           hintText: 'Instagram',
-          textInputAction: TextInputAction.next,
+          onChanged: onChangeInstagramLink,
+          textInputAction: TextInputAction.done,
         ),
-        const InputForm(
+        InputForm(
           initialText: '',
           canShowError: false,
+          onChanged: onChangePortafolioLink,
+          textInputAction: TextInputAction.done,
           hintText: 'Portafolio',
         ),
         const SizedBox(height: 20.0),

@@ -1,7 +1,7 @@
 import 'package:nuwe/Redux/User/user_state/user_state.dart';
 
 class UpdateUserStateAction {
-  final UserState userState;
+  final UserStates userState;
 
   const UpdateUserStateAction(this.userState);
 }

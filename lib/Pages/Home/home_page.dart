@@ -6,7 +6,7 @@ import 'package:nuwe/Redux/app_state.dart';
 import 'package:nuwe/Settings/router.dart';
 
 class HomePage extends StatelessWidget {
-  final UserData userData;
+  final UserState userData;
   const HomePage({Key? key, required this.userData}) : super(key: key);
 
   @override
@@ -24,10 +24,7 @@ class HomePage extends StatelessWidget {
             if (userData.user.avatarImage == null)
               const Icon(Icons.person, size: 120)
             else
-              CircleAvatar(
-                backgroundImage: NetworkImage(userData.user.avatarImage!),
-                radius: 60,
-              ),
+              CircleAvatar(backgroundImage: NetworkImage(userData.user.avatarImage!), radius: 60),
             const Spacer(),
             const Text('Nombre Público:'),
             Text(userData.user.nickname),
@@ -35,8 +32,23 @@ class HomePage extends StatelessWidget {
             const Text('Nombre Completo:'),
             Text(userData.user.name),
             const Spacer(flex: 2),
-            const Text('Correo:'),
-            Text(userData.user.emailAddress),
+            const Text('country:'),
+            Text(userData.user.country),
+            const Spacer(),
+            const Text('city:'),
+            Text(userData.user.city),
+            const Spacer(),
+            const Text('Edad:'),
+            Text(userData.user.age.toString()),
+            const Spacer(),
+            ...userData.user.socialLinks
+                .map((e) => e.when(
+                    github: (link) => ListTile(title: const Text('Github'), subtitle: Text(link)),
+                    linkedin: (link) => ListTile(title: const Text('linkedin'), subtitle: Text(link)),
+                    twitter: (link) => ListTile(title: const Text('twitter'), subtitle: Text(link)),
+                    instagram: (link) => ListTile(title: const Text('instagram'), subtitle: Text(link)),
+                    portafolio: (link) => ListTile(title: const Text('portafolio'), subtitle: Text(link))))
+                .toList(),
             const Spacer(flex: 2),
             ElevatedButton(
               onPressed: () => goToTheLogoutPage(context),

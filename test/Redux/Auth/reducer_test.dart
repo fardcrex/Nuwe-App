@@ -16,9 +16,15 @@ void main() {
       final store = Store<AppState>(
         appReducer,
         initialState: AppState.initial().copyWith(
-            userState: UserState(
-                user: User(
+            userState: UserStates(
+                user: UserData(
+          socialLinks: [],
+          age: 25,
+          country: '',
+          desiredJob: 'remote',
+          salaryRange: 250,
           emailAddress: 'emailAddress',
+          city: 'Marte',
           nickname: 'nickname',
           name: 'name',
         ))),
@@ -28,7 +34,7 @@ void main() {
 
       store.dispatch(const SignOutAction());
 
-      expect(store.state.userState, const UserState.loading());
+      expect(store.state.userState, const UserStates.loading());
     });
 
     test('Deberia cambiar login credentials on change Action', () {

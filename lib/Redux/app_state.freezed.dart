@@ -18,7 +18,7 @@ class _$AppStateTearOff {
 
   _AppState call(
       {required AuthState authState,
-      required UserState userState,
+      required UserStates userState,
       required InitFormState initFormState}) {
     return _AppState(
       authState: authState,
@@ -34,7 +34,7 @@ const $AppState = _$AppStateTearOff();
 /// @nodoc
 mixin _$AppState {
   AuthState get authState => throw _privateConstructorUsedError;
-  UserState get userState => throw _privateConstructorUsedError;
+  UserStates get userState => throw _privateConstructorUsedError;
   InitFormState get initFormState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -47,10 +47,10 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
   $Res call(
-      {AuthState authState, UserState userState, InitFormState initFormState});
+      {AuthState authState, UserStates userState, InitFormState initFormState});
 
   $AuthStateCopyWith<$Res> get authState;
-  $UserStateCopyWith<$Res> get userState;
+  $UserStatesCopyWith<$Res> get userState;
   $InitFormStateCopyWith<$Res> get initFormState;
 }
 
@@ -76,7 +76,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
       userState: userState == freezed
           ? _value.userState
           : userState // ignore: cast_nullable_to_non_nullable
-              as UserState,
+              as UserStates,
       initFormState: initFormState == freezed
           ? _value.initFormState
           : initFormState // ignore: cast_nullable_to_non_nullable
@@ -92,8 +92,8 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   }
 
   @override
-  $UserStateCopyWith<$Res> get userState {
-    return $UserStateCopyWith<$Res>(_value.userState, (value) {
+  $UserStatesCopyWith<$Res> get userState {
+    return $UserStatesCopyWith<$Res>(_value.userState, (value) {
       return _then(_value.copyWith(userState: value));
     });
   }
@@ -112,12 +112,12 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       __$AppStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {AuthState authState, UserState userState, InitFormState initFormState});
+      {AuthState authState, UserStates userState, InitFormState initFormState});
 
   @override
   $AuthStateCopyWith<$Res> get authState;
   @override
-  $UserStateCopyWith<$Res> get userState;
+  $UserStatesCopyWith<$Res> get userState;
   @override
   $InitFormStateCopyWith<$Res> get initFormState;
 }
@@ -145,7 +145,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
       userState: userState == freezed
           ? _value.userState
           : userState // ignore: cast_nullable_to_non_nullable
-              as UserState,
+              as UserStates,
       initFormState: initFormState == freezed
           ? _value.initFormState
           : initFormState // ignore: cast_nullable_to_non_nullable
@@ -165,7 +165,7 @@ class _$_AppState implements _AppState {
   @override
   final AuthState authState;
   @override
-  final UserState userState;
+  final UserStates userState;
   @override
   final InitFormState initFormState;
 
@@ -205,13 +205,13 @@ class _$_AppState implements _AppState {
 abstract class _AppState implements AppState {
   const factory _AppState(
       {required AuthState authState,
-      required UserState userState,
+      required UserStates userState,
       required InitFormState initFormState}) = _$_AppState;
 
   @override
   AuthState get authState => throw _privateConstructorUsedError;
   @override
-  UserState get userState => throw _privateConstructorUsedError;
+  UserStates get userState => throw _privateConstructorUsedError;
   @override
   InitFormState get initFormState => throw _privateConstructorUsedError;
   @override

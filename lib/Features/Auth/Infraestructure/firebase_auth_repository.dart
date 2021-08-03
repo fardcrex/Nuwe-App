@@ -84,12 +84,14 @@ class FirebaseAuthRepository with ErrorCode implements IAuthRepository {
       );
 
       await Future.wait([
-        _firestore.collection('users').doc(_firebaseAuth.currentUser!.uid).set(user.User(
-                isEmailVerified: false,
-                emailAddress: emailAddressStr,
-                name: namePersonStr,
-                nickname: nicknameStr)
-            .toJson()),
+        _firestore
+            .collection('users')
+            .doc(_firebaseAuth.currentUser!.uid)
+            .set(user.User.isNotCreateInformation(
+              emailAddress: emailAddressStr,
+              name: namePersonStr,
+              nickname: nicknameStr,
+            ).toJson()),
         _firebaseAuth.currentUser!.sendEmailVerification()
       ]);
 

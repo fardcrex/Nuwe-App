@@ -1,7 +1,13 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:nuwe/Features/User/Domain/succes_failures.dart';
+import 'package:nuwe/Pages/Auth/container/show_snackbar.dart';
+import 'package:nuwe/Pages/Initial_forms/widgets/primary_buttom.dart';
 import 'package:nuwe/Redux/Init-Form/actions.dart';
+import 'package:nuwe/Redux/Init-Form/state/init_form_state.dart';
 import 'package:nuwe/Redux/app_state.dart';
+import 'package:redux/redux.dart';
 
 class ButtomNext extends StatelessWidget {
   const ButtomNext({Key? key}) : super(key: key);
@@ -10,48 +16,64 @@ class ButtomNext extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, Function()>(
       converter: (store) => () => {
+            if (store.state.initFormState.stepForm == StepForm.thirdStep)
+              store.dispatch(ChangeThirdStepStateAction(
+                  store.state.initFormState.thirdStepState.copyWith(showErrorFromThirdtStep: true))),
             store.dispatch(const GoToNextFormStepAction()),
             FocusScope.of(context).unfocus(),
           },
       builder: (context, goToNextStep) {
-        // FlushbarHelper.createError(message: "Error carajo", duration: Duration(seconds: 2)).show(context);
-        return ElevatedButton(
-          onPressed: goToNextStep,
-          child: Container(
-            width: 120,
-            alignment: Alignment.center,
-            child: const Text('Siguiente'),
-          ),
+        return PrimaryButtonInput(
+          maintext: 'Siguiente',
+          onPress: goToNextStep,
         );
       },
     );
   }
 }
 
-class PrimaryButtonInput extends StatelessWidget {
-  final String maintext;
-  final void Function()? onPress;
-  final bool isSubmitting;
-  const PrimaryButtonInput({Key? key, required this.maintext, this.onPress, this.isSubmitting = false})
-      : super(key: key);
+class ButtomFinish extends StatelessWidget {
+  const ButtomFinish({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: onPress,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              isSubmitting ? Theme.of(context).canvasColor : Theme.of(context).primaryColor),
-          //   padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 16)),
-        ),
-        child: Container(
-          alignment: Alignment.center,
-          // padding: const EdgeInsets.symmetric(vertical: 16),
-          width: 120,
-          child: Text(
-            maintext,
-            style: TextStyle(color: isSubmitting ? const Color(0xFFB5B5B5) : Colors.white),
-          ),
-        ));
+    return StoreConnector<AppState, _ViewModel>(
+      distinct: true,
+      onWillChange: (_, newViewModel) {
+        newViewModel.userFailureOrSuccessOption.forEach((failure) => failure.fold(
+            (l) => l.when(
+                error: (_) => showSnackBar('Error de conexión.', context, icon: Icons.error),
+                emailNotVerified: () {},
+                emailNotSend: () {}),
+            (r) => {null}));
+      },
+      converter: (store) => _ViewModel.fromStore(store),
+      builder: (context, vm) => PrimaryButtonInput(
+        maintext: 'Vamos a NUWE',
+        onPress: vm.goToNextStep,
+      ),
+    );
   }
+}
+
+class _ViewModel {
+  final void Function() goToNextStep;
+  final Option<Either<UserFailure, UserSuccess>> userFailureOrSuccessOption;
+
+  _ViewModel({required this.goToNextStep, required this.userFailureOrSuccessOption});
+
+  factory _ViewModel.fromStore(Store<AppState> store) {
+    return _ViewModel(
+      userFailureOrSuccessOption: store.state.initFormState.userFailureOrSuccessOption,
+      goToNextStep: () => store.dispatch(const CreateUserInformationAction()),
+    );
+  }
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is _ViewModel &&
+          runtimeType == other.runtimeType &&
+          userFailureOrSuccessOption == other.userFailureOrSuccessOption;
+  @override
+  int get hashCode => userFailureOrSuccessOption.hashCode;
 }
