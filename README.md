@@ -69,8 +69,8 @@ flutter build apk -t lib/main.dart
 
 # SEMANA 2
 
-<img src="assets/semana_2/first_step.png" alt="view app" width="180"/>
-<img src="assets/semana_2/second_step.png" alt="view app" width="180"/>
-<img src="assets/semana_2/third_step.png" alt="view app" width="180"/>
-<img src="assets/semana_2/fourth_step.png" alt="view app" width="180"/> 
-<img src="assets/semana_2/final_step.png" alt="view app" width="180"/>
+<p  align="left"><img src="assets/semana_2/first_step.png" alt="view app" width="220"/><img src="assets/semana_2/second_step.png" alt="view app" width="220"/></p>
+
+<p  align="left"><img src="assets/semana_2/third_step.png" alt="view app" width="220"/> <img src="assets/semana_2/fourth_step.png" alt="view app" width="220"/>  </p>
+
+<img src="assets/semana_2/final_step.png" alt="view app" width="220"/>
